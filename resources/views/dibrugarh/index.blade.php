@@ -19,7 +19,7 @@
                 </div>
               </div>
               <div class="carousel-item">
-                <img class="w-100" src="img/carousel-2.jpg" alt="Image" height="400px">
+                <img class="w-100" src="{{ asset('dibrugarh') }}/img/carousel-2.jpg" alt="Image" height="400px">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                 </div>
               </div>
