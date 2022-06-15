@@ -78,14 +78,28 @@
                     </div>
 
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">Start Date</label>
+                        <label class="col-sm-2 col-form-label">Registration Start Date</label>
+                        <div class="col-sm-7">
+                            <input type="date" name="reg_start_date" id="reg_start_date" class="form-control" >
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Registration End Date</label>
+                        <div class="col-sm-7">
+                            <input type="date" name="reg_End_date" id="reg_End_date" class="form-control" >
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Training Start Date</label>
                         <div class="col-sm-7">
                             <input type="date" name="start_date" id="start_date" class="form-control" >
                         </div>
                     </div>
 
                     <div class="row">
-                        <label class="col-sm-2 col-form-label">End Date</label>
+                        <label class="col-sm-2 col-form-label">Training End Date</label>
                         <div class="col-sm-7">
                             <input type="date" name="End_date" id="End_date" class="form-control" >
                         </div>

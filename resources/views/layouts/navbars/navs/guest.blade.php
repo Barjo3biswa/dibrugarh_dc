@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
   <div class="container">
     <div class="navbar-wrapper">
-      <a class="navbar-brand" href="{{ route('home') }}">{{ $title }}</a>
+      <a class="navbar-brand" href="{{ route('home') }}">Dibrugarh DC</a>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
       <span class="sr-only">Toggle navigation</span>
@@ -27,11 +27,11 @@
             <i class="material-icons">fingerprint</i> {{ __('Login') }}
           </a>
         </li>
-        <li class="nav-item ">
+        {{-- <li class="nav-item ">
           <a href="{{ route('profile.edit') }}" class="nav-link">
             <i class="material-icons">face</i> {{ __('Profile') }}
           </a>
-        </li>
+        </li> --}}
       </ul>
     </div>
   </div>

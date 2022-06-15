@@ -28,8 +28,8 @@
         &copy;
         <script>
             document.write(new Date().getFullYear())
-        </script>,Webcom(India) <i class="material-icons">favorite</i> by
-        <a href="https://www.creative-tim.com" target="_blank">WebcomIndia</a> and <a href="https://www.updivision.com" target="_blank">UPDIVISION</a> for a better web.
+        </script>,Office Of The Deputy Commissioner, Dibrugarh  by
+        <a href="https://www.creative-tim.com" target="_blank">WebcomIndia</a>.
         </div>
     </div>
 </footer>

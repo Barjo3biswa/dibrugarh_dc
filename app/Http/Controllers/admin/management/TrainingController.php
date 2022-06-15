@@ -60,7 +60,9 @@ class TrainingController extends Controller
             'created_by'      => $id,
             'place'           => $request->place,
             'contact_details' => $request->contact_details,
-            'attachments'     => $path7
+            'attachments'     => $path7,
+            'registration_starts'  => $request->reg_start_date,
+            'registration_ends'    => $request->reg_End_date
         ];
         // dd($data);
         training::create($data);

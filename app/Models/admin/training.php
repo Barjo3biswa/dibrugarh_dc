@@ -22,6 +22,8 @@ class training extends Model
         'place'           ,
         'contact_details' ,
         'attachments'     ,
+        'registration_starts',
+        'registration_ends',
     ];
 
     public function department(){
