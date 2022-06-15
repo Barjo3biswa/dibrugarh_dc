@@ -4,8 +4,8 @@
     <div class="row py-5">
         <div class="col-lg-8 pb-5 pb-lg-0 px-3 px-lg-5">
             @php
-                $start=date('Y-m-d',strtotime($training->registration_starts));
-                $end  =date('Y-m-d',strtotime($training->registration_ends));
+                $start=date('Y-m-d',strtotime($coursedtl->registration_starts));
+                $end  =date('Y-m-d',strtotime($coursedtl->registration_ends));
                 $today=date("Y-m-d");
                 if($start <= $today && $today <= $end){
                 $temp='Ongoing';
