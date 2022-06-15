@@ -3,6 +3,21 @@
 <div class="container1 py-5 course-event-main" style="padding: 0 3rem 0 2rem;">
     <div class="row py-5">
         <div class="col-lg-8 pb-5 pb-lg-0 px-3 px-lg-5">
+            @php
+                $start=date('Y-m-d',strtotime($training->registration_starts));
+                $end  =date('Y-m-d',strtotime($training->registration_ends));
+                $today=date("Y-m-d");
+                if($start <= $today && $today <= $end){
+                $temp='Ongoing';
+                }
+                elseif($start > $today){
+                $temp='Upcoming';
+                }
+                elseif($today > $end && $today > $start){
+                $temp='Closed';
+                }
+                // $diff=date_diff($today,$start);
+            @endphp
             <h3 style="color:rgb(31, 71, 124)">Training : {{$coursedtl->training_name}}</h3>
             <div class="course-event">
                 <div class="events">
@@ -16,7 +31,13 @@
                                 <h3 style="color:rgb(31, 71, 124)">Department : {{$coursedtl->department->department_name}}</h3>
                                 <h5 style="color:rgb(34, 75, 129)">Scheme : {{$coursedtl->scheme->scheme_name}}</h5>
                                 <h5 style="color:rgb(31, 71, 124)">Course : {{$coursedtl->course->course_name}}</h5>
-                                <a href="{{route('apply_reqistration',['id'=>$coursedtl->id])}}">Apply</a>
+                                @if($temp=='Ongoing')
+                                    <a href="{{route('apply_reqistration',['id'=>$coursedtl->id])}}">Apply</a>
+                                @elseif($temp=='Upcoming')
+                                    <a href="#">Opening Soon</a>
+                                @else
+                                    <a href="#">Registration Closed</a>
+                                @endif
                             </div>
                             <div style="clear: both;"></div>
                         </li>
