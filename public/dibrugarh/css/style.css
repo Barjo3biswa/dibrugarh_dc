@@ -4120,7 +4120,7 @@ input[type="button"].btn-block {
   background: #162F65;
 }
 .navbar-nav {
-  width: 100%;
+  width: 100%!important;
 }
 .navbar-nav .nav-item {
   color: #fff;
