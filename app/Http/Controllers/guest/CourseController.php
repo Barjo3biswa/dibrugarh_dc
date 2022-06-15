@@ -10,7 +10,7 @@ class CourseController extends Controller
 {
     public function index(){
         // dd("ok");
-        $trainings= training::with('department','course','scheme')->get();
+        $trainings= training::with('department','course','scheme')->where('active_status',1)->get();
         // dd($trainings);
         return view('dibrugarh.course-details',compact('trainings'));
     }
