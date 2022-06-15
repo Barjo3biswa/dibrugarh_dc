@@ -46,4 +46,11 @@ class SectorController extends Controller
         sector::where('id',$request->id)->delete();
         return redirect()->back()->with('status', 'successfully Removed Sector');
     }
+
+    public function Edit(Request $request)
+    {
+        $editable= sector::where('id',$request->id)->first();
+        return view("admin.add-sector",compact('editable'));
+        //dd("wait");
+    }
 }

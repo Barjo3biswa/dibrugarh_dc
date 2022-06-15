@@ -42,4 +42,9 @@ class addCourseController extends Controller
         course::where('id',$request->id)->delete();
         return redirect()->back()->with('status', 'successfully Removed Training');
     }
+
+    public function Edit()
+    {
+        dd("wait");
+    }
 }

@@ -46,4 +46,9 @@ class DepartmentController extends Controller
         Department::where('id',$request->id)->delete();
         return redirect()->back()->with('status', 'successfully Removed Training');
     }
+
+    public function Edit()
+    {
+        dd("wait");
+    }
 }

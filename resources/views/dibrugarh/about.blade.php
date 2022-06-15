@@ -11,20 +11,15 @@
                 <!-- <h4 class="text-secondary mb-3">Welcome to</h4>
                 <h2 class="mb-4"><span class="text-primary">Initiative of</span> <span class="text-secondary">the
                         District Skill Committee.</span></h2> -->
-                <p class="mb-4" style="text-align: justify;">Dolores lorem lorem ipsum sit et ipsum.
-                    Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed
-                    sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam. Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Rerum qui veniam dolore dolores adipisci animi nihil repellendus dicta provident
-                    doloremque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quasi laborum consectetur
-                    repellat voluptates minima veritatis. Deleniti repellendus, explicabo veritatis tempora quis itaque
-                    soluta? Sapiente illum error, accusamus commodi, beatae voluptatibus ratione neque deleniti quasi
-                    pariatur quia placeat quos facilis.</p>
+                <p class="mb-4" style="text-align: justify;">The district of Dibrugarh with only one sub-division is situated in the eastern part of Assam. The district is surrounded by Dhemaji district and a part of Lakhimpur district in the north, part of Sivasagar district and Arunachal Pradesh in the south, Tinsukia district in the East and Sivasagar dist in the West. The district occupies an area of 3381 Sq Km.</p>
+
+                    <p class="mb-4" style="text-align: justify;">The river Brahmaputra flows throughout the North Western boundary of the district. The only tributary falling at Brahmaputra in the district is Buridihing tributary which divided the district from East to West. It touches the town Naharkatia in the East, Khowang in the middle and at the last part of its course forms the boundary line between Dibrugarh and Sibsagar districts. The Dibrugarh district is a plain district of Assam. The entire is flat with gradual slop from the East Arunachal hills to the West. The soil of the district is mostly fertile Alluvial soil and this adjorning with the river Brahmaputra are composed sand and clay in varying proportion.</p>
                 <!-- <a href="" class="btn btn-lg btn-primary mt-3 px-4 learn-more-btn">Learn More</a> -->
             </div>
             <div class="col-lg-4">
                 <!-- <div class="row px-3">
                     <div class="col-6 p-0"> -->
-                        <img class="img-fluid w-100" src="./img/about-us.jpg" alt="">
+                        <img class="img-fluid w-100" src="{{ asset('dibrugarh') }}/img/about-us.jpg" alt="">
                     <!-- </div> -->
                 <!-- </div> -->
             </div>

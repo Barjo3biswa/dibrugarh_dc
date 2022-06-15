@@ -40,7 +40,8 @@
                                 <th>{{++$key}}</th>
                                 <th>{{$item->department_name}}</th>
                                 <th>{{$item->department_id}}</th>
-                                <form action="">
+                                <form action="{{route('admin.department.edit',['id'=>$item->id])}}" method="post">
+                                    @csrf
                                     <th><button type="submit" rel="tooltip" title="Edit Deoartment Details" class="btn btn-primary btn-link btn-sm">
                                         <i class="material-icons">edit</i>
                                       </button></th>
@@ -63,7 +64,8 @@
                             <th>{{++$key}}</th>
                             <th>{{$item->course_name}}</th>
                             <th>{{$item->course_id}}</th>
-                            <form action="">
+                            <form action="{{route('admin.course.edit',['id'=>$item->id])}}" method="post">
+                                @csrf
                                 <th><button type="submit" rel="tooltip" title="Edit Course Details" class="btn btn-primary btn-link btn-sm">
                                     <i class="material-icons">edit</i>
                                   </button></th>
@@ -86,7 +88,8 @@
                             <th>{{++$key}}</th>
                             <th>{{$item->scheme_name}}</th>
                             <th>{{$item->scheme_id}}</th>
-                            <form action="">
+                            <form action="{{route('admin.scheme.edit',['id'=>$item->id])}}" method="post">
+                                @csrf
                                 <th><button type="submit" rel="tooltip" title="Edit Scheme Details" class="btn btn-primary btn-link btn-sm">
                                     <i class="material-icons">edit</i>
                                   </button></th>
@@ -109,7 +112,8 @@
                             <th>{{++$key}}</th>
                             <th>{{$item->sector_name}}</th>
                             <th>{{$item->sector_id}}</th>
-                            <form action="">
+                            <form action="{{route('admin.sector.edit',['id'=>$item->id])}}" method="post">
+                                @csrf
                                 <th><button type="submit" rel="tooltip" title="Edit Scheme Details" class="btn btn-primary btn-link btn-sm">
                                     <i class="material-icons">edit</i>
                                   </button></th>
@@ -137,7 +141,8 @@
                             <th>{{$item->department_code}}</th>
                             <th>{{$item->start_date}}</th>
                             <th>{{$item->end_date}}</th>
-                            <form action="">
+                            <form action="{{route('admin.training.edit',['id'=>$item->id])}}" method="post">
+                                @csrf
                                 <th><button type="submit" rel="tooltip" title="Edit Training Details" class="btn btn-primary btn-link btn-sm">
                                     <i class="material-icons">edit</i>
                                   </button></th>

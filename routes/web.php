@@ -122,26 +122,31 @@ Route::group(['middleware' => ['auth']], function () {
         Route::group(['prefix' => 'sector',"as"  => "sector."], function () {
             Route::post('/save', 'admin\management\SectorController@Save')->name('save');
             Route::post('/delete', 'admin\management\SectorController@Delete')->name('delete');
+            Route::post('/edit', 'admin\management\SectorController@Edit')->name('edit');
         });
 
         Route::group(['prefix' => 'department',"as"  => "department."], function () {
             Route::post('/save', 'admin\management\DepartmentController@Save')->name('save');
             Route::post('/delete', 'admin\management\DepartmentController@Delete')->name('delete');
+            Route::post('/edit', 'admin\management\DepartmentController@Edit')->name('edit');
         });
 
         Route::group(['prefix' => 'course',"as"  => "course."], function () {
             Route::post('/save', 'admin\management\addCourseController@Save')->name('save');
             Route::post('/delete', 'admin\management\addCourseController@Delete')->name('delete');
+            Route::post('/edit', 'admin\management\addCourseController@Edit')->name('edit');
         });
 
         Route::group(['prefix' => 'training',"as"  => "training."], function () {
             Route::post('/save', 'admin\management\TrainingController@Save')->name('save');
             Route::post('/delete', 'admin\management\TrainingController@Delete')->name('delete');
+            Route::post('/edit', 'admin\management\TrainingController@Edit')->name('edit');
         });
 
         Route::group(['prefix' => 'scheme',"as"  => "scheme."], function () {
             Route::post('/save', 'admin\management\SchemeController@Save')->name('save');
             Route::post('/delete', 'admin\management\SchemeController@Delete')->name('delete');
+            Route::post('/edit', 'admin\management\SchemeController@Edit')->name('edit');
         });
 
     });

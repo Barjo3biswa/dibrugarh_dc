@@ -7,24 +7,32 @@
     <div class="container1 py-5" style="padding: 0 3rem 0 2rem;">
         <div class="row py-5">
             <div class="col-lg-8 pb-5 pb-lg-0 px-3 px-lg-5">
-                <h4>About Us</h4>
+                <h4>About Dibrugarh</h4>
                 <!-- <h4 class="text-secondary mb-3">Welcome to</h4>
                 <h2 class="mb-4"><span class="text-primary">Initiative of</span> <span class="text-secondary">the
                         District Skill Committee.</span></h2> -->
-                <p class="mb-4" style="text-align: justify;">Dolores lorem lorem ipsum sit et ipsum.
-                    Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed
-                    sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam. Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Rerum qui veniam dolore dolores adipisci animi nihil repellendus dicta provident
-                    doloremque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam quasi laborum consectetur
-                    repellat voluptates minima veritatis. Deleniti repellendus, explicabo veritatis tempora quis itaque
-                    soluta? Sapiente illum error, accusamus commodi, beatae voluptatibus ratione neque deleniti quasi
-                    pariatur quia placeat quos facilis.</p>
+                    <p>&nbsp;</p>
+                    <h5>Origin of Dibrugarh</h5>
+
+                    <p class="mb-4" style="text-align: justify;">Dibrugarh derived its name from Dibarumukh (as a renowned encampment of Ahoms during the Ahom-Chutia War). The name Dibru evolved either from Dibaru river or from the Dimasa/Deori-Chutia word dibru meaning 'blister'; garh means "fort". Both dibru and Dibaruare Dimasa/Chutia words. The Dimasas add the prefix "Di-" (which means "water") wherever there is small stream, a river, or a large river in a town or city; for example, Diphu ('white-water'), Dimapur ('city with great river'), etc. When the British came to this region, they constructed a fort on the bank of the river Dibaru. Therefore, this might be considered as the source of the name Dibrugarh.</p>
+
+                    <h5>Histroy of Dibrugarh</h5>
+
+                    <p class="mb-4" style="text-align: justify;">The British arrived in Assam in the year 1826, following the Yandaboo Accord. They selected Dibrugarh as an administrative and commercial center in Upper Assam, making Dibrugarh a hub of activity in this region of north-eastern India. In the year 1842, Dibrugarh was announced as the headquarters of Lakhimpur DistrictDuring the world War II, the town was the principal military base and was used as a transit camp for the evacuees from Burma. In 1971 the Dibrugarh Sub-Division itself became a full-fledged district. Later, the Tinsukia Sub-Division separated as a District in 1989 from Dibrugarh District. Today Dibrugarh is a separate district, with the District Headquarters in Dibrugarh.</p>
+
+                    <h5>Topography of Dibrugarh</h5>
+
+                    <p class="mb-4" style="text-align: justify;">Buridihing, a tributary of Brahmaputra, divides the district from east-to-west. Buridihing flows through Naharkatia and Khowang, and at a later stage in its course, Buridihing acts as a divider between Dibrugarh and Sivasagar districts. The region is flat with a gradual slope from the East Arunachal hills to the west. The soil of the district is mostly fertile, alluvial soil.
+
+                    It is the gateway to the three tea-producing districts of Tinsukia, Dibrugarh, and Sivasagar. These three areas account for approximately 50% of India's Assam tea crop, and this gives Dibrugarh its rightly earned sobriquet as the "Tea City of India". Oil and timber are the other two big industries in and around Dibrugarh.
+
+                    In 1950, the Medog Earthquake, measuring over 8.6 on the Richter Scale, changed the course of the Brahmaputra River, and this caused the destruction of more than three-quarters of the town. It has since then been rebuilt, though the River is a constant reminder to the people who live in its shadow, of its turbulence and all-encompassing journey to the sea.</p>
                 <!-- <a href="" class="btn btn-lg btn-primary mt-3 px-4 learn-more-btn">Learn More</a> -->
             </div>
             <div class="col-lg-4">
                 <!-- <div class="row px-3">
                     <div class="col-6 p-0"> -->
-                        <img class="img-fluid w-100" src="./img/about-us.jpg" alt="">
+                        <img class="img-fluid w-100" src="{{ asset('dibrugarh') }}/img/about-us.jpg" alt="">
                     <!-- </div> -->
                 <!-- </div> -->
             </div>
