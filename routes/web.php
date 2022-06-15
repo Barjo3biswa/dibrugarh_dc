@@ -29,6 +29,10 @@ Route::get('index', function () {
     return view('dibrugarh.index');
 })->name('index');
 
+Route::get('about_dibrugarh', function () {
+    return view('dibrugarh.about-dibrugarh');
+})->name('about_dibrugarh');
+
 Route::get('about_us', function () {
     return view('dibrugarh.about');
 })->name('about_us');

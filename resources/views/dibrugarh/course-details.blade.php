@@ -15,24 +15,25 @@
               style="background-image:url({{$training->attachments}})"
               >
               @php
-                  $start=date('d-m-Y',strtotime($training->start_date));
-                  $end  =date('d-m-Y',strtotime($training->end_date));
-                  $today=date("d-m-Y");
+                  $start=date('Y-m-d',strtotime($training->start_date));
+                  $end  =date('Y-m-d',strtotime($training->end_date));
+                  $today=date("Y-m-d");
                   if($start <= $today && $today <= $end){
                     $temp='Ongoing';
                   }
-                  if($start > $today){
+                  elseif($start > $today){
                     $temp='Upcoming';
                   }
-                  if($today > $end){
+                  elseif($today > $end && $today > $start){
                     $temp='Closed';
                   }
+                  // $diff=date_diff($today,$start);
               @endphp
 
               <span class="price">{{$temp}}</span>
             </a>
             <div class="text p-4">
-              <span class="days">From : {{ date('d-m-Y',strtotime($training->start_date))}} To : {{date('d-m-Y',strtotime($training->end_date))}}</span>
+              <span class="days">{{date('d-m-Y',strtotime($start))}} To : {{date('d-m-Y',strtotime($end))}} </span>
               <h3><a href="#">{{$training->training_name}}</a></h3>
               <p class="location"><span class="fa fa-map-marker"></span>{{$training->place}}</p>
               <p class="contact">{{$training->department->department_name}}</p>

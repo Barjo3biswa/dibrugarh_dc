@@ -80,14 +80,14 @@
                     <div class="row">
                         <label class="col-sm-2 col-form-label">Start Date</label>
                         <div class="col-sm-7">
-                            <input type="text" name="start_date" id="start_date" class="form-control" >
+                            <input type="date" name="start_date" id="start_date" class="form-control" >
                         </div>
                     </div>
 
                     <div class="row">
                         <label class="col-sm-2 col-form-label">End Date</label>
                         <div class="col-sm-7">
-                            <input type="text" name="End_date" id="End_date" class="form-control" >
+                            <input type="date" name="End_date" id="End_date" class="form-control" >
                         </div>
                     </div>
 
