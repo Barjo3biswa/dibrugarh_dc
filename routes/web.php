@@ -21,13 +21,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('dibrugarh.index');
 // });
 
-Route::get('/', function () {
-    return view('dibrugarh.index');
-});
+// Route::get('/', function () {
+//     return view('dibrugarh.index');
+// });
 
-Route::get('index', function () {
-    return view('dibrugarh.index');
-})->name('index');
+Route::get('/', 'guest\CourseController@showHomepage');
+Route::get('index', 'guest\CourseController@showHomepage')->name('index');
+
+// Route::get('index', function () {
+//     return view('dibrugarh.index');
+// })->name('index');
 
 Route::get('about_dibrugarh', function () {
     return view('dibrugarh.about-dibrugarh');

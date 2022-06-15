@@ -1,11 +1,16 @@
 @extends('dibrugarh.layout.master')
 @section('content')
-<section class="ftco-section">
+<section class="ftco-section course-details-section">
     <div class="container">
-      <div class="row justify-content-center pb-4">
+      <div class="row justify-content-center">
         <div class="col-md-12 heading-section text-center ftco-animate">
-          <h3 class="mb-4">Trainings</h3>
+          <h3>Trainings</h3>
         </div>
+      </div>
+      <div class="course-details-btn">
+        <a href="">Ongoing(01)</a>
+        <a href="">Upcoming(02)</a>
+        <a href="">Past(03)</a>
       </div>
       <div class="row">
         @forelse ($trainings as $training )

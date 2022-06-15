@@ -9470,7 +9470,7 @@ button.bg-dark:focus {
 }
 
 .text-center {
-  text-align: center !important;
+  text-align: left !important;
 }
 
 @media (min-width: 576px) {
@@ -11211,7 +11211,9 @@ select {
   @media (max-width: 767.98px) {
     .ftco-section {
       padding: 6em 0; } }
-
+.project-wrap {
+    padding-bottom:1.4rem;
+}
 .project-wrap .img {
   display: block;
   width: 100%;
@@ -11317,4 +11319,22 @@ background-position: center center;
   margin-right: 10px;
   color: #b3b3b3;
 }
+.course-details-section {
+    padding-top:3em!important;
+}
+.course-details-btn {
+    width:100%;
+    padding:1rem 0;
+}
+.course-details-btn a {
+    width: 12.33%;
+    display: inline-block;
+    background: #162f65;
+    color: #fff;
+    padding: .4rem;
+    border-radius: 4px;
+    text-align: center;
+    cursor:pointer;
+}
+.course-details-btn a:hover {background:#f15d30;color:#fff};
 /* NEW CODE END */

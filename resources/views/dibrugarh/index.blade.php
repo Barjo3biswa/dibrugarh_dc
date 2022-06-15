@@ -45,26 +45,18 @@
             <form class="courses-form">
               <div class="select-box-1">
                 <select name="languages" id="lang">
-                  <option value="--Select Courses--">-- Select Sector --
-                  </option>
-                  <option value="electrician">Dibrugarh
-                  </option>
-                  <option value="hardware">Tinsukia</option>
-                  <option value="plumber">Sivasagar</option>
-                  <option value="carpenter">Jorhat</option>
-                  <option value="painter">Golaghat</option>
+                    <option value="--Select Courses--">-- Select Sector --</option>
+                    @foreach ($sector as $sec )
+                        <option value="{{$sec->sector_code}}">{{$sec->sector_name}}</option>
+                    @endforeach
                 </select>
               </div>
               <div class="select-box-2">
                 <select name="courses" id="course">
-                  <option value="--Select Courses--">-- Select Courses --
-                  </option>
-                  <option value="electrician">Electrician
-                  </option>
-                  <option value="hardware">IT Hardware</option>
-                  <option value="plumber">Plumber</option>
-                  <option value="carpenter">Carpenter</option>
-                  <option value="painter">Painter</option>
+                    <option value="--Select Courses--">-- Select Courses --</option>
+                    @foreach ($course as $cor)
+                        <option value="{{$cor->course_code}}">{{$cor->course_name}}</option>
+                    @endforeach
                 </select>
               </div>
               <a href="#" class="search-btn"><img src="{{ asset('dibrugarh') }}/icons/icons8-search-24.png" />Search</a>

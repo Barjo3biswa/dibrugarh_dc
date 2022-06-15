@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\course;
 use App\Models\admin\training;
+use App\Models\sector;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -32,5 +34,13 @@ class CourseController extends Controller
     public function Reqister(Request $request){
         // dd("ok");
         dd($request->all());
+    }
+
+    public function showHomepage()
+    {
+        // dd("ok");
+        $sector=sector::all();
+        $course=course::all();
+        return view('dibrugarh.index',compact('sector','course'));
     }
 }
