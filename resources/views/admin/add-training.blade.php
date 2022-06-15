@@ -133,6 +133,19 @@
                             <input type="file" name="training_attachments" class="form-control" accept="image/jpeg, image/png">
                         </div>
                     </div>
+
+                    <div class="row" style="margin-top:5px;">
+                        <label class="col-sm-3 col-form-label">Publish This Training Now </label>
+                        <div class="col-sm-1">
+                            <label>Yes</label>
+                            <input type="radio" id="yes_pub" name="publish_now" value="1" >
+                        </div>
+                        <div class="col-sm-1">
+                            <label>No</label>
+                            <input type="radio" id="no_pub" name="publish_now" value="0" checked="checked">
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="card-footer ml-auto mr-auto">
