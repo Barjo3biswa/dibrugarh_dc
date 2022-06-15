@@ -10,15 +10,15 @@
               <div class="card-icon">
                 <i class="material-icons">content_copy</i>
               </div>
-              <p class="card-category">Used Space</p>
+              <p class="card-category">Training Completed</p>
               <h3 class="card-title">49/50
-                <small>GB</small>
+                <small>No's</small>
               </h3>
             </div>
             <div class="card-footer">
               <div class="stats">
                 <i class="material-icons text-danger">warning</i>
-                <a href="#pablo">Get More Space...</a>
+                <a href="#pablo">Training Completed</a>
               </div>
             </div>
           </div>
@@ -29,12 +29,12 @@
               <div class="card-icon">
                 <i class="material-icons">store</i>
               </div>
-              <p class="card-category">Revenue</p>
-              <h3 class="card-title">$34,245</h3>
+              <p class="card-category">Registration</p>
+              <h3 class="card-title">34,245</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">date_range</i> Last 24 Hours
+                <i class="material-icons">date_range</i> Total Registration
               </div>
             </div>
           </div>
@@ -45,23 +45,39 @@
               <div class="card-icon">
                 <i class="material-icons">info_outline</i>
               </div>
-              <p class="card-category">Fixed Issues</p>
+              <p class="card-category">Training Heads</p>
               <h3 class="card-title">75</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">local_offer</i> Tracked from Github
+                <i class="material-icons">local_offer</i> Active Heads
               </div>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+              <div class="card-header card-header-danger card-header-icon">
+                <div class="card-icon">
+                  <i class="material-icons">info_outline</i>
+                </div>
+                <p class="card-category">Schemes</p>
+                <h3 class="card-title">75</h3>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons">local_offer</i> Active Schemes
+                </div>
+              </div>
+            </div>
+          </div>
+        {{-- <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
             <div class="card-header card-header-info card-header-icon">
               <div class="card-icon">
                 <i class="fa fa-twitter"></i>
               </div>
-              <p class="card-category">Followers</p>
+              <p class="card-category">info_outline</p>
               <h3 class="card-title">+245</h3>
             </div>
             <div class="card-footer">
@@ -70,7 +86,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> --}}
       </div>
       <div class="row">
         <div class="col-md-4">
@@ -79,9 +95,9 @@
               <div class="ct-chart" id="dailySalesChart"></div>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Daily Sales</h4>
+              <h4 class="card-title">Registration</h4>
               <p class="card-category">
-                <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today registration.</p>
             </div>
             <div class="card-footer">
               <div class="stats">
@@ -96,7 +112,7 @@
               <div class="ct-chart" id="websiteViewsChart"></div>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Email Subscriptions</h4>
+              <h4 class="card-title">Training Details</h4>
               <p class="card-category">Last Campaign Performance</p>
             </div>
             <div class="card-footer">
@@ -112,7 +128,7 @@
               <div class="ct-chart" id="completedTasksChart"></div>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Completed Tasks</h4>
+              <h4 class="card-title">Training Completed</h4>
               <p class="card-category">Last Campaign Performance</p>
             </div>
             <div class="card-footer">
@@ -125,7 +141,7 @@
       </div>
       <div class="row">
         <div class="col-lg-6 col-md-12">
-          <div class="card">
+          {{-- <div class="card">
             <div class="card-header card-header-tabs card-header-primary">
               <div class="nav-tabs-navigation">
                 <div class="nav-tabs-wrapper">
@@ -367,45 +383,45 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
         </div>
         <div class="col-lg-6 col-md-12">
           <div class="card">
             <div class="card-header card-header-warning">
-              <h4 class="card-title">Employees Stats</h4>
-              <p class="card-category">New employees on 15th September, 2016</p>
+              <h4 class="card-title">Users Registration</h4>
+              <p class="card-category">New Registration on 15th jun, 2022</p>
             </div>
             <div class="card-body table-responsive">
               <table class="table table-hover">
                 <thead class="text-warning">
-                  <th>ID</th>
+                  <th>SL</th>
                   <th>Name</th>
-                  <th>Salary</th>
-                  <th>Country</th>
+                  <th>Place</th>
+                  <th>Details</th>
                 </thead>
                 <tbody>
                   <tr>
                     <td>1</td>
                     <td>Dakota Rice</td>
-                    <td>$36,738</td>
+                    <td>Dibrugarh</td>
                     <td>Niger</td>
                   </tr>
                   <tr>
                     <td>2</td>
                     <td>Minerva Hooper</td>
-                    <td>$23,789</td>
+                    <td>Dibrugarh</td>
                     <td>Curaçao</td>
                   </tr>
                   <tr>
                     <td>3</td>
                     <td>Sage Rodriguez</td>
-                    <td>$56,142</td>
+                    <td>Dibrugarh</td>
                     <td>Netherlands</td>
                   </tr>
                   <tr>
                     <td>4</td>
                     <td>Philip Chaney</td>
-                    <td>$38,735</td>
+                    <td>Dibrugarh</td>
                     <td>Korea, South</td>
                   </tr>
                 </tbody>

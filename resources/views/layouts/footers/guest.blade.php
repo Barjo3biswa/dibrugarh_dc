@@ -24,12 +24,12 @@
             </li> --}}
         </ul>
         </nav>
-        <div class="copyright float-right">
+        <div class="copyright login-footer-div">
         &copy;
         <script>
             document.write(new Date().getFullYear())
-        </script>,Office Of The Deputy Commissioner, Dibrugarh  by
-        <a href="https://www.creative-tim.com" target="_blank">WebcomIndia</a>.
+        </script>,<a href="#" class=login-footer>Office Of The Deputy Commissioner, Dibrugarh</a>  by
+        <a href="#" target="_blank">WebcomIndia</a>.
         </div>
     </div>
 </footer>

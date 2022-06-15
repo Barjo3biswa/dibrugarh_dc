@@ -8,7 +8,7 @@
   -->
     <div class="logo">
         <a href="https://creative-tim.com/" class="simple-text logo-normal">
-        OOT DC, Dibrugarh
+        O/O DC, Dibrugarh
         </a>
     </div>
     <div class="sidebar-wrapper">

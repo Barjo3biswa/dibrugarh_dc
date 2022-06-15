@@ -9,8 +9,8 @@
         <div class="col-lg-6 col-md-8 col-sm-10 ml-auto mr-auto">
         <form class="form" method="POST" action="{{ route('login') }}">
             @csrf
-            <div class="card ">
-                <div class="card-header card-header-primary">
+            <div class="card login-card">
+                <div class="card-header" style="background-color: #162F65;">
                     <h4 class="card-title"><strong>{{ __('Login') }}</strong></h4>
                 </div><br/>
                 <div class="card-body">

@@ -16626,7 +16626,8 @@ label {
 .card {
   border: 0;
   margin-bottom: 30px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
+  margin-top: 10px;
   border-radius: 6px;
   color: #333333;
   background: #fff;
@@ -16969,6 +16970,8 @@ label {
 .card .card-title {
   margin-top: 0;
   margin-bottom: 3px;
+  font-weight:600;
+  font-size:1rem;
 }
 
 .card .card-body {
@@ -17110,6 +17113,7 @@ label {
   /* margin: 0px 15px 0; */
   padding: 0;
   position: relative;
+  line-height: .8;
 }
 
 .card [class*="card-header-"] .card-title+.card-category {
@@ -17123,7 +17127,8 @@ label {
 .card [class*="card-header-"]:not(.card-header-icon):not(.card-header-text):not(.card-header-image) {
   border-radius: 3px;
   /* margin-top: -100px; */
-  padding: 15px;
+  /* padding: 15px; */
+  padding: 6px 12px;
 }
 
 /* .card [class*="card-header-"] .card-icon,
@@ -18875,6 +18880,15 @@ Copyright (c) 2015 Daniel Eden
     margin-bottom: 0;
     list-style: none;
 }
-
+}
+.login-card {
+    padding:0;
+}
+.login-card h4 {
+    text-align: center;
+    font-size: 1.5rem!important;
+    color:#fff;
+    margin-top: 0!important;
+}
 
 /*# sourceMappingURL=dashboard-free.css.map */
