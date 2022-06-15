@@ -28,10 +28,10 @@
                                 <span>{{ date('d-M-Y',strtotime($coursedtl->start_date))}} To {{ date('d-M-Y',strtotime($coursedtl->end_date))}}</span>
                             </div>
                             <div class="details">
-                                <h3 style="color:rgb(31, 71, 124)">Department : {{$coursedtl->department->department_name}}</h3>
-                                <h5 style="color:rgb(34, 75, 129)">Scheme : {{$coursedtl->scheme->scheme_name}}</h5>
-                                <h5 style="color:rgb(31, 71, 124)">Course : {{$coursedtl->course->course_name}}</h5>
-                                <h5 style="color:rgb(31, 71, 124)">registration from {{ date('d-M-Y',strtotime($start))}} to {{ date('d-M-Y',strtotime($end))}}</h5>
+                                <p style="color:rgb(31, 71, 124)">Department : {{$coursedtl->department->department_name}}</p>
+                                <p style="color:rgb(34, 75, 129)">Scheme : {{$coursedtl->scheme->scheme_name}}</p>
+                                <p style="color:rgb(31, 71, 124)">Course : {{$coursedtl->course->course_name}}</p>
+                                <p style="color:rgb(31, 71, 124)">registration from {{ date('d-M-Y',strtotime($start))}} to {{ date('d-M-Y',strtotime($end))}}</p>
                                 @if($temp=='Ongoing')
                                     <a href="{{route('apply_reqistration',['id'=>$coursedtl->id])}}">Apply</a>
                                 @elseif($temp=='Upcoming')

@@ -11094,7 +11094,7 @@ select {
   grid-area: event;
   background-color: #f6f6f6;
   box-sizing: border-box;
-  height: 200px;
+  height: 220px;
   box-shadow: 0px 14px 12px -13px rgba(0,0,0,0.74);
 }
 
@@ -11116,7 +11116,8 @@ select {
   grid-template-areas:
     "time time"
     "detail detail";
-  height:170px;
+  /* height:170px; */
+  height: 190px;
 }
 
 @media (min-width: 768px) {
@@ -11162,7 +11163,7 @@ select {
 
 .course-event .events ul li .details {
   grid-area: detail;
-  padding: 20px 20px 32px;
+  padding: 2px 20px 2px;
   background-color: #fff;
   box-sizing: border-box;
 }
@@ -11174,19 +11175,21 @@ select {
 }
 
 .course-event .events ul li .details p {
-  margin: 10px 0 0;
+  margin: 8px 0 0;
   padding: 0;
   font-size: 16px;
 }
 
 .course-event .events ul li .details a {
-  display: inline-block;
+  /* display: inline-block; */
   text-decoration: none;
   padding: 4px 15px;
   border: 2px solid #262626;
-  margin-top: 6px;
+  /* margin-top: 6px; */
   font-size: 12px;
   transition: 0.5s;
+  margin: 17px auto;
+  float:right;
 }
 
 .course-event .events ul li .details a:hover {
@@ -11265,6 +11268,7 @@ background-position: center center;
   border-style: solid;
   border-width: 0 0 8px 8px;
   border-color: transparent transparent #c7390d transparent;
+  padding:.6rem 0 .6rem 1rem!important;
 }
 .project-wrap .text {
   margin: 0 auto;
