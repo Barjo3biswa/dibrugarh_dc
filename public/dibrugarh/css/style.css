@@ -11268,7 +11268,7 @@ background-position: center center;
   border-style: solid;
   border-width: 0 0 8px 8px;
   border-color: transparent transparent #c7390d transparent;
-  padding:.6rem 0 .6rem 1rem!important;
+
 }
 .project-wrap .text {
   margin: 0 auto;
@@ -11285,6 +11285,7 @@ background-position: center center;
   border: 1px solid #fff5cf;
   border-radius: 2px;
   height: 12rem;
+  padding:.6rem 0 .6rem 1rem!important;
 }
 .project-wrap .book-now-btn {
   background: #595959;
