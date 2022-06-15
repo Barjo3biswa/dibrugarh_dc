@@ -8,7 +8,7 @@
   -->
     <div class="logo">
         <a href="https://creative-tim.com/" class="simple-text logo-normal">
-        Office Of The <br/> Deputy Commissioner,<br/> Dibrugarh'
+        OOT DC, Dibrugarh
         </a>
     </div>
     <div class="sidebar-wrapper">
