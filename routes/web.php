@@ -25,26 +25,18 @@ Route::get('/', function () {
     return view('dibrugarh.index');
 });
 
+Route::get('index', function () {
+    return view('dibrugarh.index');
+})->name('index');
 
+Route::get('about_us', function () {
+    return view('dibrugarh.about');
+})->name('about_us');
+Route::get('/course_dtl', 'guest\CourseController@index')->name('course_dtl');
+Route::post('/view_course_details', 'guest\CourseController@ViewCourseDetails')->name('view_course_details');
+Route::get('/apply_reqistration', 'guest\CourseController@ApplyOrReqister')->name('apply_reqistration');
+Route::post('/training_register', 'guest\CourseController@Reqister')->name('training_register');
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('index', function () {
-        return view('dibrugarh.index');
-    })->name('index');
-
-    Route::get('about_us', function () {
-        return view('dibrugarh.about');
-    })->name('about_us');
-
-    // Route::get('course_dtl', function () {
-    //     return view('dibrugarh.course-details');
-    // })->name('course_dtl');  app\Http\Controllers\guest\CourseController.php
-
-    Route::get('/course_dtl', 'guest\CourseController@index')->name('course_dtl');
-    Route::post('/view_course_details', 'guest\CourseController@ViewCourseDetails')->name('view_course_details');
-    Route::get('/apply_reqistration', 'guest\CourseController@ApplyOrReqister')->name('apply_reqistration');
-    Route::get('/apply_login', 'guest\CourseController@ApplyOrLogin')->name('apply_login');
-});
 
 
 

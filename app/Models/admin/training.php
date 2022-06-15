@@ -21,6 +21,21 @@ class training extends Model
         'created_by'      ,
         'place'           ,
         'contact_details' ,
-        // 'attachments'     ,
+        'attachments'     ,
     ];
+
+    public function department(){
+        return $this->hasOne("App\Models\admin\Department", 'department_id', 'department_code');
+
+    }
+
+    public function course(){
+        return $this->hasOne("App\Models\admin\course", 'course_id', 'course_id');
+
+    }
+
+    public function scheme(){
+        return $this->hasOne("App\Models\admin\scheme", 'scheme_id', 'scheme_id');
+
+    }
 }

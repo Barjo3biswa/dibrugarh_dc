@@ -18,12 +18,12 @@ class addCourseController extends Controller
         $subtitle="List Of All Course";
         $thead=['Sl','Course Name','Course Code','Action'];
         $list_item=course::all();
-        return view("admin\show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
     public function Add()
     {
-        return view("admin\add-course");
+        return view("admin.add-course");
     }
 
     public function Save(Request $request)

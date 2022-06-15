@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                <form method="post" action="{{ route('admin.training.save') }}" autocomplete="off" class="form-horizontal">
+                <form method="post" action="{{ route('admin.training.save') }}" enctype="multipart/form-data" autocomplete="off" class="form-horizontal">
                     @csrf
 
                 <div class="card ">
@@ -29,7 +29,7 @@
                     <div class="row">
                         <label class="col-sm-2 col-form-label">Training Name</label>
                         <div class="col-sm-7">
-                            <input type="text" name="training_name" class="form-control" placeholder="Enter Training Name">
+                            <input type="text" name="training_name" id="training_name" class="form-control" placeholder="Enter Training Name">
                         </div>
                     </div>
 
@@ -80,14 +80,14 @@
                     <div class="row">
                         <label class="col-sm-2 col-form-label">Start Date</label>
                         <div class="col-sm-7">
-                            <input type="date" name="start_date" id="start_date" class="form-control" >
+                            <input type="text" name="start_date" id="start_date" class="form-control" >
                         </div>
                     </div>
 
                     <div class="row">
                         <label class="col-sm-2 col-form-label">End Date</label>
                         <div class="col-sm-7">
-                            <input type="date" name="End_date" id="End_date" class="form-control" >
+                            <input type="text" name="End_date" id="End_date" class="form-control" >
                         </div>
                     </div>
 
@@ -113,7 +113,14 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Enter Relative Image </label>
+                        <div class="col-sm-7">
+                            <input type="file" name="training_attachments" class="form-control" accept="image/jpeg, image/png">
+                        </div>
+                    </div>
                 </div>
+
                 <div class="card-footer ml-auto mr-auto">
                     <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
                 </div>
@@ -129,5 +136,6 @@
   <script>
     $('#start_date').Zebra_DatePicker();
     $('#end_date').Zebra_DatePicker();
+
   </script>
 @endpush

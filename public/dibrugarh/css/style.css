@@ -280,7 +280,7 @@ button:not(:disabled),
 [type="reset"]:not(:disabled),
 [type="submit"]:not(:disabled) {
   cursor: pointer;
- 
+
 }
 
 button::-moz-focus-inner,
@@ -2017,7 +2017,7 @@ textarea.form-control {
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: .1rem;
 }
 
 .form-text {
@@ -6221,7 +6221,7 @@ a.close.disabled {
   bottom: 166px;
   right: 62px;
   letter-spacing: 1px;
-} 
+}
 @media (prefers-reduced-motion: reduce) {
   .carousel-control-prev,
   .carousel-control-next {
@@ -10103,7 +10103,7 @@ select {
 	transform: translateX(-10px);
 }
 
-.social-panel {	
+.social-panel {
 	background-color: #fff;
 	border-radius: 16px;
 	box-shadow: 0 16px 31px -17px rgba(0,31,97,0.6);
@@ -10114,7 +10114,7 @@ select {
 	align-items: center;
 	font-family: 'Muli';
 	position: relative;
-	height: 169px;	
+	height: 169px;
 	width: 370px;
 	max-width: calc(100% - 10px);
 }
@@ -10160,9 +10160,9 @@ select {
 
 .social-panel h4 {
 	margin: 20px 0;
-	color: #97A5CE;	
-	font-family: 'Muli';	
-	font-size: 14px;	
+	color: #97A5CE;
+	font-family: 'Muli';
+	font-size: 14px;
 	line-height: 18px;
 	text-transform: uppercase;
 }
@@ -10245,7 +10245,7 @@ select {
 	.social-panel-container.visible {
 		transform: translateX(0px);
 	}
-	
+
 	.floating-btn {
 		right: 10px;
 	}
@@ -10377,7 +10377,7 @@ select {
   flex-direction: column;
 }
 .footer-logo img {
-  width:56px; 
+  width:56px;
   margin-bottom: 1rem;
 }
 .social-icons a {
@@ -10472,7 +10472,7 @@ select {
  .fontWrapper .navbar
  {
   padding:0;
- } 
+ }
  .fontWrapper .scrollspy-example::-webkit-scrollbar {
 	 width: 0px;
 }
@@ -10561,7 +10561,7 @@ select {
  /* .scrollableArea {
 	 background-color: #eee;
 } */
- 
+
 
 
 /* ad-bannner */
@@ -10776,7 +10776,7 @@ select {
   font-size: .7rem;
   padding: .2rem;
   color: floralwhite;
-} 
+}
 .notice-div {
   background: linear-gradient(0deg, rgba(30, 30, 30, 0.8), rgba(2, 2, 2, 0.8)), url(../img/abou-us-new-2.jpg);
   background-size: auto, auto;
@@ -10844,7 +10844,7 @@ select {
   padding: .3rem .5rem;
   background:#e8af30;
   float: right;
-} 
+}
 .job-btn {
   background: #e8af30;
   /* margin-top: 3.4rem; */
@@ -11023,9 +11023,9 @@ select {
 
 /* Overwrite default styles of hr */
 .registration-form-section hr {
-  border: 2px solid #fff;
-  margin-bottom: 25px;
-}
+    border: 1px solid #645e5e;
+    /* margin-bottom: 25px; */
+  }
 
 /* Set a style for the submit/register button */
 .registration-form-section .registerbtn {
@@ -11059,7 +11059,7 @@ select {
   margin-top:2rem;
 }
 .form-div {
-  width: 800px;
+  /* width: 800px; */
   margin: 0 auto;
   -webkit-box-shadow: 4px 15px 18px 2px rgba(179,179,179,0.64);
   -moz-box-shadow: 4px 15px 18px 2px rgba(179,179,179,0.64);

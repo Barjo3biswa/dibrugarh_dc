@@ -1,6 +1,7 @@
 
-@include('dibrugarh\header')
-@include('dibrugarh\link-bar')
+@extends('dibrugarh.layout.master')
+@section('content')
+
     <!-- Navbar End -->
 
 
@@ -801,6 +802,32 @@
       </div>
     </div> -->
     <!-- Blog End -->
-
-
-@include('dibrugarh\footer')
+@endsection
+@section('scripts')
+<script>
+    $(document).ready(function(){
+    $('.customer-logos').slick({
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    arrows: true,
+    dots: false,
+    pauseOnHover: false,
+    prevArrow: '<i class="slick-prev fas fa-angle-left"></i>',
+    nextArrow: '<i class="slick-next fas fa-angle-right"></i>',
+    responsive: [{
+    breakpoint: 768,
+    settings: {
+    slidesToShow: 3
+    }
+    }, {
+    breakpoint: 520,
+    settings: {
+    slidesToShow: 2
+    }
+    }]
+    });
+    });
+  </script>
+@endsection

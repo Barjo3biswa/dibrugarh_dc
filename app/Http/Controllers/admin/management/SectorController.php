@@ -22,12 +22,12 @@ class SectorController extends Controller
         $subtitle="List Of All Sectors";
         $thead=['Sl','Sector Name','Sector Code','Action'];
         $list_item=Sector::all();
-        return view("admin\show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
     public function Add()
     {
-        return view("admin\add-sector");
+        return view("admin.add-sector");
     }
 
     public function Save(Request $request){
@@ -40,7 +40,7 @@ class SectorController extends Controller
         ];
         // dd($data);
         Sector::insert($data);
-        return redirect()->route('admin.department')->with('status', 'successfully Added Department');
+        return redirect()->route('admin.sector')->with('status', 'successfully Added Department');
     }
     public function Delete(Request $request){
         sector::where('id',$request->id)->delete();

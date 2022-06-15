@@ -1,5 +1,5 @@
-@include('dibrugarh\header')
-@include('dibrugarh\link-bar')
+@extends('dibrugarh.layout.master')
+@section('content')
     <section class="registration-form-section">
         <div class="registration-form">
             <form action="#">
@@ -11,10 +11,10 @@
                         </div>
 
                         <label for="email"><b>Username</b></label>
-                        <input type="text" placeholder="Use Email as Password" name="email" id="email">
+                        <input type="text" placeholder="Use Email as Username" name="email" id="email">
 
-                        <label for="email"><b>Password</b></label>
-                        <input type="text" placeholder="Enter Email" name="email" id="email">
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="email" id="email">
 
                         <!-- <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p> -->
                         <div class="submit-btn">
@@ -26,4 +26,4 @@
             </form>
         </div>
     </section>
-@include('dibrugarh\footer')
+@endsection

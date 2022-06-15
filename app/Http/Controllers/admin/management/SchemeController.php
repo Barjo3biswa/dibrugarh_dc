@@ -17,12 +17,12 @@ class SchemeController extends Controller
         $title="SCHEME";
         $subtitle="List Of All Scheme";
         $list_item=scheme::all();
-        return view("admin\show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
     public function Add()
     {
-        return view("admin\add-scheme");
+        return view("admin.add-scheme");
     }
 
     public function Save(Request $request){

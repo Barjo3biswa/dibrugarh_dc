@@ -24,7 +24,7 @@ class TrainingController extends Controller
         $title="TRAINING";
         $subtitle="List Of All Training";
         // dd($list_item);
-        return view("admin\show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
     public function Add()
@@ -32,9 +32,21 @@ class TrainingController extends Controller
         $scheme      = scheme::get();
         $department  = Department::get();
         $course      = course::get();
-        return view("admin\add-training",compact('scheme','department','course'));
+        return view("admin.add-training",compact('scheme','department','course'));
     }
     public function Save(Request $request){
+        // dd($request->all());
+        // if ($request->hasFile('training_attachments')) {
+
+            $path7="";
+            $path = public_path() . '/images/training_attachments/';
+            $file=$request->file('training_attachments');
+            $imageName = date('dmyhis') . 'training_attachments.' . $file->getClientOriginalExtension();
+            $file->move($path, $imageName);
+            $path7 = url('/') . '/images/training_attachments/' . $imageName;
+        // }
+        // dd($path7);
+
         $id  = auth()->user()->id;
         $data=[
             'training_name'   => $request->training_name,
@@ -48,6 +60,7 @@ class TrainingController extends Controller
             'created_by'      => $id,
             'place'           => $request->place,
             'contact_details' => $request->contact_details,
+            'attachments'     => $path7
         ];
         // dd($data);
         training::create($data);
