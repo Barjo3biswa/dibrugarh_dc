@@ -31,6 +31,7 @@
                                 <h3 style="color:rgb(31, 71, 124)">Department : {{$coursedtl->department->department_name}}</h3>
                                 <h5 style="color:rgb(34, 75, 129)">Scheme : {{$coursedtl->scheme->scheme_name}}</h5>
                                 <h5 style="color:rgb(31, 71, 124)">Course : {{$coursedtl->course->course_name}}</h5>
+                                <h5 style="color:rgb(31, 71, 124)">registration from {{ date('d-M-Y',strtotime($start))}} to {{ date('d-M-Y',strtotime($end))}}</h5>
                                 @if($temp=='Ongoing')
                                     <a href="{{route('apply_reqistration',['id'=>$coursedtl->id])}}">Apply</a>
                                 @elseif($temp=='Upcoming')
