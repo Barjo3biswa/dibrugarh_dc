@@ -8,7 +8,7 @@
           <a href="{{route('index')}}" class="nav-item nav-link active">Home</a>
           <a href="{{route('about_us')}}" class="nav-item nav-link">About Us</a>
           <a href="{{route('about_dibrugarh')}}" class="nav-item nav-link">About Dibrugarh</a>
-          {{-- <a href="#" class="nav-item nav-link">Course Registration</a> --}}
+          <a href="#" class="nav-item nav-link">Course Registration</a>
           <a href="{{route('course_dtl')}}" class="nav-item nav-link">Course Details</a>
           <a href="#" class="nav-item nav-link">Department Login</a>
           <a href="#" class="nav-item nav-link">Employers Corner</a>

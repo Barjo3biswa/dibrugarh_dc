@@ -24,14 +24,14 @@
                     <ul>
                         <li>
                             <div class="time">
-                                <img src="./icons/icons8-calendar-26.png" alt="">
+                                <img src="{{ asset('dibrugarh') }}/icons/icons8-calendar-26.png" alt="">
                                 <span>{{ date('d-M-Y',strtotime($coursedtl->start_date))}} To {{ date('d-M-Y',strtotime($coursedtl->end_date))}}</span>
                             </div>
                             <div class="details">
-                                <p style="color:rgb(31, 71, 124)">Department : {{$coursedtl->department->department_name}}</p>
-                                <p style="color:rgb(34, 75, 129)">Scheme : {{$coursedtl->scheme->scheme_name}}</p>
-                                <p style="color:rgb(31, 71, 124)">Course : {{$coursedtl->course->course_name}}</p>
-                                <p style="color:rgb(31, 71, 124)">registration from {{ date('d-M-Y',strtotime($start))}} to {{ date('d-M-Y',strtotime($end))}}</p>
+                                <p style="color:rgb(31, 71, 124);font-weight:bold;">Department : {{$coursedtl->department->department_name}}</p>
+                                <p style="color:rgb(34, 75, 129);font-weight:bold;">Scheme : {{$coursedtl->scheme->scheme_name}}</p>
+                                <p style="color:rgb(31, 71, 124);font-weight:bold;">Course : {{$coursedtl->course->course_name}}</p>
+                                <p style="color:rgb(31, 71, 124);font-weight:bold;">Registration Opens on {{ date('d-M-Y',strtotime($start))}} / Closing on {{ date('d-M-Y',strtotime($end))}}</p>
                                 @if($temp=='Ongoing')
                                     <a href="{{route('apply_reqistration',['id'=>$coursedtl->id])}}">Apply</a>
                                 @elseif($temp=='Upcoming')
@@ -50,7 +50,7 @@
             <img class="img-fluid w-100" src="{{$coursedtl->attachments}}" alt="">
         </div>
     </div>
-    <div class="course-details-event" style="margin-top:2rem;padding: 0 2rem;">
+    <div class="course-details-event" style="padding: 0 2rem;">
         <h4>Details :</h4>
         <p>{{$coursedtl->training_details}}</p>
     </div>

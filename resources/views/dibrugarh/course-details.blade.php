@@ -9,7 +9,7 @@
       </div>
       <div class="row">
         @forelse ($trainings as $training )
-        <div class="col-md-4 ftco-animate">
+        <div class="col-md-4 ftco-animate" style="margin-top:10px;">
           <div class="project-wrap">
               <a href="#" class="img"
               style="background-image:url({{$training->attachments}})"
