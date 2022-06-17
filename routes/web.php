@@ -17,20 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-// Route::get('/', function () {
-//     return view('dibrugarh.index');
-// });
-
-// Route::get('/', function () {
-//     return view('dibrugarh.index');
-// });
-
+// Guest
 Route::get('/', 'guest\CourseController@showHomepage');
 Route::get('index', 'guest\CourseController@showHomepage')->name('index');
-
-// Route::get('index', function () {
-//     return view('dibrugarh.index');
-// })->name('index');
 
 Route::get('about_dibrugarh', function () {
     return view('dibrugarh.about-dibrugarh');
@@ -43,6 +32,15 @@ Route::get('/course_dtl', 'guest\CourseController@index')->name('course_dtl');
 Route::post('/view_course_details', 'guest\CourseController@ViewCourseDetails')->name('view_course_details');
 Route::get('/apply_reqistration', 'guest\CourseController@ApplyOrReqister')->name('apply_reqistration');
 Route::post('/training_register', 'guest\CourseController@Reqister')->name('training_register');
+Route::post('/search_courses', 'guest\CourseController@SearchCourses')->name('search_courses');
+
+
+
+
+// Department
+Route::get('department_login/', function () {
+    return view('dibrugarh.department-login');
+})->name('department_login');
 
 
 
@@ -53,8 +51,7 @@ Route::post('/training_register', 'guest\CourseController@Reqister')->name('trai
 
 
 
-
-
+// Admin
 Route::get('login/', function () {
     return view('welcome');
 });

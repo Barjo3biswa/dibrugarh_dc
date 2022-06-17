@@ -43,4 +43,18 @@ class CourseController extends Controller
         $course=course::all();
         return view('dibrugarh.index',compact('sector','course'));
     }
+
+    public function SearchCourses(Request $request)
+    {
+        // dd($request->all());
+        $trainings= training::with('department','course','scheme')->where('active_status',1)
+                            ->when($request->sector,function($query) use($request){
+                                return $query->where('trainings.sector_id',$request->sector);
+                                })
+                            ->when($request->courses,function($query) use($request){
+                                return $query->where('trainings.course_id',$request->courses);
+                                })
+                            ->get();
+        return view('dibrugarh.course-details',compact('trainings'));
+    }
 }

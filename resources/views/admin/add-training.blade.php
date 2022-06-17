@@ -40,6 +40,17 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Sector Details</label>
+                        <div class="col-sm-7">
+                            <select name="sector_code" class="form-control">
+                                <option value="">--Select--</option>
+                                @foreach ($sector as $se)
+                                     <option value="{{$se->sector_id}}">{{$se->sector_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <label class="col-sm-2 col-form-label">Organised By</label>

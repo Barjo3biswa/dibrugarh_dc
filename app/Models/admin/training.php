@@ -25,6 +25,7 @@ class training extends Model
         'registration_starts',
         'registration_ends',
         'active_status',
+        'sector_id',
     ];
 
     public function department(){

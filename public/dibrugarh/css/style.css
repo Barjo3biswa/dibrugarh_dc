@@ -11336,5 +11336,7 @@ background-position: center center;
     text-align: center;
     cursor:pointer;
 }
-.course-details-btn a:hover {background:#f15d30;color:#fff};
+.course-details-btn a:hover {background:#f15d30;color:#fff}
+.notice-board-heading h5 {background: #e8af30!important;
+    width: fit-content!important;padding: .1rem .4rem .1rem .4rem;}
 /* NEW CODE END */

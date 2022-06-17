@@ -7,6 +7,7 @@ use App\Models\admin\course;
 use App\Models\admin\Department;
 use App\Models\admin\scheme;
 use App\Models\admin\training;
+use App\Models\sector;
 use Illuminate\Http\Request;
 
 class TrainingController extends Controller
@@ -32,7 +33,8 @@ class TrainingController extends Controller
         $scheme      = scheme::get();
         $department  = Department::get();
         $course      = course::get();
-        return view("admin.add-training",compact('scheme','department','course'));
+        $sector      = sector::get();
+        return view("admin.add-training",compact('scheme','department','course','sector'));
     }
     public function Save(Request $request){
         // dd($request->all());
@@ -63,7 +65,8 @@ class TrainingController extends Controller
             'attachments'     => $path7,
             'registration_starts'  => $request->reg_start_date,
             'registration_ends'    => $request->reg_End_date,
-            'active_status'   =>$request->publish_now
+            'active_status'   =>$request->publish_now,
+            'sector_id'       =>$request->sector_code,
         ];
         // dd($data);
         training::create($data);
