@@ -10,7 +10,7 @@
           <a href="{{route('about_dibrugarh')}}" class="nav-item nav-link">About Dibrugarh</a>
           <a href="#" class="nav-item nav-link">Course Registration</a>
           <a href="{{route('course_dtl')}}" class="nav-item nav-link">Course Details</a>
-          <a href="{{route('department_login')}}" class="nav-item nav-link">Department Login</a>
+          <a href="{{route('login')}}" class="nav-item nav-link">Department Login</a>
           <a href="#" class="nav-item nav-link">Employers Corner</a>
         </div>
       </div>
