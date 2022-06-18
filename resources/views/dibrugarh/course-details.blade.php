@@ -8,9 +8,13 @@
         </div>
       </div>
       <div class="course-details-btn">
+        {{-- <form action={{route('search_courses')}} method="post">
+            @csrf --}}
         <a href="">Ongoing(01)</a>
+        {{-- </form> --}}
         <a href="">Upcoming(02)</a>
         <a href="">Past(03)</a>
+        <a href="">Archieves(03)</a>
       </div>
       <div class="row">
         @forelse ($trainings as $training )
@@ -47,10 +51,10 @@
                 <li><span class="flaticon-king-size"></span>3</li>
                 <li><span class="flaticon-mountains"></span>Near Mountain</li>
               </ul> --}}
-              <form action="{{route('view_course_details',['id'=>$training->id])}}" method="post">
+                <form action="{{route('view_course_details',['id'=>Crypt::encryptString($training->id)])}}" method="post">
                 @csrf
                   <input type="submit" class="btn btn-primary" value="Apply & Details">
-              </form>
+                </form>
               {{-- <a href="{{route('particular_course_dtl',['id'=>])}}" class="book-now-btn">Apply & Details</a> --}}
             </div>
 

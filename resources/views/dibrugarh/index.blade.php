@@ -8,7 +8,7 @@
     <!-- Carousel Start -->
 <div class="container-fluid p-0">
     <div class="row">
-    <div class="col-lg-9" style="padding-right:0">
+    <div class="col-lg-9 home-slider" style="padding-right:0">
         <div id="header-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="col-lg-3 courses-form-div">
-        <div class="px-sm-5 search-box">
+        <div class="search-box">
         <h5 style="text-align: center;color: #fff; text-transform:uppercase;margin-top: 0rem;background: #e8af30;color: black;;padding: .2rem 0;">
             Search Skilled Worker
         </h5>
@@ -47,7 +47,7 @@
             @csrf
             <div class="select-box-1">
                 <select name="sector" id="lang">
-                    <option value="--Select Courses--">-- Select Sector --</option>
+                    <option value="">-- Select Sector --</option>
                     @foreach ($sector as $sec )
                         <option value="{{$sec->sector_id}}">{{$sec->sector_name}}</option>
                     @endforeach
@@ -55,7 +55,7 @@
             </div>
             <div class="select-box-2">
                 <select name="courses" id="course">
-                    <option value="--Select Courses--">-- Select Courses --</option>
+                    <option value="">-- Select Courses --</option>
                     @foreach ($course as $cor)
                         <option value="{{$cor->course_id}}">{{$cor->course_name}}</option>
                     @endforeach
@@ -73,37 +73,22 @@
 
 
 <!-- NOTICES Start -->
-<section class="notice-section">
+<section id="skipToMainContent" class="notice-section">
     <div class="container">
     <div class="row">
         <div class="col-lg-4 notice-board-heading">
             <h5>Upcoming Courses</h5>
             <div class="upcoming-courses">
+                @foreach ($upcomingevents as $events)
                 <div>
-                <img src="{{ asset('dibrugarh') }}/icons/icons8-book-26.png">
-                <a href="">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur.</a>
+                <form action="{{route('view_course_details',['id'=>Crypt::encryptString($events->id)])}}" method="post">
+                    @csrf
+                    <img src="{{ asset('dibrugarh') }}/icons/icons8-book-26.png">
+                    <a onclick="this.parentNode.submit();">{{$events->training_name}},&nbsp;starts from {{date('d-m-Y', strtotime($events->start_date))}} to {{date('d-m-Y', strtotime($events->end_date))}}.</a>
+                </form>
                 </div>
-                <div>
-                <img src="{{ asset('dibrugarh') }}/icons/icons8-book-26.png">
-                <a href="">Lorem ipsum dolor sit amet consectetur.</a>
-                </div>
-                <div>
-                <img src="{{ asset('dibrugarh') }}/icons/icons8-book-26.png">
-                <a href="">Lorem ipsum dolor sit amet consectetur.</a>
-                </div>
-                <div>
-                <img src="{{ asset('dibrugarh') }}/icons/icons8-book-26.png">
-                <a href="">Lorem ipsum dolor sit amet consectetur.</a>
-                </div>
-                <div>
-                <img src="{{ asset('dibrugarh') }}/icons/icons8-book-26.png">
-                <a href="">Lorem ipsum dolor sit amet consectetur.</a>
-                </div>
-                <div>
-                <img src="{{ asset('dibrugarh') }}/icons/icons8-book-26.png">
-                <a href="">Lorem ipsum dolor sit amet consectetur.</a>
-                </div>
-                <div class="see-all-courses"><a href="#">See All Courses</a></div>
+                @endforeach
+                <div class="see-all-courses"><a href="{{route('course_dtl')}}">See All Courses</a></div>
             </div>
         </div>
         <div class="col-lg-4 notice-board-heading">
@@ -384,7 +369,7 @@
         <img class="img-fluid w-100" src="img/why-choose-us.jpg" alt="">
     </div> -->
     <div class="col-lg-12 py-5 py-lg-0 px-3 px-lg-5">
-        <h4 class="text-secondary mb-3">Why District Skill Committee</h4>
+        <h4 class="text-secondary mb-3 why-district">Why District Skill Committee</h4>
         <!-- <p class="mb-4">Dolor lorem lorem ipsum sit et ipsum. Sadip sea amet diam sed ut vero no sit. Et elitr stet sed sit sed kasd. Erat duo eos et erat sed diam duo</p> -->
         <!-- <div class="row py-2">
         <div class="col-6">

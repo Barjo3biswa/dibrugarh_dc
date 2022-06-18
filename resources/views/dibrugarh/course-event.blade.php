@@ -33,7 +33,7 @@
                                 <p style="color:rgb(31, 71, 124);font-weight:bold;">Course : {{$coursedtl->course->course_name}}</p>
                                 <p style="color:rgb(31, 71, 124);font-weight:bold;">Registration Opens on {{ date('d-M-Y',strtotime($start))}} / Closing on {{ date('d-M-Y',strtotime($end))}}</p>
                                 @if($temp=='Ongoing')
-                                    <a href="{{route('apply_reqistration',['id'=>$coursedtl->id])}}">Apply</a>
+                                    <a href="{{route('apply_reqistration',['id'=>Crypt::encryptString($coursedtl->id)])}}">Apply</a>
                                 @elseif($temp=='Upcoming')
                                     <a href="#">Opening Soon</a>
                                 @else

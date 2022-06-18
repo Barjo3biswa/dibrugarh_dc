@@ -13,11 +13,21 @@ class SchemeController extends Controller
         // return view("admin\add-course");
         $route='admin.add_scheme';
         $btn_name="Add Scheme";
-        $thead=['Sl','Course Name','Course Code','Action'];
         $title="SCHEME";
         $subtitle="List Of All Scheme";
         $list_item=scheme::all();
-        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
+        $tbody=[];
+        $thead=['Sl','Scheme Name','Scheme Code','Action'];
+        foreach($list_item as $key=>$list){
+              $value=[
+                ++$key, $list->scheme_name, $list->scheme_id,$list->id
+              ];
+              array_push($tbody,$value);
+        }
+        $editroute  ='admin.scheme.edit';
+        $deleteroute='admin.scheme.delete';
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute'));
+        // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
     public function Add()

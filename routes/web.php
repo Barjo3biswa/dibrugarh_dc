@@ -28,6 +28,11 @@ Route::get('about_dibrugarh', function () {
 Route::get('about_us', function () {
     return view('dibrugarh.about');
 })->name('about_us');
+
+Route::get('screenreader', function () {
+    return view('dibrugarh.screen-reader-access');
+})->name('screenreader');
+
 Route::get('/course_dtl', 'guest\CourseController@index')->name('course_dtl');
 Route::post('/view_course_details', 'guest\CourseController@ViewCourseDetails')->name('view_course_details');
 Route::get('/apply_reqistration', 'guest\CourseController@ApplyOrReqister')->name('apply_reqistration');
@@ -144,6 +149,15 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/save', 'admin\management\SchemeController@Save')->name('save');
             Route::post('/delete', 'admin\management\SchemeController@Delete')->name('delete');
             Route::post('/edit', 'admin\management\SchemeController@Edit')->name('edit');
+        });
+
+        Route::group(['prefix' => 'department_user',"as"  => "department_user."], function () {
+            Route::get('/users', 'admin\management\DepartmentController@RegisterForm')->name('users');
+            Route::get('/add_dept_user', 'admin\management\DepartmentController@ShowRegForm')->name('add_dept_user');
+            Route::post('/save', 'admin\management\DepartmentController@RegisterSave')->name('save');
+            Route::post('/delete', 'admin\management\DepartmentController@DepartmentUserDelete')->name('delete');
+            Route::post('/edit', 'admin\management\DepartmentController@DepartmentUserEdit')->name('edit');
+
         });
 
     });

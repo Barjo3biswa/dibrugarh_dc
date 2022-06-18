@@ -20,12 +20,22 @@ class TrainingController extends Controller
         // return view("admin\add-course");
         $route='admin.add_training';
         $btn_name="Add Training";
-        $thead=['Sl','Training Name','Training Code','Course Name','Scheme Name','Department Name','Start Date','End Date','Action'];
         $list_item=training::all();
         $title="TRAINING";
         $subtitle="List Of All Training";
+        $tbody=[];
+        $thead=['Sl','Training Name','Training Code','Course Name','Scheme Name','Department Name','Start Date','End Date','Action'];
+        foreach($list_item as $key=>$list){
+              $value=[
+                ++$key, $list->training_name, $list->training_id,$list->course->course_name,$list->scheme->scheme_name,$list->department->department_name,$list->start_date,$list->end_date,$list->id
+              ];
+              array_push($tbody,$value);
+        }
+        $editroute  ='admin.department.edit';
+        $deleteroute='admin.department.delete';
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute'));
         // dd($list_item);
-        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
+        // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
     public function Add()

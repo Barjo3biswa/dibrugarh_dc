@@ -28,7 +28,7 @@
             @include('layouts.page_templates.guest')
         @endguest
         @if (auth()->check())
-        <div class="fixed-plugin">
+        {{-- <div class="fixed-plugin">
           <div class="dropdown show-dropdown">
             <a href="#" data-toggle="dropdown">
               <i class="fa fa-cog fa-2x"> </i>
@@ -100,7 +100,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </div> --}}
         @endif
         <!--   Core JS Files   -->
         <script src="{{ asset('material') }}/js/core/jquery.min.js"></script>

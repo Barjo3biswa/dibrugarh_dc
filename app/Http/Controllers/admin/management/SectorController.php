@@ -22,7 +22,17 @@ class SectorController extends Controller
         $subtitle="List Of All Sectors";
         $thead=['Sl','Sector Name','Sector Code','Action'];
         $list_item=Sector::all();
-        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
+        $tbody=[];
+        foreach($list_item as $key=>$list){
+            $value=[
+              ++$key, $list->sector_name, $list->sector_id,$list->id
+            ];
+            array_push($tbody,$value);
+        }
+        $editroute  ='admin.sector.edit';
+        $deleteroute='admin.sector.delete';
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute'));
+        // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
     public function Add()

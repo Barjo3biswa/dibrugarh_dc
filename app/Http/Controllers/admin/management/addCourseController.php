@@ -16,9 +16,19 @@ class addCourseController extends Controller
         $btn_name="Add Course";
         $title="COURSE";
         $subtitle="List Of All Course";
-        $thead=['Sl','Course Name','Course Code','Action'];
         $list_item=course::all();
-        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
+        $thead=['Sl','Course Name','Course Code','Action'];
+        $tbody=[];
+        foreach($list_item as $key=>$list){
+              $value=[
+                ++$key, $list->course_name, $list->course_id,$list->id
+              ];
+              array_push($tbody,$value);
+        }
+        $editroute  ='admin.course.edit';
+        $deleteroute='admin.course.delete';
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute'));
+        // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
     public function Add()

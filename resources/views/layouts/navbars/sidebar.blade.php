@@ -62,6 +62,12 @@
                 </ul>
                 </div>
             </li>
+            <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.department_user.users') }}">
+                <i class="material-icons">assignment_ind</i>
+                    <p>{{ __('Add Depertmtnt User') }}</p>
+                </a>
+            </li>
             {{-- <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
                 <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
                 <i><img style="width:25px" src="{{ asset('material') }}/img/laravel.svg"></i>

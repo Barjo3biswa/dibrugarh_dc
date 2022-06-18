@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8">
-                <form method="post" action="{{ route('admin.sector.save') }}" autocomplete="off" class="form-horizontal">
+                <form method="post" action="{{route('admin.sector.save')}}" autocomplete="off" class="form-horizontal">
                     @csrf
 
                 <div class="card ">
