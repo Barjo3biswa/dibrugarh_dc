@@ -1850,7 +1850,7 @@ pre code {
   #header-carousel .btn {bottom: 114px!important;right: 14px!important;}
   .search-box{padding:.5rem!important}
   .course {max-width: 100%!important;}
-  .why-district{padding-left:1.4rem}
+  .why-district{padding-left:0}
   .course-preview {padding: 70px 6px!important;}
   .bcpl p {color: #fff;padding: .3rem 0;font-size: .8rem!important;letter-spacing:0!important;}
   .container1{padding: 0 1rem 0 1rem!important;}
@@ -1862,6 +1862,7 @@ pre code {
   .notice-board-heading h5 {margin-top:1rem!important}
   .designed-by {text-align:center!important}
   .privacy-foter{text-align:center!important}
+  .our-partners{padding-left: 1rem;}
 }
 
 @media (max-width: 767.98px) {
@@ -1883,7 +1884,7 @@ pre code {
   .carousel-inner img{height: 262px !important;}
   #header-carousel .btn {bottom: 114px!important;right: 14px!important;}
   .course {max-width: 100%!important;}
-  .why-district{padding-left:1.4rem}
+  .why-district{padding-left:0}
   .course-preview {padding: 70px 6px!important;}
   .get-in-touch{margin-bottom:0!important}
   .footer-all-govt-logo {width: 318px!important;}
@@ -1893,6 +1894,7 @@ pre code {
   .notice-board-heading h5 {margin-top:1rem!important}
   .designed-by {text-align:center!important}
   .privacy-footer{text-align:center!important}
+  .our-partners{padding-left: 1rem;}
 }
 
 @media (max-width: 991.98px) {

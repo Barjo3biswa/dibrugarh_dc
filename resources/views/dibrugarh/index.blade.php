@@ -540,7 +540,7 @@
 </div> -->
 
 <section class="trigger section gutter-horizontal bg-gray gutter-vertical--m gutter-horizontal">
-    <h4 style="color:#162f65; margin-bottom: 3rem;">Our Partners</h4>
+    <h4 style="color:#162f65; margin-bottom: 3rem;" class="our-partners">Our Partners</h4>
     <div class="customer-logos slider">
     <div class="slide-in-right slide"><img
         src="{{ asset('dibrugarh') }}/img/asdm-logo.png" height="150" width="150"></a></div>

@@ -14,10 +14,10 @@
         <a href="#skipToMainContent"><span>Skip to main content</span></a>
       </div>
       <div class="col-lg-3 text-center text-lg-right screen-reader" style="max-width:23%;">
-        <a href="{{route('screenreader')}}"><span>Screen Reader Access</a></span> 
-          <span onClick="fontIncrease()">A+</span> |
-          <span onClick="changeSizeByBtnTest(15)"> A</span> | 
-          <span onClick="changeSizeByBtn(10)">A-</span> 
+        <a href="{{route('screenreader')}}"><span>Screen Reader Access</a></span>
+          <span onClick="fontIncrease()" style="border-right: thin solid aliceblue;">A+</span>
+          <span onClick="changeSizeByBtnTest(15)" style="border-right: thin solid aliceblue;"> A</span>
+          <span onClick="changeSizeByBtn(10)" style="border-right: thin solid aliceblue;">A-</span>
       </div>
       <div class="col-lg-2 text-center text-lg-right">
         <div class="d-inline-flex align-items-center" style="padding: .5rem 0;">
@@ -68,8 +68,8 @@
       function changeSizeByBtnTest(size) {
         $("#bodyFont").css({'font-size':size});
       };
-      
-      
+
+
 
       function changeSizeByBtn(size) {
         size22--;
@@ -77,4 +77,4 @@
       };
 </script>
 
-  
+
