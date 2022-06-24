@@ -33,6 +33,8 @@ Route::get('screenreader', function () {
     return view('dibrugarh.screen-reader-access');
 })->name('screenreader');
 
+Route::get('notice_board', 'guest\CourseController@NoticeBoard')->name('notice_board');
+
 Route::get('/course_dtl', 'guest\CourseController@index')->name('course_dtl');
 Route::post('/view_course_details', 'guest\CourseController@ViewCourseDetails')->name('view_course_details');
 Route::get('/apply_reqistration', 'guest\CourseController@ApplyOrReqister')->name('apply_reqistration');
@@ -157,7 +159,37 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/save', 'admin\management\DepartmentController@RegisterSave')->name('save');
             Route::post('/delete', 'admin\management\DepartmentController@DepartmentUserDelete')->name('delete');
             Route::post('/edit', 'admin\management\DepartmentController@DepartmentUserEdit')->name('edit');
+        });
 
+        Route::group(['prefix' => 'user_roles',"as"  => "user_roles."], function () {
+            Route::get('/show_roles', 'admin\role_permission\roleController@Index')->name('show_roles');
+            Route::get('/add_roles', 'admin\role_permission\roleController@Add')->name('add_roles');
+            Route::post('/save', 'admin\role_permission\roleController@Save')->name('save');
+            Route::post('/delete', 'admin\role_permission\roleController@Delete')->name('delete');
+            Route::post('/edit', 'admin\role_permission\roleController@Edit')->name('edit');
+            Route::post('/update', 'admin\role_permission\roleController@Update')->name('update');
+        });
+
+        Route::group(['prefix' => 'user_permission',"as"  => "user_permission."], function () {
+            Route::get('/show_permission', 'admin\role_permission\permissionController@Index')->name('show_permission');
+            Route::get('/add_permission', 'admin\role_permission\permissionController@Add')->name('add_permission');
+            Route::post('/save', 'admin\role_permission\permissionController@Save')->name('save');
+            Route::post('/delete', 'admin\role_permission\permissionController@Delete')->name('delete');
+            Route::post('/edit', 'admin\role_permission\permissionController@Edit')->name('edit');
+        });
+
+        Route::group(['prefix' => 'department_user',"as"  => "department_user."], function () {
+            Route::post('/view_applications', 'admin\management\DepartmentController@ShowApplication')->name('view_applications');
+            Route::post('/download_attachments', 'admin\management\DepartmentController@downloadAtt')->name('download_attachments');
+            Route::post('/view_application', 'admin\management\DepartmentController@ViewApplication')->name('view_application');
+        });
+
+        Route::group(['prefix' => 'notification',"as"  => "notification."], function () {
+            Route::get('/view_notifications', 'admin\management\NotificationController@Index')->name('view_notifications');
+            Route::get('/add_notification', 'admin\management\NotificationController@Add')->name('add_notifi');
+            Route::post('/save', 'admin\management\NotificationController@Save')->name('save');
+            Route::post('/delete', 'admin\management\NotificationController@Delete')->name('delete');
+            Route::post('/edit', 'admin\management\NotificationController@Edit')->name('edit');
         });
 
     });

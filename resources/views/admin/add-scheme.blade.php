@@ -28,16 +28,21 @@
                         <div class="row">
                             <label class="col-sm-2 col-form-label">Scheme Name</label>
                             <div class="col-sm-7">
-                                <input type="text" name="scheme_name" class="form-control" placeholder="Enter Scheme Name">
+                                <input type="text" name="scheme_name" class="form-control" placeholder="Enter Scheme Name" value="{{old('scheme_name')}}">
                             </div>
                         </div>
 
                         <div class="row">
                             <label class="col-sm-2 col-form-label">Scheme Code</label>
                             <div class="col-sm-7">
-                                <input type="text" name="scheme_code" class="form-control" placeholder="Enter Scheme Code">
+                                <input type="text" name="scheme_code" class="form-control" placeholder="Enter Scheme Code" value="{{old('scheme_code')}}">
                             </div>
                         </div>
+                        @if ($errors->has('scheme_code'))
+                        <div id="name-error" class="error text-danger pl-3" for="scheme_code" style="display: block;">
+                            <strong>{{ $errors->first('scheme_code') }}</strong>
+                        </div>
+                        @endif
 
                     </div>
                     <div class="card-footer ml-auto mr-auto">

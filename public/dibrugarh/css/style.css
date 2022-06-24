@@ -11141,7 +11141,8 @@ select {
   grid-area: event;
   background-color: #f6f6f6;
   box-sizing: border-box;
-  height: 220px;
+  /* height: 220px; */
+  min-height: 240px;
   box-shadow: 0px 14px 12px -13px rgba(0,0,0,0.74);
 }
 
@@ -11149,7 +11150,8 @@ select {
   margin: 0;
   padding: 16px;
   list-style: none;
-  height: 200px;
+  /* height: 200px; */
+  height: 238px;
 }
 
 .course-event .events ul li {
@@ -11163,8 +11165,8 @@ select {
   grid-template-areas:
     "time time"
     "detail detail";
-  /* height:170px; */
-  height: 190px;
+  /* height: 190px; */
+  height: 210px;
 }
 
 @media (min-width: 768px) {
@@ -11222,12 +11224,12 @@ select {
 }
 
 .course-event .events ul li .details p {
-  margin: 8px 0 0;
+  margin: 4px 0 0;
   padding: 0;
   font-size: 16px;
 }
 
-.course-event .events ul li .details a {
+.course-event .events ul li .details .details-apply {
   /* display: inline-block; */
   text-decoration: none;
   padding: 4px 15px;
@@ -11235,7 +11237,7 @@ select {
   /* margin-top: 6px; */
   font-size: 12px;
   transition: 0.5s;
-  margin: 17px auto;
+  margin: 26px auto;
   float:right;
 }
 
@@ -11421,4 +11423,14 @@ background: #162f65 !important;}
 }
 .footer-all-govt-logo div {width: 80px;height: 72px;margin-top: .5rem;}
 .footer-all-govt-logo div img {width: 100%;height: 100%;}
+
+.new-tag {
+    font-size: 8px;
+    padding: 0 7px;
+    background: #e82e47;
+    border-radius: 5px;
+    position: absolute;
+    color: #fff;
+    float: left;
+}
 /* NEW CODE END */

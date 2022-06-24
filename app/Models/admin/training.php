@@ -22,6 +22,7 @@ class training extends Model
         'place'           ,
         'contact_details' ,
         'attachments'     ,
+        'training_pdf'    ,
         'registration_starts',
         'registration_ends',
         'active_status',

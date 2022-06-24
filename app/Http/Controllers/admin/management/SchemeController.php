@@ -37,6 +37,9 @@ class SchemeController extends Controller
 
     public function Save(Request $request){
         $id  = auth()->user()->id;
+        $validated = $request->validate([
+            'scheme_code'      => 'required|max:20|unique:schemes,scheme_id',
+        ]);
         $data=[
             'scheme_name' => $request->scheme_name,
             'scheme_id'   => $request->scheme_code,

@@ -41,7 +41,7 @@
                             @endfor
                             <form action="{{route($editroute,['id'=>$tbody[$i][count($tbody[$i])-1]])}}" method="post">
                                 @csrf
-                                <th><button type="submit" rel="tooltip" title="Edit Deoartment Details" class="btn btn-primary btn-link btn-sm">
+                                <th><button type="submit" rel="tooltip" title="Edit Details" class="btn btn-primary btn-link btn-sm">
                                     <i class="material-icons">edit</i>
                                 </button></th>
                             </form>
@@ -51,6 +51,14 @@
                                     <i class="material-icons">close</i>
                                 </button></th>
                             </form>
+                            @if(isset($viewable))
+                            <form action="{{route('admin.department_user.view_applications',['id'=>$tbody[$i][count($tbody[$i])-1]])}}" method="post">
+                                @csrf
+                                <th><button type="submit" rel="tooltip" title="View" class="btn btn-primary btn-link btn-sm">
+                                    View Applicants
+                                </button></th>
+                            </form>
+                            @endif
                         </tr>
                     @endfor
                 </tbody>

@@ -126,41 +126,25 @@
         <div class="col-lg-4 notice-board-heading">
         <h5>Notice</h5>
             <div class="notice-div" height="310px">
-            <marquee behavior="scroll" direction="up" scrollamount="1" height="300px">
-            <div class="notice-content">
-                <img src="{{ asset('dibrugarh') }}/icons/icons8-chevron-right-24 (2).png" alt="">
-                <div>
-                <a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-                </div>
-            </div>
-            <hr>
-            <div class="notice-content">
-                <img src="{{ asset('dibrugarh') }}/icons/icons8-chevron-right-24 (2).png" alt="">
-                <div>
-                <a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-                </div>
-            </div>
-            <hr>
-            <div class="notice-content">
-                <img src="{{ asset('dibrugarh') }}/icons/icons8-chevron-right-24 (2).png" alt="">
-                <div>
-                <a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-                </div>
-            </div>
-            <hr>
-            <div class="notice-content">
-                <img src="{{ asset('dibrugarh') }}/icons/icons8-chevron-right-24 (2).png" alt="">
-                <div>
-                <a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-                </div>
-            </div>
-            <hr>
-            <div class="notice-content">
-                <img src="{{ asset('dibrugarh') }}/icons/icons8-chevron-right-24 (2).png" alt="">
-                <div>
-                <a href="">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-                </div>
-            </div>
+            <marquee behavior="scroll" direction="up" scrollamount="3" height="300px" onmouseover="this.stop();" onmouseout="this.start();">
+                @foreach ($notice as $not)
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <h5 style="font-size: 10px;float:right;">{{date('d-m-Y',strtotime($not->notice_date))}}</h5>
+                        </div>
+                    </div>
+                    <div class="notice-content">
+                        <img src="{{ asset('dibrugarh') }}/icons/icons8-chevron-right-24 (2).png" alt="">
+                        <div>
+                        <a href="{{route('notice_board',['id'=>$not->id])}}"><span style="font-weight: bold;">{{$not->noticationtype->type}}:</span> {{$not->title}}
+                            @if($not->new_status==1)
+                                <span class="new-tag">New</span>
+                            @endif
+                        </a>
+                        </div>
+                    </div>
+                    <hr>
+                @endforeach
             </marquee>
             <div class="notice-more-btn"><a href="#">More</a></div>
             </div>

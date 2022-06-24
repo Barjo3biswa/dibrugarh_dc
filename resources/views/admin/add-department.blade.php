@@ -36,9 +36,14 @@
                         <div class="row">
                             <label class="col-sm-2 col-form-label">Department Code</label>
                             <div class="col-sm-7">
-                                <input type="text" name="department_code" class="form-control" placeholder="Enter Department Code">
+                                <input type="text" name="department_id" class="form-control" placeholder="Enter Department Code">
                             </div>
                         </div>
+                        @if ($errors->has('department_id'))
+                        <div id="name-error" class="error text-danger pl-3" for="department_id" style="display: block;">
+                            <strong>{{ $errors->first('department_id') }}</strong>
+                        </div>
+                        @endif
 
                     </div>
                     <div class="card-footer ml-auto mr-auto">

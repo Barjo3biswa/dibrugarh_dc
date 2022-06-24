@@ -17,10 +17,15 @@ class TrainingController extends Controller
 
     public function index()
     {
-        // return view("admin\add-course");
+        $role = auth()->user()->user_role;
+        if($role=='role-1'){
+            $list_item=training::all();
+        }else{
+            $list_item=training::where('department_code',auth()->user()->user_dept_id)->get();
+        }
         $route='admin.add_training';
         $btn_name="Add Training";
-        $list_item=training::all();
+
         $title="TRAINING";
         $subtitle="List Of All Training";
         $tbody=[];
@@ -33,33 +38,50 @@ class TrainingController extends Controller
         }
         $editroute  ='admin.department.edit';
         $deleteroute='admin.department.delete';
-        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute'));
+        $viewable='true';
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','viewable'));
         // dd($list_item);
         // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
     public function Add()
     {
+        $training_id = training::max('id');
+        if($training_id==null){
+            $training_id=0;
+        }
+        $training_id = date('Ym').++$training_id;
         $scheme      = scheme::get();
         $department  = Department::get();
         $course      = course::get();
         $sector      = sector::get();
-        return view("admin.add-training",compact('scheme','department','course','sector'));
+        return view("admin.add-training",compact('scheme','department','course','sector','training_id'));
     }
     public function Save(Request $request){
         // dd($request->all());
-        // if ($request->hasFile('training_attachments')) {
-
+        if ($request->hasFile('training_attachments')) {
             $path7="";
             $path = public_path() . '/images/training_attachments/';
             $file=$request->file('training_attachments');
-            $imageName = date('dmyhis') . 'training_attachments.' . $file->getClientOriginalExtension();
+            $imageName = $request->training_code.date('dmyhis').'training_attachments.' . $file->getClientOriginalExtension();
             $file->move($path, $imageName);
             $path7 = url('/') . '/images/training_attachments/' . $imageName;
-        // }
+        }
+
+        if ($request->hasFile('training_pdf')) {
+            $path8="";
+            $path = public_path() . '/images/training_pdf/';
+            $file=$request->file('training_pdf');
+            $imageName = $request->training_code.date('dmyhis') .'training_pdf.'.$file->getClientOriginalExtension();
+            $file->move($path, $imageName);
+            $path8 = url('/') . '/images/training_pdf/' . $imageName;
+        }
         // dd($path7);
 
         $id  = auth()->user()->id;
+        $validated = $request->validate([
+            'training_code'      => 'required|max:20|unique:trainings,training_id',
+        ]);
         $data=[
             'training_name'   => $request->training_name,
             'training_id'     => $request->training_code,
@@ -73,6 +95,7 @@ class TrainingController extends Controller
             'place'           => $request->place,
             'contact_details' => $request->contact_details,
             'attachments'     => $path7,
+            'training_pdf'    => $path8,
             'registration_starts'  => $request->reg_start_date,
             'registration_ends'    => $request->reg_End_date,
             'active_status'   =>$request->publish_now,

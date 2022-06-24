@@ -1,16 +1,17 @@
-@extends('layouts.app', ['activePage' => 'Add_course', 'titlePage' => __('Add_course')])
+@extends('layouts.app', ['activePage' => 'Add_course', 'titlePage' => __('Add_Permission')])
 
 @section('content')
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8">
-                <form method="post" action="{{ route('admin.course.save') }}" autocomplete="off" class="form-horizontal">
+                <form method="post" action="{{ route('admin.user_permission.save') }}" autocomplete="off" class="form-horizontal">
                     @csrf
+
                 <div class="card ">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title">Add Course</h4>
-                        <p class="card-category">Enter Course information</p>
+                        <h4 class="card-title">Add Permission</h4>
+                        <p class="card-category">Enter Permission information</p>
                     </div><br/>
                     <div class="card-body ">
                         @if (session('status'))
@@ -26,21 +27,21 @@
                         </div>
                         @endif
                         <div class="row">
-                            <label class="col-sm-2 col-form-label">Course Name</label>
+                            <label class="col-sm-2 col-form-label">Permission Name</label>
                             <div class="col-sm-7">
-                                <input type="text" name="course_name" class="form-control" placeholder="Enter Course Name">
+                                <input type="text" name="Permission_name" class="form-control" placeholder="Enter Permission Name" value="{{old('Permission_name')}}">
                             </div>
                         </div>
 
                         <div class="row">
-                            <label class="col-sm-2 col-form-label">Course Code</label>
+                            <label class="col-sm-2 col-form-label">Permission Code</label>
                             <div class="col-sm-7">
-                                <input type="text" name="course_code" class="form-control" placeholder="Enter Course Code">
+                                <input readonly name="Permission_code" class="form-control" placeholder="Enter Permission Code" value="{{$per_id}}">
                             </div>
                         </div>
-                        @if ($errors->has('course_code'))
-                        <div id="name-error" class="error text-danger pl-3" for="course_code" style="display: block;">
-                            <strong>{{ $errors->first('course_code') }}</strong>
+                        @if ($errors->has('Permission_code'))
+                        <div id="name-error" class="error text-danger pl-3" for="Permission_code" style="display: block;">
+                            <strong>{{ $errors->first('Permission_code') }}</strong>
                         </div>
                         @endif
 

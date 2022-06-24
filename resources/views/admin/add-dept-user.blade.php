@@ -9,8 +9,8 @@
                     @csrf
                     <div class="card ">
                         <div class="card-header card-header-primary">
-                            <h4 class="card-title">Add Department User</h4>
-                            <p class="card-category">Enter Department User information</p>
+                            <h4 class="card-title">Add User</h4>
+                            <p class="card-category">Enter User information</p>
                         </div><br/>
                         <div class="card-body ">
                             @if (session('status'))
@@ -32,6 +32,18 @@
                                         <option value="">Select</option>
                                         @foreach ($department as $dept)
                                             <option value="{{$dept->department_id}}" {{old('department')==$dept->department_id ? 'selected' : '' }}>{{$dept->department_name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label class="col-sm-2 col-form-label">Select Role</label>
+                                <div class="col-sm-7">
+                                    <select name="role" id="role" class="form-control">
+                                        <option value="">Select</option>
+                                        @foreach ($role as $le)
+                                            <option value="{{$le->role_id}}" {{old('department')==$le->role_id ? 'selected' : '' }}>{{$le->role_title}}</option>
                                         @endforeach
                                     </select>
                                 </div>

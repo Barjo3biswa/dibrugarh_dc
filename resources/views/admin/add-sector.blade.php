@@ -29,16 +29,21 @@
                         <div class="row">
                             <label class="col-sm-2 col-form-label">Sector Name</label>
                             <div class="col-sm-7">
-                                <input type="text" name="sector_name" class="form-control" placeholder="Enter sector Name">
+                                <input type="text" name="sector_name" class="form-control" placeholder="Enter sector Name" value="{{old('sector_name')}}">
                             </div>
                         </div>
 
                         <div class="row">
-                            <label class="col-sm-2 col-form-label">Sector Code</label>
+                            <label class="col-sm-2 col-form-label">Sector Id</label>
                             <div class="col-sm-7">
-                                <input type="text" name="sector_code" class="form-control" placeholder="Enter sector Code">
+                                <input type="text" name="sector_id" class="form-control" placeholder="Enter sector Code" value="{{old('sector_id')}}">
                             </div>
                         </div>
+                        @if ($errors->has('sector_id'))
+                        <div id="name-error" class="error text-danger pl-3" for="sector_id" style="display: block;">
+                            <strong>{{ $errors->first('sector_id') }}</strong>
+                        </div>
+                        @endif
 
                     </div>
                     <div class="card-footer ml-auto mr-auto">

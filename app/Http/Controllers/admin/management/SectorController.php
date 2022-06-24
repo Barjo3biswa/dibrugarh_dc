@@ -42,10 +42,12 @@ class SectorController extends Controller
 
     public function Save(Request $request){
         $id  = auth()->user()->id;
-
+        $validated = $request->validate([
+            'sector_id'      => 'required|max:20|unique:sectors,sector_id',
+        ]);
         $data=[
             'sector_name' => $request->sector_name,
-            'sector_id'   => $request->sector_code,
+            'sector_id'   => $request->sector_id,
             'created_by'      => $id
         ];
         // dd($data);

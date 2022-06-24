@@ -2,10 +2,22 @@
 @section('content')
     <section class="registration-form-section">
         <div class="registration-form">
-            <form action="{{route('training_register')}}" method="post">
+            <form action="{{route('training_register')}}" method="post" enctype="multipart/form-data" autocomplete="off">
                 @csrf
                 <div class="container">
                     <div class="form-div">
+                        @if (session('error'))
+                        <div class="row">
+                            <div class="col-sm-12">
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <i class="material-icons">close</i>
+                                </button>
+                                <span>{{ session('error') }}</span>
+                            </div>
+                            </div>
+                        </div>
+                        @endif
                         <div class="form-heading">
                             <h1>Registration</h1>
                             <p>Please fill in this form for Course Regitration</p>
@@ -14,7 +26,8 @@
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <label for="name"><b>Training Name</b></label>
-                                <input value="{{$coursedtl->training_name}}" readonly class="form-control" placeholder="Enter Your Name" name="Training_id" id="name" required >
+                                <input value="{{$coursedtl->training_name}}" readonly class="form-control" placeholder="Enter Your Name"  id="name" required >
+                                <input value="{{$coursedtl->training_id}}" hidden name="Training_id" required >
                             </div>
                         </div>
 
@@ -148,22 +161,22 @@
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="voter_card"><b>Upload Your Voter Card</b></label>
-                                <input value="{{old('voter_card') ?? ""}}" type="file" class="form-control" name="voter_card">
+                                <input value="{{old('voter_card') ?? ""}}" type="file" accept=".pdf" class="form-control" name="voter_card">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="mobile"><b>Upload Your Aadhar Card</b></label>
-                                <input value="{{old('aadhar_card') ?? ""}}" type="file" class="form-control" name="aadhar_card">
+                                <input value="{{old('aadhar_card') ?? ""}}" type="file" accept=".pdf" class="form-control" name="aadhar_card">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="email"><b>Upload Your Pan Card</b></label>
-                                <input value="{{old('pan_card') ?? ""}}" type="file" class="form-control" name="pan_card">
+                                <input value="{{old('pan_card') ?? ""}}" type="file" accept=".pdf" class="form-control" name="pan_card">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="mobile"><b>Upload Your Pan Card</b></label>
-                                <input value="{{old('resume') ?? ""}}" type="file" class="form-control" name="resume">
+                                <input value="{{old('resume') ?? ""}}" type="file" accept=".pdf" class="form-control" name="resume">
                             </div>
                         </div>
 

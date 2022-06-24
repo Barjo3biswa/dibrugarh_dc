@@ -19,32 +19,52 @@
                     <p>{{ __('Dashboard') }}</p>
                 </a>
             </li> --}}
+            @if(auth()->user()->user_role=='role-1')
+                <li class="nav-item {{ ($activePage == 'admin_management' || $activePage == 'user-management') ? ' active' : '' }}">
+                    <a class="nav-link collapse one" data-toggle="collapse" href="#laravelExample" aria-expanded="false">
+                    <i class="material-icons"><span class="material-symbols-outlined">
+                        person
+                        </span></i>
+                    <p>User Management
+                        <b class="caret"></b>
+                    </p>
+                    </a>
+                    <div class="collapse one" id="laravelExample">
+                    <ul class="nav">
+                        <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
+                            <a class="nav-link" href="{{route('admin.user_permission.show_permission') }}">
+                            <i class="material-icons">assignment_ind</i>
+                                <p>Permission</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav">
+                        <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
+                            <a class="nav-link" href="{{route('admin.user_roles.show_roles') }}">
+                            <i class="material-icons">assignment_ind</i>
+                                <p>Role</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav">
+                        <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
+                            <a class="nav-link" href="{{route('admin.department_user.users') }}">
+                            <i class="material-icons">assignment_ind</i>
+                                <p>User</p>
+                            </a>
+                        </li>
+                    </ul>
+                    </div>
+                </li>
+            @endif
             <li class="nav-item {{ ($activePage == 'admin_management' || $activePage == 'user-management') ? ' active' : '' }}">
-                <a class="nav-link collapse" data-toggle="collapse" href="#laravelExample" aria-expanded="false">
+                <a class="nav-link collapse" data-toggle="collapse" href="#laravelExample2" aria-expanded="false">
                 <i class="material-icons">dashboard</i>
-                <p>Role Mapping
+                <p>Training Management
                     <b class="caret"></b>
                 </p>
                 </a>
-                <div class="collapse" id="laravelExample">
-                <ul class="nav">
-                    <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
-                        <a class="nav-link" href="{{ route('admin.department_user.users') }}">
-                        <i class="material-icons">assignment_ind</i>
-                            <p>Add User</p>
-                        </a>
-                    </li>
-                </ul>
-                </div>
-            </li>
-            <li class="nav-item {{ ($activePage == 'admin_management' || $activePage == 'user-management') ? ' active' : '' }}">
-                <a class="nav-link collapse" data-toggle="collapse" href="#laravelExample" aria-expanded="false">
-                <i class="material-icons">dashboard</i>
-                <p>Admin Management
-                    <b class="caret"></b>
-                </p>
-                </a>
-                <div class="collapse" id="laravelExample">
+                <div class="collapse" id="laravelExample2">
                 <ul class="nav">
                     <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
                         <a class="nav-link" href="{{ route('admin.sector') }}">
@@ -80,6 +100,40 @@
                 </ul>
                 </div>
             </li>
+
+
+            <li class="nav-item {{ ($activePage == 'admin_management' || $activePage == 'user-management') ? ' active' : '' }}">
+                <ul class="nav">
+                    <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
+                        <a class="nav-link" href="{{route('admin.notification.view_notifications') }}">
+                        <i class="material-icons"><span class="material-symbols-outlined">
+                            notifications
+                            </span></i>
+                            <p>Notice Board Control</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            {{-- <li class="nav-item {{ ($activePage == 'admin_management' || $activePage == 'user-management') ? ' active' : '' }}">
+                <a class="nav-link collapse one" data-toggle="collapse" href="#application" aria-expanded="false">
+                <i class="material-icons">dashboard</i>
+                <p>Applicants
+                    <b class="caret"></b>
+                </p>
+                </a>
+                <div class="collapse one" id="application">
+                <ul class="nav">
+                    <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
+                        <a class="nav-link" href="{{route('admin.department_user.view_applications') }}">
+                        <i class="material-icons">dashboard</i>
+                            <p>All Applicants</p>
+                        </a>
+                    </li>
+                </ul>
+                </div>
+            </li> --}}
             {{-- <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.department_user.users') }}">
                 <i class="material-icons">assignment_ind</i>

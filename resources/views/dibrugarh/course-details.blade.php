@@ -7,6 +7,18 @@
           <h3>Trainings</h3>
         </div>
       </div>
+        @if (session('status'))
+            <div class="row">
+                <div class="col-sm-12">
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="material-icons">close</i>
+                    </button>
+                    <span>{{ session('status') }}</span>
+                </div>
+                </div>
+            </div>
+        @endif
       <div class="course-details-btn">
         {{-- <form action={{route('search_courses')}} method="post">
             @csrf --}}

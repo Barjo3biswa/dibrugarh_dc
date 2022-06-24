@@ -39,6 +39,9 @@ class addCourseController extends Controller
     public function Save(Request $request)
     {
         $id  = auth()->user()->id;
+        $validated = $request->validate([
+            'course_code'      => 'required|max:20|unique:courses,course_id',
+        ]);
         $data=[
             'course_name' => $request->course_name,
             'course_id'   => $request->course_code,
