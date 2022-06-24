@@ -197,7 +197,8 @@ class CourseController extends Controller
     public function NoticeBoard(Request $request)
     {
         $notice=Notification::with('noticationtype')->where(['id'=>$request->id,'status'=>1])->first();
-        return view('dibrugarh.view-notification',compact('notice'));
+        $noticepartii = Notification::with('noticationtype')->where('status',1)->where('id','!=',$request->id)->orderby('created_at','desc')->get();
+        return view('dibrugarh.view-notification',compact('notice','noticepartii'));
         // dd($notice);
     }
 }

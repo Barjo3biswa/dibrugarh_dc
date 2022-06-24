@@ -136,9 +136,9 @@
                     <div class="notice-content">
                         <img src="{{ asset('dibrugarh') }}/icons/icons8-chevron-right-24 (2).png" alt="">
                         <div>
-                        <a href="{{route('notice_board',['id'=>$not->id])}}"><span style="font-weight: bold;">{{$not->noticationtype->type}}:</span> {{$not->title}}
+                        <a href="{{route('notice_board',['id'=>$not->id])}}"><span style="font-weight:bold;color:#e8af30">{{$not->noticationtype->type}}:</span> {{$not->title}}
                             @if($not->new_status==1)
-                                <span class="new-tag">New</span>
+                                &nbsp;<span class="new-tag">New</span>
                             @endif
                         </a>
                         </div>
