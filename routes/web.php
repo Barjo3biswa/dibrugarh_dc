@@ -40,7 +40,7 @@ Route::post('/view_course_details', 'guest\CourseController@ViewCourseDetails')-
 Route::get('/apply_reqistration', 'guest\CourseController@ApplyOrReqister')->name('apply_reqistration');
 Route::post('/training_register', 'guest\CourseController@Reqister')->name('training_register');
 Route::post('/search_courses', 'guest\CourseController@SearchCourses')->name('search_courses');
-
+Route::get('/employee_corner', 'guest\CourseController@SearchJobs')->name('employee_corner');
 
 
 
@@ -145,6 +145,8 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/save', 'admin\management\TrainingController@Save')->name('save');
             Route::post('/delete', 'admin\management\TrainingController@Delete')->name('delete');
             Route::post('/edit', 'admin\management\TrainingController@Edit')->name('edit');
+            Route::post('/update', 'admin\management\TrainingController@Update')->name('update');
+            Route::get('/active_training', 'admin\management\TrainingController@Activate')->name('active_training');
         });
 
         Route::group(['prefix' => 'scheme',"as"  => "scheme."], function () {
@@ -190,6 +192,17 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/save', 'admin\management\NotificationController@Save')->name('save');
             Route::post('/delete', 'admin\management\NotificationController@Delete')->name('delete');
             Route::post('/edit', 'admin\management\NotificationController@Edit')->name('edit');
+            Route::get('/active_notification', 'admin\management\NotificationController@ActivateNotifi')->name('active_notification');
+            Route::post('/update', 'admin\management\NotificationController@Update')->name('update');
+        });
+
+        Route::group(['prefix' => 'employee',"as"  => "employee."], function () {
+            Route::get('/view_jobs', 'admin\management\EmployeeController@Index')->name('view_jobs');
+            Route::get('/add_jobs', 'admin\management\EmployeeController@Add')->name('add_jobs');
+            Route::post('/save', 'admin\management\EmployeeController@Save')->name('save');
+            Route::post('/delete', 'admin\management\EmployeeController@Delete')->name('delete');
+            Route::post('/edit', 'admin\management\EmployeeController@Edit')->name('edit');
+            Route::post('/update', 'admin\management\EmployeeController@Update')->name('update');
         });
 
     });

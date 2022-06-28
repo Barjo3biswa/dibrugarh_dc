@@ -100,8 +100,6 @@
                 </ul>
                 </div>
             </li>
-
-
             <li class="nav-item {{ ($activePage == 'admin_management' || $activePage == 'user-management') ? ' active' : '' }}">
                 <ul class="nav">
                     <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
@@ -110,6 +108,18 @@
                             notifications
                             </span></i>
                             <p>Notice Board Control</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item {{ ($activePage == 'admin_management' || $activePage == 'user-management') ? ' active' : '' }}">
+                <ul class="nav">
+                    <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
+                        <a class="nav-link" href="{{route('admin.employee.view_jobs') }}">
+                        <i class="material-icons"><span class="material-symbols-outlined">
+                            work
+                            </span></i>
+                            <p>Employers Corner</p>
                         </a>
                     </li>
                 </ul>

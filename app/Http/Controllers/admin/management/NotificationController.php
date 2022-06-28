@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin\management;
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Notification;
 use App\Models\admin\Notificationtype;
@@ -11,7 +12,12 @@ class NotificationController extends Controller
 {
     public function Index()
     {
-        // return view("admin\add-course");
+        // for permissions part here it is
+        $id  = auth()->user()->id;
+        $add   =Helper::CheckPermission($id,'Add Notification');
+        $edit  =Helper::CheckPermission($id,'Edit Notification');
+        $delete=Helper::CheckPermission($id,'Delete Notification');
+        // permission ends
         $route='admin.notification.add_notifi';
         $btn_name="Add Notification";
         $title="Notification";
@@ -38,13 +44,14 @@ class NotificationController extends Controller
                 $status ="No Active";
             }
               $value=[
-                ++$key, $list->title, $type,$new,$status,$list->id
+                ++$key, $list->title, $type,$new,$status,$list->id,$list->status,$list->id
               ];
               array_push($tbody,$value);
         }
         $editroute  ='admin.notification.edit';
         $deleteroute='admin.notification.delete';
-        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute'));
+        $checkbox='trueii';
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete','checkbox'));
         // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
@@ -94,6 +101,48 @@ class NotificationController extends Controller
 
     public function Edit(Request $request)
     {
-        dd('wait');
+        // dd($request->all());
+        $type=Notificationtype::get();
+        $notifi_dtl=Notification::where('id',$request->id)->first();
+        // dd($notifi_dtl);
+        return view('admin.edit.edit-notification',compact('notifi_dtl','type'));
+    }
+
+    public function ActivateNotifi(Request $request)
+    {
+        foreach($request->value as $val){
+            Notification::where('id',$val)->update(['status'=>1]);
+        }
+        return response()->json(array('success' =>$request->value));
+    }
+
+    public function Update(Request $request)
+    {
+        // dd($request->all());
+        $forpath=Notification::where('id',$request->test)->first();
+        // dd()
+        $path=$forpath->attachments;
+        if ($request->hasFile('attachments')) {
+            $path="";
+            $path = public_path() . '/images/attachments/';
+            $file=$request->file('attachments');
+            $imageName = $request->training_code.date('dmyhis') .'attachments.'.$file->getClientOriginalExtension();
+            $file->move($path, $imageName);
+            $path = url('/') . '/images/attachments/' . $imageName;
+        }
+        $data=[
+            'title'        => $request->notifi_title,
+            'description'  => $request->descrip,
+            'notice_date'  => $request->date,
+            'type'         => $request->notifi_type,
+            'new_status'   => $request->new,
+            'status'       => $request->publish_now,
+            // 'is_departmtnt'=> $role,
+            // 'created_by'   => $id,
+            'attachments'  => $path ?? ""
+        ];
+
+        Notification::where('id',$request->test)->update($data);
+        return redirect()->route('admin.notification.view_notifications')->with('status', 'successfully Updated Notification');
     }
 }

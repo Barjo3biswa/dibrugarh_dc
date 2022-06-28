@@ -17,7 +17,7 @@
                                 <span>{{ date('d-M-Y',strtotime($notice->date))}} </span>
                             </div>
                             <div class="details">
-                                <p style="color:rgb(31, 71, 124);"><span style="font-weight:bold;"> Description : </span>{{$notice->description}}</p>
+                                <p style="color:rgb(31, 71, 124);"><span style="font-weight:bold;"> Description : </span>{!!$notice->description!!}</p>
                                 @if($notice->attachments != null)
                                     <p style="color:rgb(31, 71, 124);font-weight:bold;"><a href="{{$notice->attachments}}" target="blabk">View PDF &nbsp;<span><img src="{{ asset('dibrugarh') }}/icons/icons8-pdf-50.png" width="30"></span></a></p>
                                 @endif
@@ -48,7 +48,7 @@
                                 <span>{{ date('d-M-Y',strtotime($notice->date))}} </span>
                             </div>
                             <div class="details">
-                                <p style="color:rgb(31, 71, 124);"><span style="font-weight:bold;"> Description : </span>{{$notice->description}}</p>
+                                <p style="color:rgb(31, 71, 124);"><span style="font-weight:bold;"> Description : </span>{!!$notice->description!!}</p>
                                 @if($notice->attachments != null)
                                     <p style="color:rgb(31, 71, 124);font-weight:bold;"><a href="{{$notice->attachments}}" target="blabk">View PDF &nbsp;<span><img src="{{ asset('dibrugarh') }}/icons/icons8-pdf-50.png" width="30"></span></a></p>
                                 @endif

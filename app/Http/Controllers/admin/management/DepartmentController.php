@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin\management;
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\admin\Department;
@@ -27,6 +28,12 @@ class DepartmentController extends Controller
 
     public function index()
     {
+        // for permissions part here it is
+        $id  = auth()->user()->id;
+        $add   =Helper::CheckPermission($id,'Add Department');
+        $edit  =Helper::CheckPermission($id,'Edit Department');
+        $delete=Helper::CheckPermission($id,'Delete Department');
+        // permission ends
         $route='admin.add_department';
         $btn_name="Add Department";
         $title="DEPERTMENT";
@@ -42,7 +49,7 @@ class DepartmentController extends Controller
         }
         $editroute  ='admin.department.edit';
         $deleteroute='admin.department.delete';
-        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute'));
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete'));
         // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
@@ -78,6 +85,12 @@ class DepartmentController extends Controller
 
     public function RegisterForm()
     {
+        // for permissions part here it is hence it is only visible by admin so downt need to provide permission
+        $id  = auth()->user()->id;
+        $add   = 1;
+        $edit  = 1;
+        $delete= 1;
+        // permission ends
         $route='admin.department_user.add_dept_user';
         $btn_name="Add User";
         $title="DEPERTMENT";
@@ -93,7 +106,7 @@ class DepartmentController extends Controller
         }
         $editroute  ='admin.department_user.edit';
         $deleteroute='admin.department_user.delete';
-        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute'));
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete'));
     }
 
     public function ShowRegForm()

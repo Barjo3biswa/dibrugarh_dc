@@ -13,6 +13,12 @@ class roleController extends Controller
 {
     public function Index()
     {
+        // for permissions part here it is hence it is only visible by admin so downt need to provide permission
+        $id  = auth()->user()->id;
+        $add   = 1;
+        $edit  = 1;
+        $delete= 1;
+        // permission ends
         $route='admin.user_roles.add_roles';
         $btn_name="Add Roles";
         $title="Roles";
@@ -33,7 +39,7 @@ class roleController extends Controller
         }
         $editroute  ='admin.user_roles.edit';
         $deleteroute='admin.user_roles.delete';
-        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute'));
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete'));
 
     }
 
@@ -105,6 +111,7 @@ class roleController extends Controller
     {
         DB::beginTransaction();
         try{
+            role_permission::where('role_id',$request->Role_code)->update(['temp_flag'=>0]);
             foreach($request->permission as $per_id){
                 $flag=role_permission::where(['role_id'=>$request->Role_code,'per_id'=>$per_id])->first();
                 if($flag==null){
@@ -113,9 +120,11 @@ class roleController extends Controller
                         'per_id' => $per_id
                     ];
                     role_permission::create($data2);
+                }else{
+                    role_permission::where(['role_id'=>$request->Role_code,'per_id'=>$per_id])->update(['temp_flag'=>1]);
                 }
-
             }
+            role_permission::where('temp_flag',0)->delete();
         } catch (\Exception $e){
             DB::rollback();
             return redirect()->route('admin.user_roles.show_roles')->with('error', 'Something Went Wrong');

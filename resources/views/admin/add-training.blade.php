@@ -29,14 +29,14 @@
                     <div class="row">
                         <label class="col-sm-2 col-form-label">Training Name</label>
                         <div class="col-sm-4">
-                            <input type="text" name="training_name" id="training_name" class="form-control" placeholder="Enter Training Name">
+                            <input type="text" name="training_name" id="training_name" class="form-control" placeholder="Enter Training Name" required>
                         </div>
                     </div>
 
                     <div class="row">
                         <label class="col-sm-2 col-form-label">Training Code</label>
                         <div class="col-sm-4">
-                            <input readonly name="training_code" class="form-control" value="{{$training_id}}">
+                            <input readonly name="training_code" class="form-control" value="{{$training_id}}" required>
                         </div>
                     </div>
                     @if ($errors->has('training_code'))
@@ -48,7 +48,7 @@
                     <div class="row">
                         <label class="col-sm-2 col-form-label">Sector Details</label>
                         <div class="col-sm-4">
-                            <select name="sector_code" class="form-control">
+                            <select name="sector_code" class="form-control" required>
                                 <option value="">--Select--</option>
                                 @foreach ($sector as $se)
                                      <option value="{{$se->sector_id}}">{{$se->sector_name}}</option>
@@ -57,7 +57,7 @@
                         </div>
                         <label class="col-sm-2 col-form-label">Organised By</label>
                         <div class="col-sm-4">
-                            <select name="department_code" class="form-control">
+                            <select name="department_code" class="form-control" required>
                                 <option value="">--Select--</option>
                                 @foreach ($department as $de)
                                      <option value="{{$de->department_id}}">{{$de->department_name}}</option>
@@ -69,7 +69,7 @@
                     <div class="row">
                         <label class="col-sm-2 col-form-label">Under Which Scheme</label>
                         <div class="col-sm-4">
-                            <select name="scheme_code" class="form-control">
+                            <select name="scheme_code" class="form-control" required>
                                 <option value="">--Select--</option>
                                 @foreach ($scheme as $sc)
                                      <option value="{{$sc->scheme_id}}">{{$sc->scheme_name}}</option>
@@ -78,7 +78,7 @@
                         </div>
                         <label class="col-sm-2 col-form-label">Under Which Course</label>
                         <div class="col-sm-4">
-                            <select name="course_code" class="form-control">
+                            <select name="course_code" class="form-control" required>
                                 <option value="">--Select--</option>
                                 @foreach ($course as $de)
                                      <option value="{{$de->course_id}}">{{$de->course_name}}</option>
@@ -90,58 +90,59 @@
                     <div class="row">
                         <label class="col-sm-2 col-form-label">Registration Start Date</label>
                         <div class="col-sm-4">
-                            <input type="date" name="reg_start_date" id="reg_start_date" class="form-control" >
+                            <input type="date" name="reg_start_date" id="reg_start_date" class="form-control" required>
                         </div>
                     {{-- </div>
 
                     <div class="row"> --}}
                         <label class="col-sm-2 col-form-label">Registration End Date</label>
                         <div class="col-sm-4">
-                            <input type="date" name="reg_End_date" id="reg_End_date" class="form-control" >
+                            <input type="date" name="reg_End_date" id="reg_End_date" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="row">
                         <label class="col-sm-2 col-form-label">Training Start Date</label>
                         <div class="col-sm-4">
-                            <input type="date" name="start_date" id="start_date" class="form-control" >
+                            <input type="date" name="start_date" id="start_date" class="form-control" required>
                         </div>
                     {{-- </div>
 
                     <div class="row"> --}}
                         <label class="col-sm-2 col-form-label">Training End Date</label>
                         <div class="col-sm-4">
-                            <input type="date" name="End_date" id="End_date" class="form-control" >
+                            <input type="date" name="End_date" id="End_date" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="row">
                         <label class="col-sm-2 col-form-label">Place</label>
                         <div class="col-sm-4">
-                            <input type="text" name="place" class="form-control" >
+                            <input type="text" name="place" class="form-control" required>
                         </div>
                         <label class="col-sm-2 col-form-label">Contact Details</label>
                         <div class="col-sm-4">
-                            <input type="text" name="contact_details" class="form-control" >
+                            <input type="text" name="contact_details" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="row">
                         <label class="col-sm-2 col-form-label">Enter Document For This Training </label>
                         <div class="col-sm-4">
-                            <input type="file" name="training_pdf" class="form-control" accept=".pdf">
+                            <input type="file" name="training_pdf" class="form-control" accept=".pdf" required>
                         </div>
                         <label class="col-sm-2 col-form-label">Enter Relative Image </label>
                         <div class="col-sm-4">
-                            <input type="file" name="training_attachments" class="form-control" accept="image/jpeg, image/png">
+                            <input type="file" name="training_attachments" class="form-control" accept="image/jpeg, image/png" required>
                         </div>
                     </div>
 
                     <div class="row">
                         <label class="col-sm-2 col-form-label">Enter Training Details </label>
                         <div class="col-sm-7">
-                            <textarea id="w3review" name="training_details" rows="4" cols="50" class="form-control">
-                            </textarea>
+                            {{-- <textarea id="w3review" name="training_details" rows="4" cols="50" class="form-control" required>
+                            </textarea> --}}
+                            <textarea id="editor1" name="training_details"></textarea>
                         </div>
                     </div>
 
@@ -170,6 +171,9 @@
 </div>
 @endsection
 @push('js')
+  <script type="text/javascript">
+    CKEDITOR.replace( 'editor1' );
+  </script>
   <script>
     $(document).ready(function() {
 

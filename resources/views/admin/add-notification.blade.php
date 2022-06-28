@@ -62,8 +62,9 @@
                         <div class="row">
                             <label class="col-sm-3 col-form-label">Description</label>
                             <div class="col-sm-7">
-                                <textarea id="w3review" name="descrip" rows="4" cols="50" class="form-control">
-                                </textarea>
+                                {{-- <textarea id="w3review" name="descrip" rows="4" cols="50" class="form-control">
+                                </textarea> --}}
+                                <textarea id="editor1" name="descrip" name="training_details"></textarea>
                                 {{-- <input type="text" name="descrip" class="form-control" placeholder="Enter Scheme Code" value="{{old('descrip')}}"> --}}
                             </div>
                         </div>
@@ -106,6 +107,9 @@
 </div>
 @endsection
 @push('js')
+<script type="text/javascript">
+    CKEDITOR.replace( 'editor1' );
+  </script>
 <script>
     $(document).ready(function() {
 

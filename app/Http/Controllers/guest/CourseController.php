@@ -4,6 +4,7 @@ namespace App\Http\Controllers\guest;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\course;
+use App\Models\admin\job;
 use App\Models\admin\Notification;
 use App\Models\admin\training;
 use App\Models\applicant;
@@ -177,8 +178,9 @@ class CourseController extends Controller
         $today=date('Y-m-d');
         $upcomingevents=training::where(DB::raw("str_to_date(start_date, '%Y-%m-%d')"), '>', $today)->get();
         $notice = Notification::with('noticationtype')->where('status',1)->orderby('created_at','desc')->get();
+        $jobs   = job::all();
         // dd($notice);
-        return view('dibrugarh.index',compact('sector','course','upcomingevents','notice'));
+        return view('dibrugarh.index',compact('sector','course','upcomingevents','notice','jobs'));
     }
 
     public function SearchCourses(Request $request)
@@ -200,5 +202,17 @@ class CourseController extends Controller
         $noticepartii = Notification::with('noticationtype')->where('status',1)->where('id','!=',$request->id)->orderby('created_at','desc')->get();
         return view('dibrugarh.view-notification',compact('notice','noticepartii'));
         // dd($notice);
+    }
+
+    public function SearchJobs(Request $request)
+    {
+        $job=job::where(['id'=>$request->id,'status'=>1])->first();
+        // dd($job);
+        $jobs_real = job::where('status',1)
+                    ->when($request->id,function($query) use($request){
+                        return $query->where('id','!=',$request->id);
+                        })
+                    ->orderby('created_at','desc')->get();
+        return view('dibrugarh.view-jobs',compact('job','jobs_real'));
     }
 }

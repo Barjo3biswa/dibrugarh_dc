@@ -10,6 +10,12 @@ class permissionController extends Controller
 {
     public function Index()
     {
+        // for permissions part here it is hence it is only visible by admin so downt need to provide permission
+        $id  = auth()->user()->id;
+        $add   = 1;
+        $edit  = 1;
+        $delete= 1;
+        // permission ends
         $route='admin.user_permission.add_permission';
         $btn_name="Add Permission";
         $title="Permission";
@@ -25,7 +31,7 @@ class permissionController extends Controller
         }
         $editroute  ='admin.user_permission.edit';
         $deleteroute='admin.user_permission.delete';
-        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute'));
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete'));
 
     }
 

@@ -49,6 +49,7 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow-x: hidden;
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -1043,6 +1044,7 @@ pre code {
   .offset-sm-11 {
     margin-left: 91.66667%;
   }
+  /* .screen-reader{display:none} */
 }
 
 @media (min-width: 768px) {
@@ -1843,14 +1845,16 @@ pre code {
   .navbar-toggler {margin: 0 0 0 18rem;}
   .logo-div .logo {width: 50px;padding: .6rem 0;}
   .logo-div .navbar-brand h4 {font-size: .8rem;}
-  .home-slider{height: 260px;}
-  #header-carousel{height: 260px;}
-  .carousel-inner{height: 260px;}
-  .carousel-inner img{height: 262px !important;}
-  #header-carousel .btn {bottom: 114px!important;right: 14px!important;}
+  /* .home-slider{height: 260px;} */
+  .home-slider{height: 200px;}
+  /* #header-carousel{height: 260px;} */
+  #header-carousel{height: 200px;}
+  .carousel-inner{height: 200px;}
+  .carousel-inner img{height: 200px !important;}
+  #header-carousel .btn {bottom: 84px!important;right: 14px!important;}
   .search-box{padding:.5rem!important}
-  .course {max-width: 100%!important;}
-  .why-district{padding-left:0}
+  .course {max-width: 100%!important;min-height: 300px;max-height: 700px;}
+  .why-district{padding-left:1.4rem}
   .course-preview {padding: 70px 6px!important;}
   .bcpl p {color: #fff;padding: .3rem 0;font-size: .8rem!important;letter-spacing:0!important;}
   .container1{padding: 0 1rem 0 1rem!important;}
@@ -1862,7 +1866,10 @@ pre code {
   .notice-board-heading h5 {margin-top:1rem!important}
   .designed-by {text-align:center!important}
   .privacy-foter{text-align:center!important}
-  .our-partners{padding-left: 1rem;}
+  .screen-reader{display:none}
+  .for-any-help-call{display:none}
+  .header-email-contact{display:none}
+  course-event .events {min-height:370px;max-height:700px}
 }
 
 @media (max-width: 767.98px) {
@@ -1878,13 +1885,16 @@ pre code {
   .navbar-toggler {margin: 0 0 0 18rem;}
   .logo-div .logo {width: 50px;padding: .6rem 0;}
   .logo-div .navbar-brand h4 {font-size: .8rem;}
-  .home-slider{height: 260px;}
-  #header-carousel{height: 260px;}
-  .carousel-inner{height: 260px;}
-  .carousel-inner img{height: 262px !important;}
-  #header-carousel .btn {bottom: 114px!important;right: 14px!important;}
-  .course {max-width: 100%!important;}
-  .why-district{padding-left:0}
+  /* .home-slider{height: 260px;} */
+  .home-slider{height: 200px;}
+  /* #header-carousel{height: 260px;} */
+  #header-carousel{height: 200px;}
+  /* .carousel-inner{height: 260px;} */
+  .carousel-inner{height: 200px;}
+  .carousel-inner img{height: 200px !important;}
+  #header-carousel .btn {bottom: 84px!important;right: 14px!important;}
+  .course {max-width: 100%!important;min-height: 300px;max-height: 700px;}
+  .why-district{padding-left:1.4rem}
   .course-preview {padding: 70px 6px!important;}
   .get-in-touch{margin-bottom:0!important}
   .footer-all-govt-logo {width: 318px!important;}
@@ -1894,7 +1904,10 @@ pre code {
   .notice-board-heading h5 {margin-top:1rem!important}
   .designed-by {text-align:center!important}
   .privacy-footer{text-align:center!important}
-  .our-partners{padding-left: 1rem;}
+  .screen-reader{display:none}
+  .for-any-help-call{display:none}
+  .header-email-contact{display:none}
+  course-event .events {min-height:370px;max-height:700px}
 }
 
 @media (max-width: 991.98px) {
@@ -2380,9 +2393,6 @@ textarea.form-control {
   .form-inline .custom-control-label {
     margin-bottom: 0;
   }
-}
-.slider-btn {
-
 }
 .btn {
   display: inline-block;
@@ -4257,6 +4267,9 @@ input[type="button"].btn-block {
     padding-right: 0;
     padding-left: 0;
   }
+  .screen-reader{display:none}
+  .header-email-contact{display:none}
+  course-event .events {min-height:370px;max-height:700px}
 }
 
 @media (min-width: 576px) {
@@ -4293,6 +4306,8 @@ input[type="button"].btn-block {
     padding-right: 0;
     padding-left: 0;
   }
+  .screen-reader{display: none;}
+  course-event .events {min-height:370px;max-height:700px}
 }
 
 @media (min-width: 768px) {
@@ -6174,6 +6189,7 @@ a.close.disabled {
   position: relative;
   width: 100%;
   overflow: hidden;
+  height: 300px!important;
 }
 
 .carousel-inner::after {
@@ -6266,7 +6282,8 @@ a.close.disabled {
   padding: 11px 12px;
   /* padding: 8px 20px; */
   position: absolute;
-  bottom: 166px;
+  /* bottom: 166px; */
+  bottom: 142px;
   right: 62px;
   letter-spacing: 1px;
 }
@@ -9972,6 +9989,7 @@ h6 {
   /* height: 400px; */
   /* min-height: 300px; */
   min-height: 280px;
+  padding: 0 1.4rem;
 }
 .courses-form {
   display: flex;
@@ -9996,14 +10014,14 @@ h6 {
 select {
   word-wrap: normal;
   padding: 1rem 0;
-  text-align: center;
+  text-align: left;
   background: #fff;
   border-style: none;
   border-radius: 1px;
   cursor: pointer;
+  padding: 1rem .4rem;
 }
 .text-secondary {
-  /* color: #2980b9 !important; */
   color: #162f65 !important;
 }
 .learn-more-btn {
@@ -10039,6 +10057,8 @@ select {
 	/* width: 700px; */
   /* width: 44.4%; */
   max-width: 46.4%;
+  min-height: 200px;
+  max-height: 700px;
 }
 .courses-container {
   display: flex;
@@ -10296,6 +10316,9 @@ select {
 	.floating-btn {
 		right: 10px;
 	}
+  .screen-reader{display:none}
+  .for-any-help-call{display:none}
+  .header-email-contact{display:none}
 }
 
 
@@ -10764,10 +10787,13 @@ select {
   padding-right:1rem;
 }
 .search-btn {
-  background: #262626;
-  color: #fff;
+  /* background: #262626; */
+  background:#fff;
+  color: #000;
   text-align: center;
   padding: .3rem 0;
+  font-weight: 500;
+  border-style:none;
 }
 .search-btn img {
   width: 21.4px;
@@ -10780,15 +10806,16 @@ select {
   border-radius: 2px;
   padding: .8rem;
 }
+.upcoming-courses-inner-div{min-height: 218px;border: none!important;}
+/* .upcoming-courses-inner-div div{display:flex} */
 .upcoming-courses div {
   padding-bottom: .2rem;
-  display: flex;
   align-items: center;
   border: thin solid #f1f1f1;
   margin-bottom: .4rem;
-  /* padding: .2rem; */
   padding: .2rem .4rem;
 }
+.upcoming-courses-inner-div form{display: flex;}
 .upcoming-courses div img {
   height:20px;
   margin-right:.5rem
@@ -10803,14 +10830,17 @@ select {
   padding: .8rem;
 }
 .job div {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
   /* padding: .3rem .5rem; */
   border: thin solid #f1f1f1;
   margin-bottom: .4rem;
   padding: .2rem;
   padding: .2rem .4rem;
 }
+.job-inner-div{min-height: 218px;border: none !important;}
+.job-inner-div div{display: flex}
+.job-inner-div img{height:20%}
 .job .job-name {
   width: 100%;
   color: #171717;
@@ -10834,7 +10864,7 @@ select {
 }
 .notice-content {
   display:flex;
-  align-items: center;
+  /* align-items: center; */
 }
 .notice-content img {
   width: 16px;
@@ -10894,8 +10924,7 @@ select {
 }
 .job-btn {
   background: #e8af30;
-  /* margin-top: 3.4rem; */
-  margin-top: 1.6rem;
+  margin-top: 2rem;
   float: right;
 }
 .job-btn a {
@@ -11141,9 +11170,9 @@ select {
   grid-area: event;
   background-color: #f6f6f6;
   box-sizing: border-box;
-  /* height: 220px; */
-  min-height: 240px;
   box-shadow: 0px 14px 12px -13px rgba(0,0,0,0.74);
+  min-height: 200px;
+  max-height: 800px;
 }
 
 .course-event .events ul {
@@ -11151,7 +11180,8 @@ select {
   padding: 16px;
   list-style: none;
   /* height: 200px; */
-  height: 238px;
+  min-height: 200px;
+  max-height: 800px;
 }
 
 .course-event .events ul li {
@@ -11166,7 +11196,8 @@ select {
     "time time"
     "detail detail";
   /* height: 190px; */
-  height: 210px;
+  min-height: 200px;
+  max-height: 800px;
 }
 
 @media (min-width: 768px) {
@@ -11224,22 +11255,26 @@ select {
 }
 
 .course-event .events ul li .details p {
-  margin: 4px 0 0;
+  margin: 8px 0 0;
   padding: 0;
   font-size: 16px;
 }
 
-.course-event .events ul li .details .details-apply {
+.course-event .events ul li .details a {
   /* display: inline-block; */
   text-decoration: none;
-  padding: 4px 15px;
+  padding: 6px 15px;
   border: 2px solid #262626;
   /* margin-top: 6px; */
   font-size: 12px;
   transition: 0.5s;
-  margin: 26px auto;
-  float:right;
+  /* margin: 17px auto; */
+  /* float:right; */
+  max-width:100%;
 }
+.course-details-training{margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;}
 
 .course-event .events ul li .details a:hover {
   background-color: #e8af30;
@@ -11259,10 +11294,14 @@ select {
   width: 100%; }
   @media (max-width: 767.98px) {
     .ftco-section {
-      padding: 6em 0; } }
+      padding: 6em 0; }
+    .for-any-help-call{display:none}
+  .header-email-contact{display:none}
+.course-event .events {min-height:370px;max-height:700px} }
 .project-wrap {
     padding-bottom:1.4rem;
 }
+/* .screen-reader{display: none;} */
 .project-wrap .img {
   display: block;
   width: 100%;
@@ -11421,16 +11460,6 @@ background: #162f65 !important;}
   flex-wrap: wrap;
   width: 300px;
 }
-.footer-all-govt-logo div {width: 80px;height: 72px;margin-top: .5rem;}
+.footer-all-govt-logo div {width: 80px;height: 72px;margin-top: .5rem;padding-bottom: 1rem;margin-bottom: 1rem;}
 .footer-all-govt-logo div img {width: 100%;height: 100%;}
-
-.new-tag {
-    font-size: 8px;
-    padding: 0 7px;
-    background: #e82e47;
-    border-radius: 5px;
-    position: absolute;
-    color: #fff;
-    float: left;
-}
 /* NEW CODE END */

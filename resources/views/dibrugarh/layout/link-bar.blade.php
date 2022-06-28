@@ -11,7 +11,7 @@
           <a href="#" class="nav-item nav-link">Course Registration</a>
           <a href="{{route('course_dtl')}}" class="nav-item nav-link">Course Details</a>
           <a href="{{route('login')}}" class="nav-item nav-link">Department Login</a>
-          <a href="#" class="nav-item nav-link">Employers Corner</a>
+          <a href="{{route('employee_corner')}}" class="nav-item nav-link">Employers Corner</a>
         </div>
       </div>
     </nav>

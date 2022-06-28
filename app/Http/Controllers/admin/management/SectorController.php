@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\admin\management;
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Department;
 use App\Models\sector;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SectorController extends Controller
@@ -16,6 +18,12 @@ class SectorController extends Controller
 
     public function index()
     {
+        // for permissions part here it is
+        $id  = auth()->user()->id;
+        $add   =Helper::CheckPermission($id,'Add Sector');
+        $edit  =Helper::CheckPermission($id,'Edit Sector');
+        $delete=Helper::CheckPermission($id,'Delete Sector');
+        // permission ends
         $route='admin.add_sector';
         $btn_name="Add Sector";
         $title="SECTORS";
@@ -31,7 +39,7 @@ class SectorController extends Controller
         }
         $editroute  ='admin.sector.edit';
         $deleteroute='admin.sector.delete';
-        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute'));
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete','add','edit','delete'));
         // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 

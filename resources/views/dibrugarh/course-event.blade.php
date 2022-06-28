@@ -32,16 +32,27 @@
                                 <p style="color:rgb(34, 75, 129);font-weight:bold;">Scheme : {{$coursedtl->scheme->scheme_name}}</p>
                                 <p style="color:rgb(31, 71, 124);font-weight:bold;">Course : {{$coursedtl->course->course_name}}</p>
                                 <p style="color:rgb(31, 71, 124);font-weight:bold;">Registration Opens on {{ date('d-M-Y',strtotime($start))}} / Closing on {{ date('d-M-Y',strtotime($end))}}</p>
+
+                                <p style="color:rgb(31, 71, 124);font-weight:bold;">Department : {{$coursedtl->department->department_name}}</p>
+                                <p style="color:rgb(34, 75, 129);font-weight:bold;">Scheme : {{$coursedtl->scheme->scheme_name}}</p>
+                                <p style="color:rgb(31, 71, 124);font-weight:bold;">Course : {{$coursedtl->course->course_name}}</p>
+                                <p style="color:rgb(31, 71, 124);font-weight:bold;">Registration Opens on {{ date('d-M-Y',strtotime($start))}} / Closing on {{ date('d-M-Y',strtotime($end))}}</p>
                                 @if($coursedtl->training_pdf != null)
-                                    <p style="color:rgb(31, 71, 124);font-weight:bold;"><a href="{{$coursedtl->training_pdf}}" target="blabk">View notification &nbsp;<span><img src="{{ asset('dibrugarh') }}/icons/icons8-pdf-50.png" width="30"></span></a></p>
-                                @endif
-                                @if($temp=='Ongoing')
-                                    <a class="details-apply" href="{{route('apply_reqistration',['id'=>Crypt::encryptString($coursedtl->id)])}}">Apply</a>
-                                @elseif($temp=='Upcoming')
-                                    <a href="#">Opening Soon</a>
-                                @else
-                                    <a href="#">Registration Closed</a>
-                                @endif
+                                    <p style="color:rgb(31, 71, 124);font-weight:bold;"><a href="{{$coursedtl->training_pdf}}" target="blabk">View notification &nbsp;<span><img src="{{ asset('dibrugarh') }}/icons/icons8-pdf-50.png" width="20"></span></a></p>
+                                    @endif
+                                <div class="course-details-training">
+
+
+                                    @if($temp=='Ongoing')
+                                    <a href="{{route('apply_reqistration',['id'=>Crypt::encryptString($coursedtl->id)])}}">Apply</a>
+
+                                    @elseif($temp=='Upcoming')
+                                        <a href="#">Opening Soon</a>
+                                    @else
+                                        <a href="#">Registration Closed</a>
+                                    @endif
+                                </div>
+
                             </div>
                             <div style="clear: both;"></div>
                         </li>
@@ -55,7 +66,7 @@
     </div>
     <div class="course-details-event" style="padding: 0 2rem;">
         <h4>Details :</h4>
-        <p>{{$coursedtl->training_details}}</p>
+        {!!$coursedtl->training_details!!}
     </div>
 </div>
 @endsection

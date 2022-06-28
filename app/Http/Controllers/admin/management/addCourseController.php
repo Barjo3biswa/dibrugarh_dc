@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin\management;
 
+use App\Helpers\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\admin\course;
 use Illuminate\Http\Request;
@@ -11,7 +12,12 @@ class addCourseController extends Controller
 
     public function index()
     {
-        // return view("admin\add-course");
+        // for permissions part here it is
+        $id  = auth()->user()->id;
+        $add   =Helper::CheckPermission($id,'Add Course');
+        $edit  =Helper::CheckPermission($id,'Edit Course');
+        $delete=Helper::CheckPermission($id,'Delete Course');
+        // permission ends
         $route='admin.add_course';
         $btn_name="Add Course";
         $title="COURSE";
@@ -27,7 +33,7 @@ class addCourseController extends Controller
         }
         $editroute  ='admin.course.edit';
         $deleteroute='admin.course.delete';
-        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute'));
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete'));
         // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
