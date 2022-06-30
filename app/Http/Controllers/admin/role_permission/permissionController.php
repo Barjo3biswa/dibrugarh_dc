@@ -13,8 +13,8 @@ class permissionController extends Controller
         // for permissions part here it is hence it is only visible by admin so downt need to provide permission
         $id  = auth()->user()->id;
         $add   = 1;
-        $edit  = 1;
-        $delete= 1;
+        $edit  = 0;
+        $delete= 0;
         // permission ends
         $route='admin.user_permission.add_permission';
         $btn_name="Add Permission";
@@ -25,12 +25,14 @@ class permissionController extends Controller
         $tbody=[];
         foreach($list_item as $key=>$list){
               $value=[
-                ++$key, $list->per_id, $list->per_title,$list->id
+                ++$key, $list->per_id, $list->per_title,$list->id,0,0 // hence checkbox & viewall is false so we pass this two zero
               ];
               array_push($tbody,$value);
         }
         $editroute  ='admin.user_permission.edit';
         $deleteroute='admin.user_permission.delete';
+        $viewable='false'; //check compact or not
+        $checkbox='false'; //check compact or not
         return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete'));
 
     }

@@ -24,7 +24,7 @@ class NotificationController extends Controller
         $subtitle="List Of All Notification";
         $list_item=Notification::all();
         $tbody=[];
-        $thead=['Sl','Notification Name','type','New','Status','Action','fghf'];
+        $thead=['Sl','Notification Name','type','New','Status','Action'];
         foreach($list_item as $key=>$list){
             if($list->type==1){
                 $type="Yes";

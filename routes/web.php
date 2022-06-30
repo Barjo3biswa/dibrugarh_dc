@@ -21,19 +21,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'guest\CourseController@showHomepage');
 Route::get('index', 'guest\CourseController@showHomepage')->name('index');
 
-Route::get('about_dibrugarh', function () {
-    return view('dibrugarh.about-dibrugarh');
-})->name('about_dibrugarh');
+// Route::get('about_dibrugarh', function () {
+//     return view('dibrugarh.about-dibrugarh');
+// })->name('about_dibrugarh');
 
-Route::get('about_us', function () {
-    return view('dibrugarh.about');
-})->name('about_us');
+// Route::get('about_us', function () {
+//     return view('dibrugarh.about');
+// })->name('about_us');
 
 Route::get('screenreader', function () {
     return view('dibrugarh.screen-reader-access');
 })->name('screenreader');
 
 Route::get('notice_board', 'guest\CourseController@NoticeBoard')->name('notice_board');
+
+Route::get('/about_dibrugarh', 'guest\CourseController@AboutDib')->name('about_dibrugarh');
+Route::get('/about_us', 'guest\CourseController@AboutUs')->name('about_us');
+
 
 Route::get('/course_dtl', 'guest\CourseController@index')->name('course_dtl');
 Route::post('/view_course_details', 'guest\CourseController@ViewCourseDetails')->name('view_course_details');
@@ -123,22 +127,30 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/add_training', 'admin\management\TrainingController@Add')->name('add_training');
         Route::get('/add_scheme', 'admin\management\SchemeController@Add')->name('add_scheme');
 
+        Route::get('/about_us', 'admin\role_permission\roleController@AboutUs')->name('about_us');
+        Route::get('/about_dib', 'admin\role_permission\roleController@AboutDib')->name('about_dib');
+        Route::post('/about_us_save', 'admin\role_permission\roleController@AboutUsSave')->name('about_us_save');
+        Route::post('/about_dib_save', 'admin\role_permission\roleController@AboutDibSave')->name('about_dib_save');
+
         Route::group(['prefix' => 'sector',"as"  => "sector."], function () {
             Route::post('/save', 'admin\management\SectorController@Save')->name('save');
             Route::post('/delete', 'admin\management\SectorController@Delete')->name('delete');
             Route::post('/edit', 'admin\management\SectorController@Edit')->name('edit');
+            Route::post('/update', 'admin\management\SectorController@Update')->name('update');
         });
 
         Route::group(['prefix' => 'department',"as"  => "department."], function () {
             Route::post('/save', 'admin\management\DepartmentController@Save')->name('save');
             Route::post('/delete', 'admin\management\DepartmentController@Delete')->name('delete');
             Route::post('/edit', 'admin\management\DepartmentController@Edit')->name('edit');
+            Route::post('/update', 'admin\management\DepartmentController@Update')->name('update');
         });
 
         Route::group(['prefix' => 'course',"as"  => "course."], function () {
             Route::post('/save', 'admin\management\addCourseController@Save')->name('save');
             Route::post('/delete', 'admin\management\addCourseController@Delete')->name('delete');
             Route::post('/edit', 'admin\management\addCourseController@Edit')->name('edit');
+            Route::post('/update', 'admin\management\addCourseController@Update')->name('update');
         });
 
         Route::group(['prefix' => 'training',"as"  => "training."], function () {
@@ -153,6 +165,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/save', 'admin\management\SchemeController@Save')->name('save');
             Route::post('/delete', 'admin\management\SchemeController@Delete')->name('delete');
             Route::post('/edit', 'admin\management\SchemeController@Edit')->name('edit');
+            Route::post('/update', 'admin\management\SchemeController@Update')->name('update');
         });
 
         Route::group(['prefix' => 'department_user',"as"  => "department_user."], function () {
@@ -161,6 +174,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/save', 'admin\management\DepartmentController@RegisterSave')->name('save');
             Route::post('/delete', 'admin\management\DepartmentController@DepartmentUserDelete')->name('delete');
             Route::post('/edit', 'admin\management\DepartmentController@DepartmentUserEdit')->name('edit');
+            Route::post('/update', 'admin\management\DepartmentController@DepartmentUserUpdate')->name('update');
         });
 
         Route::group(['prefix' => 'user_roles',"as"  => "user_roles."], function () {
@@ -203,6 +217,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/delete', 'admin\management\EmployeeController@Delete')->name('delete');
             Route::post('/edit', 'admin\management\EmployeeController@Edit')->name('edit');
             Route::post('/update', 'admin\management\EmployeeController@Update')->name('update');
+            Route::get('/active_job', 'admin\management\EmployeeController@ActivateJob')->name('active_job');
         });
 
     });

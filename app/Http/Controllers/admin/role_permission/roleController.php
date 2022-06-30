@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin\role_permission;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\content;
 use App\Models\admin\permission;
 use App\Models\admin\role;
 use App\Models\admin\role_permission;
@@ -33,12 +34,14 @@ class roleController extends Controller
                 $permission.=$per_name->per_title.','.' ';
             }
               $value=[
-                ++$key, $list->role_id, $list->role_title,$permission,$list->id
+                ++$key, $list->role_id, $list->role_title,$permission,$list->id,0,0 // hence checkbox & viewall is false so we pass this two zero
               ];
               array_push($tbody,$value);
         }
         $editroute  ='admin.user_roles.edit';
         $deleteroute='admin.user_roles.delete';
+        $viewable='false'; //check compact or not
+        $checkbox='false'; //check compact or not
         return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete'));
 
     }
@@ -132,5 +135,30 @@ class roleController extends Controller
         DB::commit();
         return redirect()->route('admin.user_roles.show_roles')->with('status', 'Role Successfully Updated ');
 
+    }
+
+    public function AboutUs(Request $request)
+    {
+        $content=content::first();
+        return view('admin.about.about-us',compact('content'));
+    }
+
+    public function AboutUsSave(Request $request)
+    {
+        $content=content::where('id',1)->update(['about_us'=>$request->about]);
+        return redirect()->back()->with('status','Successfully Updated About Us');
+    }
+
+    public function AboutDib(Request $request)
+    {
+
+        $content=content::first();
+        return view('admin.about.about-dib',compact('content'));
+    }
+
+    public function AboutDibSave(Request $request)
+    {
+        $content=content::where('id',1)->update(['about_dibrugarh'=>$request->about]);
+        return redirect()->back()->with('status','Successfully Updated About Us');
     }
 }

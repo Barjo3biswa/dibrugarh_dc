@@ -69,11 +69,19 @@
                         <div class="row">
                             <label class="col-sm-2 col-form-label">Job Description</label>
                             <div class="col-sm-7">
-                                {{-- <textarea id="w3review" name="description" rows="4" cols="50" class="form-control" required>
-                                </textarea> --}}
                                 <textarea id="editor1" name="description" name="training_details">{!!$jobs->description!!}</textarea>
                             </div>
                         </div>
+                        <br/>
+                        @if($jobs->status==1)
+                        <div class="row" style="margin-top:5px;">
+                            <label class="col-sm-3 col-form-label">Unpublish  Now </label>
+                            <div class="col-sm-3">
+                                <label>Yes</label>
+                                    <input type="radio" id="yes_pub" name="closed_now" value="3" >
+                            </div>
+                        </div>
+                        @endif
 
 
 

@@ -1,5 +1,6 @@
 @extends('dibrugarh.layout.master')
 @section('content')
+@if ($notice!=0)
 <div class="container1 py-5 course-event-main" style="padding: 0 3rem 0 2rem;">
     <div class="row py-5">
         <div class="col-lg-8 pb-5 pb-lg-0 px-3 px-lg-5">
@@ -30,6 +31,7 @@
         </div>
     </div>
 </div>
+@endif
 @foreach ($noticepartii as $notice)
 <div class="container1 py-5 course-event-main" style="padding: 0 3rem 0 2rem;">
     <div class="row py-5">

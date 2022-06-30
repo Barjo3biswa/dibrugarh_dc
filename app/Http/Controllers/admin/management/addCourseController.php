@@ -27,12 +27,14 @@ class addCourseController extends Controller
         $tbody=[];
         foreach($list_item as $key=>$list){
               $value=[
-                ++$key, $list->course_name, $list->course_id,$list->id
+                ++$key, $list->course_name, $list->course_id,$list->id,0,0 // hence checkbox & viewall is false so we pass this two zero
               ];
               array_push($tbody,$value);
         }
         $editroute  ='admin.course.edit';
         $deleteroute='admin.course.delete';
+        $viewable='false'; //check compact or not
+        $checkbox='false'; //check compact or not
         return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete'));
         // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
@@ -62,8 +64,19 @@ class addCourseController extends Controller
         return redirect()->back()->with('status', 'successfully Removed Training');
     }
 
-    public function Edit()
+    public function Edit(Request $request)
     {
-        dd("wait");
+        $course=course::where('id',$request->id)->first();
+        return view('admin.edit.edit-course',compact('course'));
+    }
+
+    public function Update(Request $request)
+    {
+        $data=[
+            'course_name' => $request->course_name,
+        ];
+        // dd($data);
+        course::where('course_id',$request->course_code)->update($data);
+        return redirect()->route('admin.course')->with('status', 'Successfully Update Course');
     }
 }

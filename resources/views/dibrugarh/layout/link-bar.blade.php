@@ -1,3 +1,5 @@
+
+<section id="skipToMainContent">
 <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg py-3 py-lg-0 px-lg-5">
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -16,3 +18,4 @@
       </div>
     </nav>
   </div>
+</section>

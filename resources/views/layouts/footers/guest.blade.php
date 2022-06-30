@@ -28,8 +28,9 @@
         &copy;
         <script>
             document.write(new Date().getFullYear())
-        </script>,<a href="#" class=login-footer>Office Of The Deputy Commissioner, Dibrugarh</a>  by
-        <a href="#" target="_blank">WebcomIndia</a>.
+        </script>,
+        <a href="#">Office Of The Deputy Commissioner, Dibrugarh</a>  by
+        <a href="https://webcomindia.biz/" target="_blank">WebcomIndia</a>.
         </div>
     </div>
 </footer>

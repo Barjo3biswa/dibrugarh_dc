@@ -21,6 +21,40 @@
             </li> --}}
             @if(auth()->user()->user_role=='role-1')
                 <li class="nav-item {{ ($activePage == 'admin_management' || $activePage == 'user-management') ? ' active' : '' }}">
+                    <a class="nav-link collapse one" data-toggle="collapse" href="#content" aria-expanded="false">
+                    <i class="material-icons"><span class="material-symbols-outlined">
+                        content_paste_go
+                        </span></i>
+                    <p>Content Management
+                        <b class="caret"></b>
+                    </p>
+                    </a>
+                    <div class="collapse one" id="content">
+                    <ul class="nav">
+                        <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
+                            <a class="nav-link" href="{{route('admin.about_us') }}">
+                            <i class="material-icons"><span class="material-symbols-outlined">
+                                        content_copy
+                                        </span></i>
+                                <p>About Us</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav">
+                        <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
+                            <a class="nav-link" href="{{route('admin.about_dib') }}">
+                            <i class="material-icons"><span class="material-symbols-outlined">
+                                        content_copy
+                                        </span></i>
+                                <p>About Dibrugarh</p>
+                            </a>
+                        </li>
+                    </ul>
+                    </div>
+                </li>
+            @endif
+            @if(auth()->user()->user_role=='role-1')
+                <li class="nav-item {{ ($activePage == 'admin_management' || $activePage == 'user-management') ? ' active' : '' }}">
                     <a class="nav-link collapse one" data-toggle="collapse" href="#laravelExample" aria-expanded="false">
                     <i class="material-icons"><span class="material-symbols-outlined">
                         person

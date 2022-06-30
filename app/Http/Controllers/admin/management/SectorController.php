@@ -33,12 +33,14 @@ class SectorController extends Controller
         $tbody=[];
         foreach($list_item as $key=>$list){
             $value=[
-              ++$key, $list->sector_name, $list->sector_id,$list->id
+              ++$key, $list->sector_name, $list->sector_id,$list->id,0,0 // hence checkbox & viewall is false so we pass this two zero
             ];
             array_push($tbody,$value);
         }
         $editroute  ='admin.sector.edit';
         $deleteroute='admin.sector.delete';
+        $viewable='false'; //check compact or not
+        $checkbox='false'; //check compact or not
         return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete','add','edit','delete'));
         // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
@@ -60,7 +62,7 @@ class SectorController extends Controller
         ];
         // dd($data);
         Sector::insert($data);
-        return redirect()->route('admin.sector')->with('status', 'successfully Added Department');
+        return redirect()->route('admin.sector')->with('status', 'successfully Added Sector');
     }
     public function Delete(Request $request){
         sector::where('id',$request->id)->delete();
@@ -69,8 +71,17 @@ class SectorController extends Controller
 
     public function Edit(Request $request)
     {
-        $editable= sector::where('id',$request->id)->first();
-        return view("admin.add-sector",compact('editable'));
+        $sector= sector::where('id',$request->id)->first();
+        return view("admin.edit.edit-sector",compact('sector'));
         //dd("wait");
+    }
+
+    public function Update(Request $request)
+    {
+        $data=[
+            'sector_name' => $request->sector_name,
+        ];
+        Sector::where('sector_id',$request->sector_id)->update($data);
+        return redirect()->route('admin.sector')->with('status', 'successfully Updated Sector');
     }
 }

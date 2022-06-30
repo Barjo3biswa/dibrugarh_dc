@@ -28,19 +28,20 @@ class EmployeeController extends Controller
             if($list->status==1){
                 $status="Approved";
             }else if($list->status==3){
-                $status="Rejected";
+                $status="Past Jobs";
             }else{
                 $status="Wait For Approvel";
             }
               $value=[
-                ++$key, $list->job_title,$status,$list->id
+                ++$key, $list->job_title,$status,$list->id,$list->status,$list->id,//status(for active or deactive in checkbox) & Id(as akey to access database).
               ];
               array_push($tbody,$value);
         }
         $editroute  ='admin.employee.edit';
         $deleteroute='admin.employee.delete';
-        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete'));
-        // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
+        $viewable='false'; //check compact or not
+        $checkbox='trueiii';
+        return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete','checkbox'));
     }
 
     public function Add()
@@ -114,9 +115,18 @@ class EmployeeController extends Controller
             'eligibility'   => $request->qualification,
             'experience'    => $request->location,
             'attachments'   => $path ?? "",
+            'status'        => $request->closed_now,
         ];
 
         job::where('id',$request->test)->update($data);
         return redirect()->route('admin.employee.view_jobs')->with('status', 'successfully Updated Job...');
+    }
+
+    public function ActivateJob(Request $request)
+    {
+        foreach($request->value as $val){
+            job::where('id',$val)->update(['status'=>1]);
+        }
+        return response()->json(array('success' =>$request->value));
     }
 }

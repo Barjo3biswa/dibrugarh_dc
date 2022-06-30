@@ -27,12 +27,14 @@ class SchemeController extends Controller
         $thead=['Sl','Scheme Name','Scheme Code','Action'];
         foreach($list_item as $key=>$list){
               $value=[
-                ++$key, $list->scheme_name, $list->scheme_id,$list->id
+                ++$key, $list->scheme_name, $list->scheme_id,$list->id,0,0 // hence checkbox & viewall is false so we pass this two zero
               ];
               array_push($tbody,$value);
         }
         $editroute  ='admin.scheme.edit';
         $deleteroute='admin.scheme.delete';
+        $viewable='false'; //check compact or not
+        $checkbox='false'; //check compact or not
         return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete'));
         // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
@@ -61,8 +63,18 @@ class SchemeController extends Controller
         return redirect()->back()->with('status', 'successfully Removed Training');
     }
 
-    public function Edit()
+    public function Edit(request $request)
     {
-        dd("wait");
+        $scheme_dtl=scheme::where('id',$request->id)->first();
+        return view('admin.edit.edit-scheme',compact('scheme_dtl'));
+    }
+
+    public function Update( request $request )
+    {
+        $data=[
+            'scheme_name' => $request->scheme_name,
+        ];
+        scheme::where('scheme_id',$request->scheme_code)->update($data);
+        return redirect()->route('admin.scheme')->with('status', 'successfully Updated Scheme');
     }
 }

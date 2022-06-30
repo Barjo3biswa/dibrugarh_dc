@@ -78,13 +78,26 @@
                             </div>
                         </div>
 
-
+                        <br/>
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="email"><b>Highest Educational Qualification</b></label>
-                                <input value="{{old('qualification') ?? ""}}" type="text" class="form-control" placeholder="Enter Qualificaton Details" name="qualification" id="qualification">
+                                <select name="qualification" id="qualification" class="form-control">
+                                    @foreach ($qualification as $quali )
+                                        <option value="{{$quali->id}}" {{old('qualification')==$quali->id ? 'selected':""}}>{{$quali->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email"><b>Category</b></label>
+                                <select name="category" id="category" class="form-control">
+                                    @foreach ($cast as $cas )
+                                        <option value="{{$cas->id}}" {{old('category')==$cas->id ? 'selected':""}}>{{$cas->cast_name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
+                        <br/>
 
 
                         <hr><label for="present"><b>Present Address :</b></label>

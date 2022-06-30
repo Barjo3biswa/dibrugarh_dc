@@ -53,7 +53,7 @@
                                                 @endif
                                             @endif
                                             {{-- Table content data is in here --}}
-                                            @for ($j = 0; $j < count($tbody[$i]) - 1; $j++)
+                                            @for ($j = 0; $j < count($tbody[$i]) - 3; $j++)
                                                 <th>{{ $tbody[$i][$j] }}</th>
                                             @endfor
                                             {{-- table data ends --}}
@@ -99,10 +99,12 @@
                         </div>
                         @if(isset($checkbox))
                         @if($edit==1)
-                            @if($checkbox=='true')
+                            @if($checkbox=='true')  {{-- for training --}}
                                 <button class="btn btn-primary" id="submit">Activate &nbsp; Selected</button>
-                            @elseif($checkbox=='trueii')
+                            @elseif($checkbox=='trueii')  {{-- for notification --}}
                                 <button class="btn btn-primary" id="submitii">Activate &nbsp; Selected</button>
+                            @elseif($checkbox=='trueiii')  {{-- for jobs --}}
+                                <button class="btn btn-primary" id="submitiii">Approve &nbsp; Selected &nbsp; Jobs</button>
                             @endif
                         @endif
                         @endif
@@ -146,9 +148,6 @@
 
 
         $('#submit').click(function(){
-            // var val=$('.checkboxes').val();
-            // console.log(arr);
-            // console.log(JSON.stringify(arr) );
             $.ajax({
                 url: "{{route('admin.training.active_training')}}",
                 type: 'get',
@@ -157,7 +156,6 @@
                 success:function(success){
                     console.log(success);
                     location.reload();
-                    // console.log(success.member.shares);
                 },
             });
         });
@@ -165,6 +163,19 @@
         $('#submitii').click(function(){
             $.ajax({
                 url: "{{route('admin.notification.active_notification')}}",
+                type: 'get',
+                dataType: 'json',
+                data: {value:arr},
+                success:function(success){
+                    console.log(success);
+                    location.reload();
+                },
+            });
+        });
+
+        $('#submitiii').click(function(){
+            $.ajax({
+                url: "{{route('admin.employee.active_job')}}",
                 type: 'get',
                 dataType: 'json',
                 data: {value:arr},

@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Cast;
+use App\Models\admin\content;
 use App\Models\admin\course;
 use App\Models\admin\job;
 use App\Models\admin\Notification;
+use App\Models\admin\Qualification;
 use App\Models\admin\training;
 use App\Models\applicant;
 use App\Models\Attachment;
@@ -32,7 +35,9 @@ class CourseController extends Controller
     public function ApplyOrReqister(Request $request){
         $data=Crypt::decryptString($request->id);
         $coursedtl=training::where('id',$data)->first();
-        return view('dibrugarh.course-registration',compact('coursedtl'));
+        $qualification=Qualification::all();
+        $cast=Cast::all();
+        return view('dibrugarh.course-registration',compact('coursedtl','qualification','cast'));
     }
 
     public function ApplyOrLogin(Request $request){
@@ -152,6 +157,7 @@ class CourseController extends Controller
                 'per_zip'           =>$request->per_zip,
                 'per_po'            =>$request->per_po,
                 'per_ps'            =>$request->per_ps,
+                'category'          =>$request->category,
             ];
             applicant::insert($data);
             DB::commit();
@@ -178,9 +184,17 @@ class CourseController extends Controller
         $today=date('Y-m-d');
         $upcomingevents=training::where(DB::raw("str_to_date(start_date, '%Y-%m-%d')"), '>', $today)->get();
         $notice = Notification::with('noticationtype')->where('status',1)->orderby('created_at','desc')->get();
-        $jobs   = job::all();
-        // dd($notice);
-        return view('dibrugarh.index',compact('sector','course','upcomingevents','notice','jobs'));
+        $jobs   = job::where('status',1)->get();
+        $about = content::first();
+        $paragraph=$this->ExtractFirstPara($about->about_us);
+
+        return view('dibrugarh.index',compact('sector','course','upcomingevents','notice','jobs','paragraph'));
+    }
+
+    public function ExtractFirstPara($paragraph)
+    {
+        $words = explode("</p>", $paragraph);
+        return $words[0];
     }
 
     public function SearchCourses(Request $request)
@@ -198,7 +212,12 @@ class CourseController extends Controller
 
     public function NoticeBoard(Request $request)
     {
-        $notice=Notification::with('noticationtype')->where(['id'=>$request->id,'status'=>1])->first();
+        if($request->has('id')){
+            $notice=Notification::with('noticationtype')->where(['id'=>$request->id,'status'=>1])->first();
+        }else{
+            $notice=0;
+        }
+
         $noticepartii = Notification::with('noticationtype')->where('status',1)->where('id','!=',$request->id)->orderby('created_at','desc')->get();
         return view('dibrugarh.view-notification',compact('notice','noticepartii'));
         // dd($notice);
@@ -214,5 +233,17 @@ class CourseController extends Controller
                         })
                     ->orderby('created_at','desc')->get();
         return view('dibrugarh.view-jobs',compact('job','jobs_real'));
+    }
+
+    public function AboutDib(Request $request)
+    {
+        $content=content::first();
+        return view('dibrugarh.about-dibrugarh',compact('content'));
+    }
+
+    public function AboutUs(Request $request)
+    {
+        $content=content::first();
+        return view('dibrugarh.about',compact('content'));
     }
 }

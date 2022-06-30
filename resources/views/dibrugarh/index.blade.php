@@ -70,7 +70,8 @@
 
 
 <!-- NOTICES Start -->
-<section id="skipToMainContent" class="notice-section">
+{{-- <section id="skipToMainContent" class="notice-section"> --}}
+<section id="testing" class="notice-section">
     <div class="container">
     <div class="row">
         <div class="col-lg-4 notice-board-heading">
@@ -104,7 +105,7 @@
             @endforeach
             </div>
             {{-- </marquee> --}}
-            <div class="job-btn"><a href="#">Browse All Jobs</a></div>
+            <div class="job-btn"><a href="{{route('employee_corner')}}">Browse All Jobs</a></div>
         </div>
         </div>
         <div class="col-lg-4 notice-board-heading">
@@ -130,7 +131,7 @@
                     <hr>
                 @endforeach
             </marquee>
-            <div class="notice-more-btn"><a href="#">More</a></div>
+            <div class="notice-more-btn"><a href="{{route('notice_board')}}">More</a></div>
             </div>
         </div>
     </div>
@@ -156,11 +157,10 @@
     <div class="row py-5">
     <div class="col-lg-7 pb-5 pb-lg-0 px-3 px-lg-5">
         <h4 class="text-secondary mb-3">Welcome to</h4>
-        <h2 class="mb-4"><span class="text-primary">Initiative of</span> <span class="text-secondary">the
+        <h2 class="mb-4"><span class="text-primary"></span> <span class="text-secondary">Initiative of the
             District Skill Committee, Dibrugarh</span></h2>
         <!-- <h5 class="text-muted mb-3"></h5> -->
-        <p class="mb-4" style="text-align:justify">The District Skill Committee, Dibrugarh is responsible for co-ordination of all Skill Development efforts across the Assam, removal of disconnect between demand and supply of skilled manpower, building the vocational and technical training framework, skill up-gradation, building of new skills and innovative thinking not only for existing jobs but also jobs that are to be created.The Ministry aims to skill on a large scale with speed and high standards in order to achieve it's vision of
-        a 'Skilled Assam'.<button style="border:none;margin-left: 1rem;" class="welcome-btn"><a href="about.html">Details</a></button>
+        <p class="mb-4" style="text-align:justify">{!!$paragraph!!}<button style="border:none;margin-left: 1rem;" class="welcome-btn"><a href="{{route('about_us')}}">Read More</a></button>
         </p>
     </div>
     <div class="col-lg-5">

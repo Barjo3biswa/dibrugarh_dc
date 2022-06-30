@@ -14,4 +14,16 @@ class applicant extends Model
 
     }
 
+    public function qualification(){
+        return $this->hasOne("App\Models\admin\Qualification", 'id', 'app_qualification');
+
+    }
+
+    public function cast(){
+        return $this->hasOne("App\Models\admin\Cast", 'id', 'category');
+
+    }
+
+
+
 }
