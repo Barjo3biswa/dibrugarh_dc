@@ -4,7 +4,7 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                 <form method="post" action="{{ route('admin.notification.update') }}" enctype="multipart/form-data" autocomplete="off" class="form-horizontal">
                     @csrf
                 <div class="card ">

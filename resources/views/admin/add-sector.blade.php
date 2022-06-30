@@ -4,7 +4,7 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-10">
                 <form method="post" action="{{route('admin.sector.save')}}" autocomplete="off" class="form-horizontal">
                     @csrf
 
