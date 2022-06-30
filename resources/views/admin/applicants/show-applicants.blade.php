@@ -60,10 +60,11 @@
                             <th>{{$app->app_name}}</th>
                             <th>{{$app->app_dob}}</th>
                             <th>{{$app->app_qualification}}</th>
-                            <form action="{{route('admin.department_user.download_attachments',['id'=>Crypt::encryptString($app->application_id)])}}" method="post">
-                                @csrf
+
+                            {{-- <form action="{{route('admin.department_user.download_attachments',['id'=>Crypt::encryptString($app->application_id)])}}" method="post">
+                                @csrf --}}
                                 <th><input type="submit" class="btn btn-primary" value="Download"></th>
-                            </form>
+                            {{-- </form> --}}
                             <form action="{{route('admin.department_user.view_application',['id'=>Crypt::encryptString($app->application_id)])}}" method="post">
                                 @csrf
                                 <th><input type="submit" class="btn btn-primary" value="View Application"></th>
