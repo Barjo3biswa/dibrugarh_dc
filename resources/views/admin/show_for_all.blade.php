@@ -59,7 +59,7 @@
                                             {{-- table data ends --}}
                                             @if($edit==1)  {{-- This condition is check whether the user have permission to acces this  --}}
                                             <form
-                                                action="{{ route($editroute, ['id' => $tbody[$i][count($tbody[$i]) - 1]]) }}"
+                                                action="{{ route($editroute, ['id' => $tbody[$i][count($tbody[$i]) - 3]]) }}"
                                                 method="post">
                                                 @csrf
                                                 <th><button type="submit" rel="tooltip" title="Edit Details"
@@ -70,7 +70,7 @@
                                             @endif
                                             @if($delete==1)  {{-- This condition is check whether the user have permission to acces this  --}}
                                             <form
-                                                action="{{ route($deleteroute, ['id' => $tbody[$i][count($tbody[$i]) - 1]]) }}"
+                                                action="{{ route($deleteroute, ['id' => $tbody[$i][count($tbody[$i]) - 3]]) }}"
                                                 method="post">
                                                 @csrf
                                                 <th><button type="submit" rel="tooltip" title="Remove"

@@ -104,7 +104,6 @@ class roleController extends Controller
     public function Edit(Request $request)
     {
         $role=role::with('permission')->where('id',$request->id)->first();
-        // dd($role);
         $permission=permission::get();
         return view('admin.edit.edit-role',compact('role','permission'));
         // dd('wait');
