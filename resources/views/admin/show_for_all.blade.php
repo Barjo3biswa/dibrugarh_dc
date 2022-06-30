@@ -83,7 +83,7 @@
                                             {{-- this form is not viewable for all pages till now in training blade--}}
                                             @if (isset($viewable))
                                                 <form
-                                                    action="{{ route('admin.department_user.view_applications', ['id' => $tbody[$i][count($tbody[$i]) - 1]]) }}"
+                                                    action="{{ route('admin.department_user.view_applications', ['id' => $tbody[$i][count($tbody[$i]) - 3]]) }}"
                                                     method="post">
                                                     @csrf
                                                     <th><button type="submit" rel="tooltip" title="View"

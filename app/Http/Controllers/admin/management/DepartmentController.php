@@ -13,11 +13,11 @@ use App\Models\admin\training;
 use App\Models\applicant;
 use App\Models\Attachment;
 use App\Models\User;
-use Facade\FlareClient\Stacktrace\File;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Storage ;
-use InvalidArgumentException;
 use ZipArchive;
+use File,Storage;
+use Illuminate\Support\Facades\Crypt;
+use InvalidArgumentException;
+
 // use Storage;
 
 class DepartmentController extends Controller
@@ -267,38 +267,76 @@ class DepartmentController extends Controller
     }
 
 
+    public function ViewApplication(Request $request)
+    {
+        $id=Crypt::decryptString($request->id);
+        $applications=applicant::with('department')->where('application_id',$id)->first();
+        $applications=$applications->toArray();
+        //*******POINT*********//
+            // Changes in this(admin.applicants.show-indv-applicant) blade effect downloaded coppy of applicant......
+        return view('admin.applicants.show-indv-applicant',compact('applications'));
+    }
+
 
     public function downloadAtt(Request $request)
     {
         $regId=Crypt::decryptString($request->id);
-        $files=Attachment::where('reg_no',$regId)->get();
-        foreach($files as $file){
-            // dd($file->att_location);
-            Storage::download(public_path().$file->att_location);
-                // return response()->file($file->att_location);
-            // dump($file->att_location);  url('/')
-            // return route($file->att_location);
-            // return response()->file($file->att_location);
-
+        $attachments=Attachment::where('reg_no',$regId)->get();
+        $this->deleteDir(public_path("test"));
+        $test = public_path("test/");
+            if (!File::exists($test)){
+                File::makeDirectory($test,0777);
+            }
+        chmod($test,0777);
+        foreach($attachments as $attach){
+            $path = public_path("test/");
+            if (!File::exists($path)){
+                File::makeDirectory($path,0777);
+            }
+            $extension = $attach->att_location;
+            $extension_explod = explode(".", $extension);
+            $extension = $extension_explod[count($extension_explod) -1];
+            $old_path = url('/') .$attach->att_location;
+            File::copy($old_path,$path."/".$regId.'-'.$attach->att_name.".".$extension);
         }
-
-        dd("ok");
+        return $this->downloadZip(1,"test",$regId);
     }
 
-    public function ViewApplication(Request $request)
+
+    public function downloadZip($cond,$reg_id,$name)
     {
-
-        $id=Crypt::decryptString($request->id);
-
-        $applications=applicant::with('department')->where('application_id',$id)->first();
-        // dd($applications['department']['department_name']);
-        $applications=$applications->toArray();
-        // dd($applications->application_id);
-        // $pdf = \PDF::loadView('both-end.download-show',array('applications' => $applications)); //load view page array('salesorder' => $salesorder,)
-        // return $pdf->download($id.'.pdf'); // download pdf file
-        return view('admin.applicants.show-indv-applicant',compact('applications'));
-        // dd("ok");
+        set_time_limit(0);
+        $fileName =$name.".zip";
+        $archive_flag = file_exists($fileName) ? ZipArchive::OVERWRITE : ZipArchive::CREATE;
+        $zip = new ZipArchive;
+        if ($zip->open($fileName, $archive_flag) === true)
+        {
+            $files = File::files(public_path($reg_id));
+            foreach ($files as $key => $value) {
+                $relativeNameInZipFile = basename($value);
+                $zip->addFile($value, $relativeNameInZipFile);
+            }
+            $zip->close();
+        }
+        return response()->download(public_path($fileName));
     }
 
 
+    public function deleteDir($dirPath) {
+        if (! is_dir($dirPath)) {
+            throw new InvalidArgumentException("$dirPath must be a directory");
+        }
+        if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
+            $dirPath .= '/';
+        }
+        $files = glob($dirPath . '*', GLOB_MARK);
+        foreach ($files as $file) {
+            if (is_dir($file)) {
+                self::deleteDir($file);
+            } else {
+                unlink($file);
+            }
+        }
+        rmdir($dirPath);
+    }
 }

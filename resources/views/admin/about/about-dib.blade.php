@@ -29,7 +29,8 @@
                     <div class="row">
                         <label class="col-sm-2 col-form-label">About Dibrugarh </label>
                         <div class="col-sm-10">
-                            <textarea id="editor1" name="about">{!!$content->about_dibrugarh!!}</textarea>
+                            <textarea class="form-control" id="description" placeholder="Enter the Description"
+                                    name="about">{!!$content->about_dibrugarh!!}</textarea>
                         </div>
                     </div>
 
@@ -46,7 +47,17 @@
 </div>
 @endsection
 @push('js')
-  <script type="text/javascript">
-    CKEDITOR.replace( 'editor1' );
-  </script>
+<script>
+    CKEDITOR.replace('description', {
+        filebrowserUploadUrl: "{{ route('admin.upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form'
+    })
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
 @endpush

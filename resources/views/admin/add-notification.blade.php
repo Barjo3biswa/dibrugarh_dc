@@ -62,10 +62,8 @@
                         <div class="row">
                             <label class="col-sm-3 col-form-label">Description</label>
                             <div class="col-sm-7">
-                                {{-- <textarea id="w3review" name="descrip" rows="4" cols="50" class="form-control">
-                                </textarea> --}}
-                                <textarea id="editor1" name="descrip" name="training_details"></textarea>
-                                {{-- <input type="text" name="descrip" class="form-control" placeholder="Enter Scheme Code" value="{{old('descrip')}}"> --}}
+                                <textarea class="form-control" id="description" placeholder="Enter the Description"
+                                    name="descrip"></textarea>
                             </div>
                         </div>
 
@@ -107,9 +105,19 @@
 </div>
 @endsection
 @push('js')
-<script type="text/javascript">
-    CKEDITOR.replace( 'editor1' );
-  </script>
+<script>
+    CKEDITOR.replace('description', {
+        filebrowserUploadUrl: "{{ route('admin.upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form'
+    })
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
 <script>
     $(document).ready(function() {
 

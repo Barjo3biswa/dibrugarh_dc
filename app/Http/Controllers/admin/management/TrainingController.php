@@ -40,10 +40,10 @@ class TrainingController extends Controller
         $title="TRAINING";
         $subtitle="List Of All Training";
         $tbody=[];
-        $thead=['Sl','Training Name','Training Code','Course Name','Scheme Name','Department Name','Start Date','End Date','Action'];//'activestatus' for checkbox,'id' for view dwtails
+        $thead=['Sl','Training Name','Training Code','Course Name','Scheme Name','Department Name','Start Date','End Date','Action'];//'activestatus' for checkbox,'id' for view dwtailsandEdit Delete
         foreach($list_item as $key=>$list){
               $value=[
-                ++$key, $list->training_name, $list->training_id,$list->course->course_name,$list->scheme->scheme_name,$list->department->department_name,$list->start_date,$list->end_date,$list->active_status,$list->id
+                ++$key, $list->training_name, $list->training_id,$list->course->course_name,$list->scheme->scheme_name,$list->department->department_name,$list->start_date,$list->end_date,$list->id,$list->active_status,0
               ];
               array_push($tbody,$value);
         }

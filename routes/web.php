@@ -132,6 +132,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/about_us_save', 'admin\role_permission\roleController@AboutUsSave')->name('about_us_save');
         Route::post('/about_dib_save', 'admin\role_permission\roleController@AboutDibSave')->name('about_dib_save');
 
+        Route::post('/uploads', 'admin\role_permission\roleController@uploadImage')->name('upload');
+
         Route::group(['prefix' => 'sector',"as"  => "sector."], function () {
             Route::post('/save', 'admin\management\SectorController@Save')->name('save');
             Route::post('/delete', 'admin\management\SectorController@Delete')->name('delete');

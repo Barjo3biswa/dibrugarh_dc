@@ -93,7 +93,7 @@ class CourseController extends Controller
                 $file=$request->file('aadhar_card');
                 $imageName = date('dmy') . 'aadhar_card' . $appId .'.'. $file->getClientOriginalExtension() ;
                 $file->move($path, $imageName);
-                $path = '/images/applicant_attachments/aadhar_card' . $imageName;
+                $path = '/images/applicant_attachments/aadhar_card/' . $imageName;
                 $attachment2=[
                     'reg_no'       => $appId,
                     'att_name'     => 'aadhar_card',

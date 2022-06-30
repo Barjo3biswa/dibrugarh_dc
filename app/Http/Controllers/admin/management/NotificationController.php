@@ -22,16 +22,10 @@ class NotificationController extends Controller
         $btn_name="Add Notification";
         $title="Notification";
         $subtitle="List Of All Notification";
-        $list_item=Notification::all();
+        $list_item=Notification::with('noticationtype')->get();
         $tbody=[];
         $thead=['Sl','Notification Name','type','New','Status','Action'];
         foreach($list_item as $key=>$list){
-            if($list->type==1){
-                $type="Yes";
-            }else{
-                $type="No";
-            }
-
             if($list->new_status==1){
                 $new ="Yes";
             }else{
@@ -44,7 +38,7 @@ class NotificationController extends Controller
                 $status ="No Active";
             }
               $value=[
-                ++$key, $list->title, $type,$new,$status,$list->id,$list->status,$list->id
+                ++$key, $list->title, $list->noticationtype->type,$new,$status,$list->id,$list->status,$list->id
               ];
               array_push($tbody,$value);
         }
@@ -52,7 +46,6 @@ class NotificationController extends Controller
         $deleteroute='admin.notification.delete';
         $checkbox='trueii';
         return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','add','edit','delete','checkbox'));
-        // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
     public function Add()

@@ -4,15 +4,14 @@
     }
     table td, table th{
         padding: 7px;
-        /* border-color: #ddd; */
     }
     table{
         /* border-color: #ddd; */
     }
-    *{
+    /* *{
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 11px;
-    }
+    } */
 </style>
 
 <div class="container" id="page-content">

@@ -154,6 +154,7 @@
         <script src="https://cdn.jsdelivr.net/npm/zebra_datepicker@latest/dist/zebra_datepicker.min.js"></script>
 
         <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+
         @stack('js')
     </body>
 </html>
