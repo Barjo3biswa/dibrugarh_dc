@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row px-lg-2" style="background: #162f65">
       <div class="col-lg-4 text-center text-lg-left mb-2 mb-lg-0">
-        <div class="d-inline-flex align-items-center">
+        <div class="d-inline-flex align-items-center" style="padding-left: 3rem">
 
           <span class="any-help"><a href="#" onclick="window.open('tel:12345678');">For any help call us:12345678</a></span>
 

@@ -33,10 +33,10 @@ class roleController extends Controller
                 $per_name=permission::where('per_id',$per->per_id)->first();
                 $permission.=$per_name->per_title.','.' ';
             }
-              $value=[
-                ++$key, $list->role_id, $list->role_title,$permission,$list->id,0,0 // hence checkbox & viewall is false so we pass this two zero
-              ];
-              array_push($tbody,$value);
+            $value=[
+                0,++$key, $list->role_id, $list->role_title,$permission,$list->id
+            ];
+            array_push($tbody,$value);
         }
         $editroute  ='admin.user_roles.edit';
         $deleteroute='admin.user_roles.delete';

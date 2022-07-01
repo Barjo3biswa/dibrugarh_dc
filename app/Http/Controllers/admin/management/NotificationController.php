@@ -37,10 +37,10 @@ class NotificationController extends Controller
             }else{
                 $status ="No Active";
             }
-              $value=[
-                ++$key, $list->title, $list->noticationtype->type,$new,$status,$list->id,$list->status,$list->id
-              ];
-              array_push($tbody,$value);
+            $value=[
+                $list->status,++$key, $list->title, $list->noticationtype->type,$new,$status,$list->id
+            ];
+            array_push($tbody,$value);
         }
         $editroute  ='admin.notification.edit';
         $deleteroute='admin.notification.delete';

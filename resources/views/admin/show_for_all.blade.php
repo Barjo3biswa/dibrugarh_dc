@@ -42,24 +42,32 @@
 
                                 </thead>
                                 <tbody>
+                                    {{-- Indexing Of $tbody
+                                        $tbody=[       0 =>'status(for checkbox)',
+                                                1 to n-2 =>'table data',
+                                                     n-1 =>'database id to edit, delete & view']--}}
+
                                     @for ($i = 0; $i < count($tbody); $i++)
+                                        @php
+                                            $length = count($tbody[$i]);
+                                        @endphp
                                         <tr>
                                             {{-- this checkbox is not active for all  --}}
                                             @if(isset($checkbox))
-                                                @if ($tbody[$i][count($tbody[$i]) - 2]==0)
-                                                    <th><input value="{{$tbody[$i][count($tbody[$i]) - 1]}}" class="checkboxes" name="values[]" id="applicable-for-all" type="checkbox" onclick="PushToArr()"></th>
+                                                @if ($tbody[$i][0]==0)
+                                                    <th><input value="{{$tbody[$i][$length - 1]}}" class="checkboxes" name="values[]" id="applicable-for-all" type="checkbox" onclick="PushToArr()"></th>
                                                 @else
                                                     <th><input class="checkboxes" id="applicable-for-all" type="checkbox" disabled ></th>
                                                 @endif
                                             @endif
                                             {{-- Table content data is in here --}}
-                                            @for ($j = 0; $j < count($tbody[$i]) - 3; $j++)
+                                            @for ($j = 1; $j < $length - 1; $j++)
                                                 <th>{{ $tbody[$i][$j] }}</th>
                                             @endfor
                                             {{-- table data ends --}}
                                             @if($edit==1)  {{-- This condition is check whether the user have permission to acces this  --}}
                                             <form
-                                                action="{{ route($editroute, ['id' => $tbody[$i][count($tbody[$i]) - 3]]) }}"
+                                                action="{{ route($editroute, ['id' => $tbody[$i][$length - 1]]) }}"
                                                 method="post">
                                                 @csrf
                                                 <th><button type="submit" rel="tooltip" title="Edit Details"
@@ -70,7 +78,7 @@
                                             @endif
                                             @if($delete==1)  {{-- This condition is check whether the user have permission to acces this  --}}
                                             <form
-                                                action="{{ route($deleteroute, ['id' => $tbody[$i][count($tbody[$i]) - 3]]) }}"
+                                                action="{{ route($deleteroute, ['id' => $tbody[$i][$length - 1]]) }}"
                                                 method="post">
                                                 @csrf
                                                 <th><button type="submit" rel="tooltip" title="Remove"
@@ -83,7 +91,7 @@
                                             {{-- this form is not viewable for all pages till now in training blade--}}
                                             @if (isset($viewable))
                                                 <form
-                                                    action="{{ route('admin.department_user.view_applications', ['id' => $tbody[$i][count($tbody[$i]) - 3]]) }}"
+                                                    action="{{ route('admin.department_user.view_applications', ['id' => $tbody[$i][$length - 1]]) }}"
                                                     method="post">
                                                     @csrf
                                                     <th><button type="submit" rel="tooltip" title="View"
@@ -97,7 +105,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        @if(isset($checkbox))
+                        @if(isset($checkbox)){{-- Checkbox is appear for all user but submit button is applicable for those who can edit --}}
                         @if($edit==1)
                             @if($checkbox=='true')  {{-- for training --}}
                                 <button class="btn btn-primary" id="submit">Activate &nbsp; Selected</button>

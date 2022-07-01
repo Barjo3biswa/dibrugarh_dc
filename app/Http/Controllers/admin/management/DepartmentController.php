@@ -44,10 +44,10 @@ class DepartmentController extends Controller
         $thead=['Sl','Department Name','Department Code','Action'];
         $tbody=[];
         foreach($list_item as $key=>$list){
-              $value=[
-                ++$key, $list->department_name, $list->department_id,$list->id,0,0 // hence checkbox & viewall is false so we pass this two zero
-              ];
-              array_push($tbody,$value);
+            $value=[
+                0,++$key, $list->department_name, $list->department_id,$list->id
+            ];
+            array_push($tbody,$value);
         }
         $editroute  ='admin.department.edit';
         $deleteroute='admin.department.delete';
@@ -114,10 +114,10 @@ class DepartmentController extends Controller
         $thead=['Sl','User Name/ Email','Name','Action'];
         $tbody=[];
         foreach($list_item as $key=>$list){
-              $value=[
-                ++$key, $list->email, $list->name,$list->id,0,0 // hence checkbox & viewall is false so we pass this two zero
-              ];
-              array_push($tbody,$value);
+            $value=[
+                0,++$key, $list->email, $list->name,$list->id
+            ];
+            array_push($tbody,$value);
         }
         $editroute  ='admin.department_user.edit';
         $deleteroute='admin.department_user.delete';

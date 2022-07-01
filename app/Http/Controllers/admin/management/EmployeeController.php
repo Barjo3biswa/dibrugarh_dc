@@ -32,10 +32,10 @@ class EmployeeController extends Controller
             }else{
                 $status="Wait For Approvel";
             }
-              $value=[
-                ++$key, $list->job_title,$status,$list->id,$list->status,$list->id,//status(for active or deactive in checkbox) & Id(as akey to access database).
-              ];
-              array_push($tbody,$value);
+            $value=[
+                $list->status,++$key, $list->job_title,$status,$list->id,
+            ];
+            array_push($tbody,$value);
         }
         $editroute  ='admin.employee.edit';
         $deleteroute='admin.employee.delete';

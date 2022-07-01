@@ -33,7 +33,7 @@ class SectorController extends Controller
         $tbody=[];
         foreach($list_item as $key=>$list){
             $value=[
-              ++$key, $list->sector_name, $list->sector_id,$list->id,0,0 // hence checkbox & viewall is false so we pass this two zero
+                0,++$key, $list->sector_name, $list->sector_id,$list->id
             ];
             array_push($tbody,$value);
         }

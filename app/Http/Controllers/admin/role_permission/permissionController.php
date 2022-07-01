@@ -24,10 +24,10 @@ class permissionController extends Controller
         $thead=['Sl','Permission Id','Permission Name','Action'];
         $tbody=[];
         foreach($list_item as $key=>$list){
-              $value=[
-                ++$key, $list->per_id, $list->per_title,$list->id,0,0 // hence checkbox & viewall is false so we pass this two zero
-              ];
-              array_push($tbody,$value);
+            $value=[
+                0,++$key, $list->per_id, $list->per_title,$list->id
+            ];
+            array_push($tbody,$value);
         }
         $editroute  ='admin.user_permission.edit';
         $deleteroute='admin.user_permission.delete';

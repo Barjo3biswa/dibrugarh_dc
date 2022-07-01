@@ -26,10 +26,10 @@ class SchemeController extends Controller
         $tbody=[];
         $thead=['Sl','Scheme Name','Scheme Code','Action'];
         foreach($list_item as $key=>$list){
-              $value=[
-                ++$key, $list->scheme_name, $list->scheme_id,$list->id,0,0 // hence checkbox & viewall is false so we pass this two zero
-              ];
-              array_push($tbody,$value);
+            $value=[
+                0,++$key, $list->scheme_name, $list->scheme_id,$list->id,
+            ];
+            array_push($tbody,$value);
         }
         $editroute  ='admin.scheme.edit';
         $deleteroute='admin.scheme.delete';

@@ -42,18 +42,17 @@ class TrainingController extends Controller
         $tbody=[];
         $thead=['Sl','Training Name','Training Code','Course Name','Scheme Name','Department Name','Start Date','End Date','Action'];//'activestatus' for checkbox,'id' for view dwtailsandEdit Delete
         foreach($list_item as $key=>$list){
-              $value=[
-                ++$key, $list->training_name, $list->training_id,$list->course->course_name,$list->scheme->scheme_name,$list->department->department_name,$list->start_date,$list->end_date,$list->id,$list->active_status,0
-              ];
-              array_push($tbody,$value);
+            $value=[
+                // ++$key, $list->training_name, $list->training_id,$list->course->course_name,$list->scheme->scheme_name,$list->department->department_name,$list->start_date,$list->end_date,$list->id,$list->active_status,0
+                $list->active_status,++$key, $list->training_name, $list->training_id,$list->course->course_name,$list->scheme->scheme_name,$list->department->department_name,$list->start_date,$list->end_date,$list->id
+            ];
+            array_push($tbody,$value);
         }
         $editroute  ='admin.training.edit';
         $deleteroute='admin.training.delete';
         $viewable='true';
         $checkbox='true';
         return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle','tbody','editroute','deleteroute','viewable','add','edit','delete','checkbox'));
-        // dd($list_item);
-        // return view("admin.show_for_all",compact('route','btn_name','thead','list_item','title','subtitle'));
     }
 
     public function Add()
