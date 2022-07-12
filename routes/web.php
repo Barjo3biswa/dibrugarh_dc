@@ -33,6 +33,10 @@ Route::get('screenreader', function () {
     return view('dibrugarh.screen-reader-access');
 })->name('screenreader');
 
+Route::get('entreprenurs', function () {
+    return view('dibrugarh.entreprenurs');
+})->name('entreprenurs');
+
 Route::get('notice_board', 'guest\CourseController@NoticeBoard')->name('notice_board');
 
 Route::get('/about_dibrugarh', 'guest\CourseController@AboutDib')->name('about_dibrugarh');

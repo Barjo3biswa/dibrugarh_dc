@@ -1,10 +1,4 @@
-/******* Bootstrap Theming ********/
-/*!
- * Bootstrap v4.5.3 (https://getbootstrap.com/)
- * Copyright 2011-2020 The Bootstrap Authors
- * Copyright 2011-2020 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&family=Roboto+Slab:wght@200;300;400;500;600&display=swap');
 :root {
@@ -11462,4 +11456,204 @@ background: #162f65 !important;}
 }
 .footer-all-govt-logo div {width: 80px;height: 72px;margin-top: .5rem;padding-bottom: 1rem;margin-bottom: 1rem;}
 .footer-all-govt-logo div img {width: 100%;height: 100%;}
+.enquiry-div{background: #162f65;width: 40px;border-radius: 50%;}
+.enquiry-div img{padding: .3rem;max-width: 100%;}
+
+/* popup form start */
+/* The popup form - hidden by default */
+    .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    /* right: 15px; */
+    right:0;
+    z-index: 9;
+    background: #162f65;
+    max-height: 470px;
+    top:0;
+  }
+  .popup-form-container{max-width: 479px;margin-top:2rem}
+
+  input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+    font-size: 0.75em;
+    color: #999;
+    top: -5px;
+    -webkit-transition: all 0.225s ease;
+    transition: all 0.225s ease;
+  }
+
+  .styled-input {
+    float: left;
+    /* width: 318px; */
+    width:220px;
+    margin: .4rem 0;
+    position: relative;
+    border-radius: 4px;
+  }
+
+@media only screen and (max-width: 768px){
+    .styled-input {
+        width:100%;
+    }
+}
+
+.styled-input label {
+    color: #999;
+    /* padding: 1.3rem 30px 1rem 30px; */
+    padding: .5rem 8px 30rem 15px;
+    position: absolute;
+    /* top: 10px; */
+    top: 0;
+    left: 0;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+
+.styled-input.wide { 
+    /* width: 650px; */
+    width: 450px;
+    max-width: 100%;
+}
+
+input,
+textarea {
+    /* padding: 30px; */
+    padding: 15px;
+    border: 0;
+    width: 100%;
+    font-size: 1rem;
+    /* background-color: #2d2d2d; */
+    background-color: #fff;
+    /* color: white; */
+    color:#000;
+    border-radius: 4px;
+}
+
+input:focus,
+textarea:focus { outline: 0; }
+
+input:focus ~ span,
+textarea:focus ~ span {
+    width: 100%;
+    -webkit-transition: all 0.075s ease;
+    transition: all 0.075s ease;
+}
+
+textarea {
+    width: 100%;
+    min-height: 15em;
+    /* min-height:8em; */
+}
+
+.input-container {
+    /* width: 650px; */
+    width: 570px;
+    max-width: 100%;
+    margin: 20px auto 25px auto;
+}
+
+.submit-btn {
+    float: right;
+    /* padding: 7px 35px; */
+    padding: 7px 13px;
+    border-radius: 60px;
+    display: inline-block;
+    /* background-color: #4b8cfb; */
+    background-color: #e8af30;
+    color: #0d0d0d;
+    /* color: white; */
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.06),
+              0 2px 10px 0 rgba(0,0,0,0.07);
+    -webkit-transition: all 300ms ease;
+    transition: all 300ms ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(1px);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.10),
+              0 1px 1px 0 rgba(0,0,0,0.09);
+}
+
+@media (max-width: 768px) {
+    .submit-btn {
+        width:100%;
+        float: none;
+        text-align:center;
+    }
+}
+
+input[type=checkbox] + label {
+  color: #ccc;
+  font-style: italic;
+} 
+
+input[type=checkbox]:checked + label {
+  color: #f00;
+  font-style: normal;
+}
+.cancel{position:absolute;top:0;left:92%;cursor:pointer}
+._1rJ5M{display:none!important} 
+._1kF5v{display: none!important;}
+/* popup form end */
+
+/* Counter section start */
+.counter-container{display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+align-items: center;
+text-align: center;
+height: 300px;
+background-image: url(../img/skill-counter-bg.webp);
+overflow: hidden;
+background: #C04848;
+background: linear-gradient(rgb(22, 47, 101,0.8), rgb(22, 47, 101,0.8)), url(../img/skill2-counter.jpg);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(rgb(22, 47, 101,0.8), rgb(22, 47, 101,0.8)), url(../img/skill2-counter.jpg); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+/* background-size: cover; */
+background-repeat: no-repeat;
+background-size: 100% 100%;
+background-attachment: fixed;
+}
+.counter-div .counter-value {font-size: 1.6rem;color: #fff;font-weight: 700;}
+.counter-div h6{color: #fff;text-transform: uppercase;}
+.counter-div{position:relative}
+.counter-plus{position: absolute;left: 74%;top: 14%;width: 20px;height: 20px;}
+.counter-plus img{width:100%}
+
+/* Counter section end */
+@keyframes slidy {
+/* 0% { left: 0%; }
+20% { left: 0%; }
+25% { left: -100%; }
+45% { left: -100%; }
+50% { left: -200%; }
+70% { left: -200%; }
+75% { left: -300%; }
+95% { left: -300%; }
+100% { left: -400%; } */
+0% { left: 0%; }
+15% { left: 0%; }
+25% { left: -100%; }
+45% { left: -100%; }
+50% { left: -200%; }
+70% { left: -200%; }
+75% { left: -300%; }
+95% { left: -300%; }
+100% { left: -400%; }
+}
+
+/* body { margin: 0; }  */
+div#slider { overflow: hidden;max-height: 300px; }
+div#slider figure img { width: 20%; float: left; }
+div#slider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slidy infinite; 
+}
 /* NEW CODE END */
