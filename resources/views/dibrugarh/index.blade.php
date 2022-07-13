@@ -152,7 +152,7 @@
 
 
 <!-- About Start -->
-<div class="container1 py-5" style="padding: 0 2rem 0 0rem;">
+<div class="container1 py-5">
     <div class="container-fluid py-5">
     <div class="row py-5">
     <div class="col-lg-7 pb-5 pb-lg-0 px-3 px-lg-5">
