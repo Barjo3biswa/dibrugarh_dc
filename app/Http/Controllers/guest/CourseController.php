@@ -302,8 +302,8 @@ class CourseController extends Controller
         return redirect()->back()->with('success','Successfully send messages');
     }
 
-    public function ShowJobViaPopUp(Type $var = null)
+    public function ShowJobViaPopUp(Request $request)
     {
-        # code...
+       dd("ok");
     }
 }
