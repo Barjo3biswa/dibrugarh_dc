@@ -1,5 +1,17 @@
 @extends('dibrugarh.layout.master')
 @section('content')
+@if (session('success'))
+<div class="row">
+    <div class="col-sm-12">
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="material-icons">close</i>
+        </button>
+        <span>{{ session('success') }}</span>
+    </div>
+    </div>
+</div>
+@endif
 <div class="container1 py-5 job-posting-button-div sticky" style="padding: 0 4rem 0 4.4rem;">
     <button type="submit" class="job-posting-btn"><a href="{{route('job_add_request')}}">Request for Job Posting</a></button>
 </div>
@@ -122,28 +134,76 @@
     </div>
 </div>
 
-<!-- Modal -->
 <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-{{-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> --}}
-    {{-- <div class="modal-dialog" role="document"> --}}
-      <div class="modal-content">
+    <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button>
+        </button>
         </div>
         <div class="modal-body">
-          ...
+            <div class="row col-md-12">
+                <div class="col-md-6">
+                        <label>Job Title :</label>
+                </div>
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-6">
+                    <label>Institute/Company :</label>
+                </div>
+                <div class="col-md-6">
+                    <label>Experience  :</label>
+                </div>
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-6">
+                        <label>No of Post :</label>
+                </div>
+                <div class="col-md-6">
+                    <label>Job Location :</label>
+                </div>
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-6">
+                        <label>Job Type :</label>
+                </div>
+                <div class="col-md-6">
+                    <label>Qualification :</label>
+                </div>
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-6">
+                        <label>Phone No :</label>
+                </div>
+                <div class="col-md-6">
+                    <label>Email :</label>
+                </div>
+            </div>
+            <div class="row col-md-12">
+                <div class="col-md-10">
+                        <label>Job Description :</label>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+    </div>
+</div>
 @endsection
 @section('scripts')
 <script>
 function showpopup(){
+
+    $.ajax({
+            url: "{{route('show_job_popup')}}",
+            type: 'get',
+            dataType: 'json',
+            data: {id:1},
+            success:function(success){
+                console.log(success);
+            },
+        });
     console.log("OK");
     $('#myModal').modal('show');
 }

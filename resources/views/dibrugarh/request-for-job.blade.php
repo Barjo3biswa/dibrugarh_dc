@@ -49,14 +49,14 @@
                             </div>
                             <div class="col-sm-6">
                                 <label><b>Company Registration Number</b></label>
-                                <input type="text" name="company_reg_no" class="form-control" placeholder="Enter Company Reg No" required>
+                                <input type="number" name="company_reg_no" class="form-control" placeholder="Enter Company Reg No" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-sm-6">
                             <label><b>Phone Number</b></label>
-                                <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number" required>
+                                <input type="number" name="phone" class="form-control" placeholder="Enter Phone Number" required>
                             </div>
                             <div class="col-sm-6">
                             <label><b>Email Address</b></label>
@@ -88,7 +88,7 @@
                             </div>
                             <div class="col-sm-6">
                             <label><b>Experience</b></label>
-                                <input type="text" name="location" class="form-control" placeholder="Enter Experience" required>
+                                <input type="number" name="location" class="form-control" placeholder="Enter Experience" required>
                             </div>
                         </div>
 

@@ -53,6 +53,8 @@ Route::get('/employee_corner', 'guest\CourseController@SearchJobs')->name('emplo
 Route::get('/job_add_request', 'guest\CourseController@JobRequest')->name('job_add_request');
 Route::post('/save_job_request', 'guest\CourseController@JobRequestSave')->name('save_job_request');
 Route::post('/enquiry', 'guest\CourseController@Enquiry')->name('enquiry');
+Route::get('/show_job_popup', 'guest\CourseController@ShowJobViaPopUp')->name('show_job_popup');
+
 
 
 
