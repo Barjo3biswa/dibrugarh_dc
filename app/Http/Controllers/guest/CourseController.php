@@ -301,4 +301,9 @@ class CourseController extends Controller
         Enquiry::create($data);
         return redirect()->back()->with('success','Successfully send messages');
     }
+
+    public function ShowJobViaPopUp(Type $var = null)
+    {
+        # code...
+    }
 }
