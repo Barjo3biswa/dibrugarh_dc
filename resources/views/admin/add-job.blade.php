@@ -32,36 +32,36 @@
                             </div>
                             <label class="col-sm-2 col-form-label">Institute/Company Name</label>
                             <div class="col-sm-4">
-                                <input type="text" name="company_name" class="form-control" placeholder="Enter Job Name" required>
+                                <input type="text" name="company_name" class="form-control" placeholder="Enter Company/Institute Name" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <label class="col-sm-2 col-form-label">No Of Post</label>
                             <div class="col-sm-4">
-                                <input type="number" name="no_of_post" class="form-control" placeholder="Enter Job Name" required>
+                                <input type="number" name="no_of_post" class="form-control" placeholder="Enter No Of Post" required>
                             </div>
                             <label class="col-sm-2 col-form-label">Eligible Qualification</label>
                             <div class="col-sm-4">
-                                <input type="text" name="qualification" class="form-control" placeholder="Enter Job Name" required>
+                                <input type="text" name="qualification" class="form-control" placeholder="Enter Eligible Qualification" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <label class="col-sm-2 col-form-label">Job Location</label>
                             <div class="col-sm-4">
-                                <input type="text" name="location" class="form-control" placeholder="Enter Job Name" required>
+                                <input type="text" name="location" class="form-control" placeholder="Enter Job Location" required>
                             </div>
                             <label class="col-sm-2 col-form-label">Experience</label>
                             <div class="col-sm-4">
-                                <input type="text" name="location" class="form-control" placeholder="Enter Job Name" required>
+                                <input type="text" name="location" class="form-control" placeholder="Enter Experience" required>
                             </div>
                         </div>
 
                         <div class="row">
                             <label class="col-sm-2 col-form-label">Enter Attachment(if any)</label>
                             <div class="col-sm-4">
-                                <input type="file" name="attachment" accept=".pdf" class="form-control" placeholder="Enter Course Code" required>
+                                <input type="file" name="attachment" accept=".pdf" class="form-control" required>
                             </div>
                         </div>
 

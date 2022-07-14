@@ -153,7 +153,20 @@
                         <i class="material-icons"><span class="material-symbols-outlined">
                             work
                             </span></i>
-                            <p>Employers Corner</p>
+                            <p>Employers Corner<b id="new_job"></b></p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item {{ ($activePage == 'admin_management' || $activePage == 'user-management') ? ' active' : '' }}">
+                <ul class="nav">
+                    <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
+                        <a class="nav-link" href="{{route('admin.enquiry.view_enquiry') }}">
+                        <i class="material-icons">
+                            notifications_active
+                          </i>
+                            <p>Enquiries <b id="new_enq"></b></p>
                         </a>
                     </li>
                 </ul>

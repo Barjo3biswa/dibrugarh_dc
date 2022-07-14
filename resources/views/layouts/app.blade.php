@@ -154,7 +154,36 @@
         <script src="https://cdn.jsdelivr.net/npm/zebra_datepicker@latest/dist/zebra_datepicker.min.js"></script>
 
         <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
+        <script>
 
+
+        setInterval(displayHello, 1000);
+
+        function displayHello() {
+        // document.getElementById("demo").innerHTML += "Hello";
+
+                $.ajax({
+                    url: "{{route('admin.enquiry.new_notification')}}",
+                    type: 'get',
+                    dataType: 'json',
+                    data: {id:1},
+                    success:function(success){
+                        console.log(success.new_enquiry);
+                        if(success.new_enquiry>0){
+                            html1=`<span class="notification-02" >`+success.new_enquiry+`</span>`;
+                            $('#new_enq').empty();
+                            $('#new_enq').append(html1);
+                        }
+                        if(success.new_job>0){
+                            html2=`<span class="notification-02" >`+success.new_job+`</span>`;
+                            $('#new_job').empty();
+                            $('#new_job').append(html2);
+                        }
+                    },
+
+            });
+        }
+        </script>
         @stack('js')
     </body>
 </html>

@@ -50,6 +50,11 @@ Route::post('/training_register', 'guest\CourseController@Reqister')->name('trai
 Route::post('/search_courses', 'guest\CourseController@SearchCourses')->name('search_courses');
 Route::get('/employee_corner', 'guest\CourseController@SearchJobs')->name('employee_corner');
 
+Route::get('/job_add_request', 'guest\CourseController@JobRequest')->name('job_add_request');
+Route::post('/save_job_request', 'guest\CourseController@JobRequestSave')->name('save_job_request');
+Route::post('/enquiry', 'guest\CourseController@Enquiry')->name('enquiry');
+
+
 
 
 // Department
@@ -224,6 +229,13 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/edit', 'admin\management\EmployeeController@Edit')->name('edit');
             Route::post('/update', 'admin\management\EmployeeController@Update')->name('update');
             Route::get('/active_job', 'admin\management\EmployeeController@ActivateJob')->name('active_job');
+        });
+
+        Route::group(['prefix' => 'enquiry',"as"  => "enquiry."], function () {
+            Route::get('/view_enquiry', 'admin\management\ReportsController@EnquiryView')->name('view_enquiry');
+            Route::get('/all_read', 'admin\management\ReportsController@AllReadChangeStatus')->name('all_read');
+
+            Route::get('/new_notification', 'admin\management\ReportsController@NewNotification')->name('new_notification');
         });
 
     });

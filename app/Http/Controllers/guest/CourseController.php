@@ -12,6 +12,7 @@ use App\Models\admin\Qualification;
 use App\Models\admin\training;
 use App\Models\applicant;
 use App\Models\Attachment;
+use App\Models\Enquiry;
 use App\Models\sector;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -215,9 +216,9 @@ class CourseController extends Controller
         if($request->has('id')){
             $notice=Notification::with('noticationtype')->where(['id'=>$request->id,'status'=>1])->first();
         }else{
-            $notice=0;
+            $notice="";
         }
-
+        // dd($notice);
         $noticepartii = Notification::with('noticationtype')->where('status',1)->where('id','!=',$request->id)->orderby('created_at','desc')->get();
         return view('dibrugarh.view-notification',compact('notice','noticepartii'));
         // dd($notice);
@@ -245,5 +246,59 @@ class CourseController extends Controller
     {
         $content=content::first();
         return view('dibrugarh.about',compact('content'));
+    }
+
+    public function JobRequest(Request $request)
+    {
+        // dd("Ok");
+        $qualification=Qualification::get();
+        return view('dibrugarh.request-for-job',compact('qualification'));
+    }
+
+    public function JobRequestSave(Request $request)
+    {
+        if ($request->hasFile('attachment')) {
+            $path="";
+            $path = public_path() . '/images/attachment/job/';
+            $file=$request->file('attachment');
+            $imageName = $request->training_code.date('dmyhis') .'attachment.'.$file->getClientOriginalExtension();
+            $file->move($path, $imageName);
+            $path = url('/') . '/images/attachment/job/' . $imageName;
+        }
+        $id=job::max('id');
+        if($id==null){
+            $id=0;
+        }
+        $data=[
+            'job_id'        => 'job-'.++$id,
+            'company_name'  => $request->company_name,
+            'job_title'     => $request->job_title,
+            'description'   => $request->description,
+            'no_of_post'    => $request->no_of_post,
+            'location'      => $request->location,
+            'eligibility'   => $request->qualification,
+            'experience'    => $request->location,
+            'attachments'   => $path ?? "",
+            'date'          => date('Y-m-d'),
+            'job_type'      => $request->comp_type,
+            'comp_reg_no'   => $request->company_reg_no,
+            'mobile'        => $request->phone,
+            'email'         => $request->email_address,
+        ];
+
+        job::create($data);
+        return redirect()->route('employee_corner')->with('status', 'successfully Added Job Request... Wait For Administrator To Approve Your Request');
+    }
+
+    public function Enquiry(Request $request)
+    {
+        $data=[
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'phone'    => $request->phone,
+            'message'  => $request->message,
+        ];
+        Enquiry::create($data);
+        return redirect()->back()->with('success','Successfully send messages');
     }
 }

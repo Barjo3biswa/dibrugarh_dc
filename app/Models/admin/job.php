@@ -20,6 +20,10 @@ class job extends Model
         'experience'    ,
         'attachments'   ,
         'date'          ,
+        'job_type'      ,
+        'comp_reg_no'   ,
+        'mobile'        ,
+        'email'         ,
     ];
 
 

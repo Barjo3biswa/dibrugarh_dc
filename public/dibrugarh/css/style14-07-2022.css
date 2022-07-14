@@ -9879,7 +9879,7 @@ h6 {
   left: 0;
   right: 0;
   bottom: 0;
-  /* background: rgba(0, 0, 0, 0.3); */
+  background: rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
 
@@ -11135,7 +11135,6 @@ select {
   -moz-box-shadow: 4px 15px 18px 2px rgba(179,179,179,0.64);
   box-shadow: 4px 15px 18px 2px rgba(179,179,179,0.2);
   padding: 2rem;
-  border: thin solid #e2ebff;
 }
 .form-heading {
   background: #162f65;
@@ -11207,8 +11206,7 @@ select {
   grid-area: time;
   position: relative;
   padding: 4% 12%;
-  /* background-color: #262626; */
-  background: #162f65;
+  background-color: #262626;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -11253,9 +11251,7 @@ select {
 .course-event .events ul li .details p {
   margin: 8px 0 0;
   padding: 0;
-  /* font-size: 14px; */
-  font-size: .8rem;
-  color: #313131;
+  font-size: 16px;
 }
 
 .course-event .events ul li .details a {
@@ -11464,7 +11460,8 @@ background: #162f65 !important;}
 .enquiry-div img{padding: .3rem;max-width: 100%;}
 
 /* popup form start */
-    #myForm.form-popup {
+/* The popup form - hidden by default */
+    .form-popup {
     display: none;
     position: fixed;
     bottom: 0;
@@ -11475,9 +11472,9 @@ background: #162f65 !important;}
     max-height: 470px;
     top:0;
   }
-   #myForm .popup-form-container{max-width: 479px;margin-top:2rem}
+  .popup-form-container{max-width: 479px;margin-top:2rem}
 
-   #myForm input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+  input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
     font-size: 0.75em;
     color: #999;
     top: -5px;
@@ -11485,7 +11482,7 @@ background: #162f65 !important;}
     transition: all 0.225s ease;
   }
 
-   #myForm .styled-input {
+  .styled-input {
     float: left;
     /* width: 318px; */
     width:220px;
@@ -11495,12 +11492,12 @@ background: #162f65 !important;}
   }
 
 @media only screen and (max-width: 768px){
-     #myForm .styled-input {
+    .styled-input {
         width:100%;
     }
 }
 
- #myForm .styled-input label {
+.styled-input label {
     color: #999;
     /* padding: 1.3rem 30px 1rem 30px; */
     padding: .5rem 8px 30rem 15px;
@@ -11513,13 +11510,13 @@ background: #162f65 !important;}
     pointer-events: none;
 }
 
- #myForm .styled-input.wide {
+.styled-input.wide { 
     /* width: 650px; */
     width: 450px;
     max-width: 100%;
 }
 
-#myForm input,
+input,
 textarea {
     /* padding: 30px; */
     padding: 15px;
@@ -11533,30 +11530,30 @@ textarea {
     border-radius: 4px;
 }
 
-#myForm input:focus,
+input:focus,
 textarea:focus { outline: 0; }
 
-#myForm input:focus ~ span,
+input:focus ~ span,
 textarea:focus ~ span {
     width: 100%;
     -webkit-transition: all 0.075s ease;
     transition: all 0.075s ease;
 }
 
-#myForm textarea {
+textarea {
     width: 100%;
     min-height: 15em;
     /* min-height:8em; */
 }
 
-#myForm .input-container {
+.input-container {
     /* width: 650px; */
     width: 570px;
     max-width: 100%;
     margin: 20px auto 25px auto;
 }
 
-#myForm .submit-btn {
+.submit-btn {
     float: right;
     /* padding: 7px 35px; */
     padding: 7px 13px;
@@ -11574,31 +11571,31 @@ textarea:focus ~ span {
     transition: all 300ms ease;
 }
 
-#myForm .submit-btn:hover {
+.submit-btn:hover {
     transform: translateY(1px);
     box-shadow: 0 1px 1px 0 rgba(0,0,0,0.10),
               0 1px 1px 0 rgba(0,0,0,0.09);
 }
 
 @media (max-width: 768px) {
-#myForm .submit-btn {
+    .submit-btn {
         width:100%;
         float: none;
         text-align:center;
     }
 }
 
- #myForm input[type=checkbox] + label {
+input[type=checkbox] + label {
   color: #ccc;
   font-style: italic;
-}
+} 
 
-#myForm input[type=checkbox]:checked + label {
+input[type=checkbox]:checked + label {
   color: #f00;
   font-style: normal;
 }
 .cancel{position:absolute;top:0;left:92%;cursor:pointer}
-._1rJ5M{display:none!important}
+._1rJ5M{display:none!important} 
 ._1kF5v{display: none!important;}
 /* popup form end */
 
@@ -11650,73 +11647,13 @@ background-attachment: fixed;
 /* body { margin: 0; }  */
 div#slider { overflow: hidden;max-height: 300px; }
 div#slider figure img { width: 20%; float: left; }
-div#slider figure {
+div#slider figure { 
   position: relative;
   width: 500%;
   margin: 0;
   left: 0;
   text-align: left;
   font-size: 0;
-  animation: 30s slidy infinite;
+  animation: 30s slidy infinite; 
 }
-
-/* Entreprenurs Section start */
-.entreprenures-div{display: flex;justify-content: space-between;align-items: center;}
-.entreprenures-div .notice-header{display: flex;align-items: center;margin-bottom: 1rem;}
-.entreprenures-div .notice-header div{width: 42px;background: #162f65;margin-right: .6rem;}
-.entreprenures-div .notice-header div img{width: 100%;padding: .4rem;}
-.notice-header h6{margin-top: 1.8rem;margin-bottom: 0;}
-.entreprenurs-upcoming-events{width: 30.33%;background: #fafcff;overflow-y: hidden;height:370px;
-max-height: 100%;}
-.entreprenurs-schemes-available{width:30.33%;background: #fafcff;overflow-y: hidden;height:370px;
-max-height: 100%;}
-.entreprenurs-stories{width:30.33%;background: #fafcff;overflow-y:hidden;height:370px;
-max-height: 100%;}
-.notice-board-content-div ul{margin-left: -1.4rem !important;height: 256px;}
-.entreprenur-notice-btn {background: bottom;border: none;padding: .2rem .6rem;float: right;
-margin-right: .5rem;
-cursor: pointer;
-border-radius: 2px;}
-.entreprenur-notice-btn a{color: #000;}
-.entreprenures-div ul li{font-size:.8rem}
-.center {
-    margin: auto;
-    width: 60%;
-    padding: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.hideform {
-    display: none;
-}
-.modal-open{padding-right: 0 !important;}
-/* Entreprenurs Section end */
-.job-posting-button-div {display: flex;justify-content: flex-end;}
-.job-posting-btn {background: #162f65;border: none;padding: .4rem;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);}
-.job-posting-btn a {color: #fff;font-size: .8rem;}
-.sticky {
-  position: sticky;
-  top: 0;
-}
-.job-details-popup{background: #e8af30;padding: 0 .2rem;cursor: pointer;}
-@media (max-width:768px){
-  .entreprenures-div {flex-direction: column!important;width: 100%;padding: 0 1rem;}
-  .entreprenurs-upcoming-events {width:100%}
-  .entreprenurs-schemes-available {width:100%;margin-top:1rem}
-  .entreprenurs-stories{width:100%;margin-top:1rem}
-  .entreprenurs-container{padding:0!important;}
-  .course-event .events ul li .time {flex-direction:row;padding: 2% 0%;}
-  .time span {padding-left: 1rem;margin-top:0}
-  .align-items-center {display: flex !important;justify-content: space-between;}
-  .d-inline-flex{padding-left: 0 !important;}
-  .d-inline-flex img{width: 26px;}
-  .enquiry-div {width:27px}
-}
-.new-tag{    font-size: 8px;
-    padding: 0 7px;
-    background: #e82e47;
-    border-radius: 5px;
-    position: absolute;
-    color: #fff;
-    float: left;}
 /* NEW CODE END */

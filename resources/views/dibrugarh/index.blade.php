@@ -11,12 +11,12 @@
             <div class="carousel-item active">
             <!-- <img class="w-100" src="img/carousel-1.jpg" alt="Image"> -->
             <!-- <img class="w-100" src="{{ asset('dibrugarh') }}/img/skill-development-banner.jpg" alt="banner" height="400px"> -->
-            <img class="w-100" src="{{ asset('dibrugarh') }}/img/1.png" alt="banner" height="300px">
+            <img class="w-100" src="{{ asset('dibrugarh') }}/img/banner1.jpg" alt="banner" height="300px">
             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
             </div>
             </div>
             <div class="carousel-item">
-                <img class="w-100" src="{{ asset('dibrugarh') }}/img/2.png" alt="Image" height="300px">
+                <img class="w-100" src="{{ asset('dibrugarh') }}/img/banner2.jpg" alt="Image" height="300px">
             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
             </div>
             </div>
