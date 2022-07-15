@@ -37,6 +37,8 @@ Route::get('entreprenurs', function () {
     return view('dibrugarh.entreprenurs');
 })->name('entreprenurs');
 
+Route::get('entreprenurs', 'guest\CourseController@Entreprenurs')->name('entreprenurs');
+
 Route::get('notice_board', 'guest\CourseController@NoticeBoard')->name('notice_board');
 
 Route::get('/about_dibrugarh', 'guest\CourseController@AboutDib')->name('about_dibrugarh');
@@ -236,8 +238,25 @@ Route::group(['middleware' => ['auth']], function () {
         Route::group(['prefix' => 'enquiry',"as"  => "enquiry."], function () {
             Route::get('/view_enquiry', 'admin\management\ReportsController@EnquiryView')->name('view_enquiry');
             Route::get('/all_read', 'admin\management\ReportsController@AllReadChangeStatus')->name('all_read');
-
             Route::get('/new_notification', 'admin\management\ReportsController@NewNotification')->name('new_notification');
+        });
+
+        Route::group(['prefix' => 'entrepreneur',"as"  => "entrepreneur."], function () {
+            Route::get('/event', 'admin\management\EntrepreneurController@EventView')->name('event');
+            Route::get('/add_event', 'admin\management\EntrepreneurController@AddEvent')->name('add_event');
+            Route::post('/save_event', 'admin\management\EntrepreneurController@EventSave')->name('save_event');
+            Route::post('/edit', 'admin\management\EntrepreneurController@EditEvent')->name('event.edit');
+            Route::post('/delete', 'admin\management\EntrepreneurController@DeleteEvent')->name('event.delete');
+            Route::post('/update_event', 'admin\management\EntrepreneurController@UpdateEvent')->name('update_event');
+
+            // Story
+
+            Route::get('/story', 'admin\management\EntrepreneurController@StoryView')->name('story');
+            Route::get('/add_story', 'admin\management\EntrepreneurController@AddStory')->name('add_story');
+            Route::post('/save_story', 'admin\management\EntrepreneurController@StorySave')->name('save_story');
+            Route::post('/edit_story', 'admin\management\EntrepreneurController@EditStory')->name('story.edit');
+            Route::post('/delete_story', 'admin\management\EntrepreneurController@DeleteStory')->name('story.delete');
+            Route::post('/update_story', 'admin\management\EntrepreneurController@UpdateStory')->name('update_story');
         });
 
     });

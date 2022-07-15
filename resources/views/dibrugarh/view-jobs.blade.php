@@ -59,7 +59,7 @@
                                         <p style="color:rgb(31, 71, 124);"><span style="font-weight:bold;">Email : {{$job->email}}</span></p>
                                     </div>
                                 </div>
-                                <p style="color:rgb(31, 71, 124);"><span style="font-weight:bold;">Job Description : </span>{{-- {!!$job->description!!}  --}}<span class="job-details-popup" data-toggle="modal" data-target="#exampleModal1">Details</span></p>
+                                <p style="color:rgb(31, 71, 124);"><span style="font-weight:bold;">Job Description : </span>{{-- {!!$job->description!!}  --}}<span class="job-details-popup" {{-- data-toggle="modal" data-target="#exampleModal1" --}} onclick="showpopup({{$job->id}})">Details</span></p>
                                 @if($job->attachments != null)
                                     <p style="color:rgb(31, 71, 124);font-weight:bold;"><a href="{{$job->attachments}}" target="blabk">View PDF &nbsp;<span><img src="{{ asset('dibrugarh') }}/icons/icons8-pdf-50.png" width="30"></span></a></p>
                                 @endif
@@ -118,7 +118,7 @@
                                         <p style="color:rgb(31, 71, 124);"><span style="font-weight:bold;">Email : {{$job->email}}</span></p>
                                     </div>
                                 </div>
-                                <p style="color:rgb(31, 71, 124);"><span style="font-weight:bold;">Job Description : </span>{{-- {!!$job->description!!}  --}}<span class="job-details-popup" {{-- data-toggle="modal" data-target="#exampleModal1" --}} onclick="showpopup()">Details</span></p>
+                                <p style="color:rgb(31, 71, 124);"><span style="font-weight:bold;">Job Description : </span>{{-- {!!$job->description!!}  --}}<span class="job-details-popup" {{-- data-toggle="modal" data-target="#exampleModal1" --}} onclick="showpopup({{$job->id}})">Details</span></p>
                                 @if($job->attachments != null)
 
                                     <p style="color:rgb(31, 71, 124);font-weight:bold;"><a href="{{$job->attachments}}" target="blabk">View PDF &nbsp;<span><img src="{{ asset('dibrugarh') }}/icons/icons8-pdf-50.png" width="30"></span></a></p>
@@ -138,54 +138,13 @@
     <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Job Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
         </div>
-        <div class="modal-body">
-            <div class="row col-md-12">
-                <div class="col-md-6">
-                        <label>Job Title :</label>
-                </div>
-            </div>
-            <div class="row col-md-12">
-                <div class="col-md-6">
-                    <label>Institute/Company :</label>
-                </div>
-                <div class="col-md-6">
-                    <label>Experience  :</label>
-                </div>
-            </div>
-            <div class="row col-md-12">
-                <div class="col-md-6">
-                        <label>No of Post :</label>
-                </div>
-                <div class="col-md-6">
-                    <label>Job Location :</label>
-                </div>
-            </div>
-            <div class="row col-md-12">
-                <div class="col-md-6">
-                        <label>Job Type :</label>
-                </div>
-                <div class="col-md-6">
-                    <label>Qualification :</label>
-                </div>
-            </div>
-            <div class="row col-md-12">
-                <div class="col-md-6">
-                        <label>Phone No :</label>
-                </div>
-                <div class="col-md-6">
-                    <label>Email :</label>
-                </div>
-            </div>
-            <div class="row col-md-12">
-                <div class="col-md-10">
-                        <label>Job Description :</label>
-                </div>
-            </div>
+        <div class="modal-body" id="model_data">
+
         </div>
     </div>
     </div>
@@ -193,19 +152,63 @@
 @endsection
 @section('scripts')
 <script>
-function showpopup(){
 
+function showpopup(job_id){
     $.ajax({
             url: "{{route('show_job_popup')}}",
             type: 'get',
             dataType: 'json',
-            data: {id:1},
+            data: {id:job_id},
             success:function(success){
-                console.log(success);
+                console.log(success.data);
+
+                var html=`<div class="row col-md-12">
+                            <div class="col-md-6">
+                                    <label><b>Job Title : `+success.data.job_title+`</b></label>
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-6">
+                                <label><b>Institute/Company : `+success.data.company_name+`</b></label>
+                            </div>
+                            <div class="col-md-6">
+                                <label><b>Experience  : `+success.data.experience+`</b></label>
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-6">
+                                    <label><b>No of Post : `+success.data.no_of_post+`</b></label>
+                            </div>
+                            <div class="col-md-6">
+                                <label><b>Job Location : `+success.data.location+`</b></label>
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-6">
+                                    <label><b>Job Type : `+success.data.job_type+`</b></label>
+                            </div>
+                            <div class="col-md-6">
+                                <label><b>Qualification : `+success.data.eligibility+`</b></label>
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-6">
+                                    <label><b>Phone No : `+success.data.mobile+`</b></label>
+                            </div>
+                            <div class="col-md-6">
+                                <label><b>Email : `+success.data.email+`</b></label>
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <div class="col-md-10">
+                                    <label><b>Job Description : `+success.data.description+`</b></label>
+                            </div>
+                        </div>`;
+                    $("#model_data").empty();
+                    $("#model_data").append(html);
+                    $('#myModal').modal('show');
             },
         });
-    console.log("OK");
-    $('#myModal').modal('show');
 }
 </script>
 @endsection

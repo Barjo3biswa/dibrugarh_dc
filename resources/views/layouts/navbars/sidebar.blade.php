@@ -172,6 +172,37 @@
                 </ul>
             </li>
 
+            <li class="nav-item {{ ($activePage == 'admin_management' || $activePage == 'user-management') ? ' active' : '' }}">
+                <a class="nav-link collapse" data-toggle="collapse" href="#laravelExampleEntr" aria-expanded="false">
+                <i class="material-icons">dashboard</i>
+                <p>Entrepreneur
+                    <b class="caret"></b>
+                </p>
+                </a>
+                <div class="collapse" id="laravelExampleEntr">
+                <ul class="nav">
+                    <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
+                        <a class="nav-link" href="{{route('admin.entrepreneur.event') }}">
+                        <i class="material-icons">dashboard</i>
+                            <p>Entrepreneur Event</p>
+                        </a>
+                    </li>
+                    <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
+                        <a class="nav-link" href="{{route('admin.entrepreneur.story') }}">
+                        <i class="material-icons">dashboard</i>
+                            <p>Entrepreneur Story</p>
+                        </a>
+                    </li>
+                    {{-- <li class="nav-item{{ $activePage == 'dashboard22' ? ' active' : '' }}">
+                        <a class="nav-link" href="#">
+                        <i class="material-icons">dashboard</i>
+                            <p>Entrepreneur Sector</p>
+                        </a>
+                    </li> --}}
+                </ul>
+                </div>
+            </li>
+
 
             {{-- <li class="nav-item {{ ($activePage == 'admin_management' || $activePage == 'user-management') ? ' active' : '' }}">
                 <a class="nav-link collapse one" data-toggle="collapse" href="#application" aria-expanded="false">

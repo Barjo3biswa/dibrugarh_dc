@@ -10,6 +10,8 @@ use App\Models\admin\job;
 use App\Models\admin\Notification;
 use App\Models\admin\Qualification;
 use App\Models\admin\training;
+use App\Models\admin\UpcomingEntrepreneurEvent;
+use App\Models\admin\UpcomingEntrepreneurStory;
 use App\Models\applicant;
 use App\Models\Attachment;
 use App\Models\Enquiry;
@@ -304,6 +306,14 @@ class CourseController extends Controller
 
     public function ShowJobViaPopUp(Request $request)
     {
-       dd("ok");
+       $job_dtl=job::where('id',$request->id)->first();
+       return response()->json(array('data'=>$job_dtl));
+    }
+
+    public function Entreprenurs(Request $request)
+    {
+        $event=UpcomingEntrepreneurEvent::where('status',1)->get();
+        $story=UpcomingEntrepreneurStory::where('status',1)->get();
+        return view('dibrugarh.entreprenurs',compact('event','story'));
     }
 }

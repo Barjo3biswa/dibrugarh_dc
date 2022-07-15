@@ -113,6 +113,8 @@
                                 <button class="btn btn-primary" id="submitii">Activate &nbsp; Selected</button>
                             @elseif($checkbox=='trueiii')  {{-- for jobs --}}
                                 <button class="btn btn-primary" id="submitiii">Approve &nbsp; Selected &nbsp; Jobs</button>
+                            @elseif($checkbox=='trueiv')  {{-- for jobs --}}
+                                <button class="btn btn-primary" id="submitiv">Activate &nbsp; Selected &nbsp; Events</button>
                             @endif
                         @endif
                         @endif
