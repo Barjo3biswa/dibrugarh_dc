@@ -13,7 +13,7 @@
             <div class="notice-board-content-div">
                 <ul>
                     @forelse ($event as $evn)
-                        <li>{{$evn->event_name}}</li>
+                        <li> <a href="{{route('entreprenurs_event',['id'=>$evn->id])}}">{{$evn->event_name}}</a></li>
                     @empty
                         <li>Not Found Any Event Yet</li>
                     @endforelse

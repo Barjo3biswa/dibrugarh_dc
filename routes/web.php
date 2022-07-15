@@ -39,6 +39,9 @@ Route::get('entreprenurs', function () {
 
 Route::get('entreprenurs', 'guest\CourseController@Entreprenurs')->name('entreprenurs');
 
+
+Route::get('entreprenurs_event', 'guest\CourseController@EntreprenursEvent')->name('entreprenurs_event');
+
 Route::get('notice_board', 'guest\CourseController@NoticeBoard')->name('notice_board');
 
 Route::get('/about_dibrugarh', 'guest\CourseController@AboutDib')->name('about_dibrugarh');

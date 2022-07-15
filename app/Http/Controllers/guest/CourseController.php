@@ -316,4 +316,16 @@ class CourseController extends Controller
         $story=UpcomingEntrepreneurStory::where('status',1)->get();
         return view('dibrugarh.entreprenurs',compact('event','story'));
     }
+
+    public function EntreprenursEvent(Request $request)
+    {
+        // dd($request->all());
+        $event=UpcomingEntrepreneurEvent::where('id',$request->id)->first();
+        // dd($event);
+        $all_event=UpcomingEntrepreneurEvent::where('status',1)->when($request->id,function($query) use($request){
+                                                    return $query->where('id','!=',$request->id);
+                                                })
+                                            ->orderby('created_at','desc')->get();
+        return view('dibrugarh.view-ent-events',compact('event','all_event'));
+    }
 }
