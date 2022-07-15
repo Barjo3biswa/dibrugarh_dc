@@ -19,8 +19,8 @@
                     @endforelse
 
                 </ul>
-                <button class="entreprenur-notice-btn" data-toggle="modal" data-target="#myModal1"><a href="#">More</a></button>
-                <div class="modal" id="myModal1">
+                <button class="entreprenur-notice-btn" {{-- data-toggle="modal" data-target="#myModal1" --}}><a href="{{route('entreprenurs_event')}}">More</a></button>
+                {{-- <div class="modal" id="myModal1">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -41,7 +41,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 </div>
             </div>
         </div>
